@@ -14,6 +14,7 @@ SOURCES += \
     Model/Attaque/Attaque.cpp \
     Model/Blob.cpp \
     Model/Joueur/Joueur.cpp \
+    Model/Menu/ListBlob.cpp \
     Model/Type/Eau.cpp \
     Model/Type/Feu.cpp \
     Model/Type/Plante.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     Model/Attaque/Attaque.h \
     Model/Blob.h \
     Model/Joueur/Joueur.h \
+    Model/Menu/ListBlob.h \
     Model/Type/Eau.h \
     Model/Type/Feu.h \
     Model/Type/Plante.h \

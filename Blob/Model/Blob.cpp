@@ -9,12 +9,14 @@ Blob::Blob()
     this->nom = "None";
     this->pv = 0;
     this->type = new Plante();
+    this->pv_courant=0;
 }
 
 Blob::Blob(std::string nom)
 {
     this->nom = nom;
     this->pv = 0;
+    this->pv_courant=0;
     this->type = new Plante();
 }
 
@@ -22,6 +24,7 @@ Blob::Blob(std::string nom, int pv)
 {
     this->nom = nom;
     this->pv = pv;
+    this->pv_courant=pv;
     this->type = new Plante();
 }
 
@@ -29,6 +32,7 @@ Blob::Blob(std::string nom, int pv, Type *type)
 {
     this->nom = nom;
     this->pv = pv;
+    this->pv_courant=pv;
     this->type = type;
 }
 

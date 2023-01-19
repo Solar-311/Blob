@@ -16,6 +16,7 @@ class Blob{
     private :
         std::string nom;
         int pv;
+        int pv_courant;
         Type *type;
         std::string image;
 
