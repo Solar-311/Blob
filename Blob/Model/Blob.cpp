@@ -88,3 +88,15 @@ void Blob::afficheBlob()
     std::cout << std::endl;
 }
 
+void Blob::isDead(Blob blob)
+{
+    if (blob.getPv_courant() < 0)
+    {
+        std::cout << " BLOB MORT" << std::endl;
+    }
+
+    else
+    {
+        std::cout << " BLOB VIVANT" << std::endl;
+    }
+}

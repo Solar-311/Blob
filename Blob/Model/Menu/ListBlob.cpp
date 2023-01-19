@@ -1,7 +1,7 @@
 /* ########## INCLUDE ########## */
 /* FILES */
 #include "Model/Menu/ListBlob.h"
-
+/*
 ListBlob::ListBlob()
 {
     this->listeBlob.emplace_back(new Blob("Rocoo",80,new Feu()));
@@ -16,3 +16,4 @@ ListBlob::ListBlob()
 
     this->listeBlob.emplace_back(new Blob("Fabio"));
 }
+*/

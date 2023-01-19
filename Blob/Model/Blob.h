@@ -11,6 +11,7 @@
 #include "Type/Plante.h"
 #include "Type/Feu.h"
 #include "Type/Eau.h"
+#include "Model/Attaque/Attaque.h"
 
 class Blob{
     protected :
@@ -40,8 +41,7 @@ class Blob{
 
         /* FUNCTIONS */
         void afficheBlob();
-        void creerBlob();
-
+        void isDead(Blob blob);
 };
 
 #endif // BLOB_H
