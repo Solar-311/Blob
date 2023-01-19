@@ -13,7 +13,7 @@
 #include "Type/Eau.h"
 
 class Blob{
-    private :
+    protected :
         std::string nom;
         int pv;
         int pv_courant;

@@ -11,7 +11,9 @@ CONFIG += c++17
 SOURCES += \
     Controller/Empty.cpp \
     Model/Arene/Arene.cpp \
-    Model/Attaque/Attaque.cpp \
+    Model/Attaque/Normale.cpp \
+    Model/Attaque/Soin.cpp \
+    Model/Attaque/Speciale.cpp \
     Model/Blob.cpp \
     Model/Joueur/Joueur.cpp \
     Model/Menu/ListBlob.cpp \
@@ -26,7 +28,9 @@ SOURCES += \
 HEADERS += \
     Controller/Empty.h \
     Model/Arene/Arene.h \
-    Model/Attaque/Attaque.h \
+    Model/Attaque/Normale.h \
+    Model/Attaque/Soin.h \
+    Model/Attaque/Speciale.h \
     Model/Blob.h \
     Model/Joueur/Joueur.h \
     Model/Menu/ListBlob.h \
