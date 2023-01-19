@@ -10,6 +10,7 @@ Feu::Feu()
     this->sensible="Eau";
 }
 
+/* ######## GETTER & SETTER ######## */
 std::string Feu::estResistant() const{
     return this->resitant;
 }

@@ -10,15 +10,22 @@
 #include "Type.h"
 
 class Feu : public virtual Type {
-protected:
-    std::string sensible;
-    std::string resitant;
-    std::string type;
-public :
-    Feu();
-    std::string estSensible() const;
-    std::string estResistant() const;
-    std::string getType() const;
+
+    protected:
+        std::string sensible;
+        std::string resitant;
+        std::string type;
+
+    public :
+        /* CONSTRUCTOR */
+        Feu();
+
+        /* GETTER & SETTER */
+        std::string estSensible() const;
+        std::string estResistant() const;
+        std::string getType() const;
+
+        /* FUNCTIONS */
 };
 
 #endif // FEU_H

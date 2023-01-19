@@ -10,6 +10,7 @@ Eau::Eau()
     this->sensible="Plante";
 }
 
+/* ######## GETTER & SETTER ######## */
 std::string Eau::estResistant() const{
     return this->resitant;
 }

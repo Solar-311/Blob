@@ -10,15 +10,21 @@
 #include "Type.h"
 
 class Eau : public virtual Type {
-protected:
-    std::string sensible;
-    std::string resitant;
-    std::string type;
-public :
-    Eau();
-    std::string estSensible() const;
-    std::string estResistant() const;
-    std::string getType() const;
+    protected:
+        std::string sensible;
+        std::string resitant;
+        std::string type;
+
+    public :
+        /* CONSTRUCTOR */
+        Eau();
+
+        /* GETTER & SETTER */
+        std::string estSensible() const;
+        std::string estResistant() const;
+        std::string getType() const;
+
+        /* FUNCTIONS */
 };
 
 #endif // EAU_H

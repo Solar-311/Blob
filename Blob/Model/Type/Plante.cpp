@@ -10,6 +10,7 @@ Plante::Plante()
     this->sensible="Feu";
 }
 
+/* ######## GETTER & SETTER ######## */
 std::string Plante::estResistant() const{
     return this->resitant;
 }

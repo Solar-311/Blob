@@ -14,11 +14,17 @@ protected:
     std::string sensible;
     std::string resitant;
     std::string type;
+
 public :
+    /* CONSTRUCTOR */
     Plante();
+
+    /* GETTER & SETTER */
     std::string estSensible() const;
     std::string estResistant() const;
     std::string getType() const;
+
+    /* FUNCTIONS */
 };
 
 #endif // PLANTE_H
