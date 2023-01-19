@@ -50,12 +50,7 @@ int Blob::getPv()
 
 void Blob::setPv(int newPv)
 {
-    if(newPv > 50 && newPv < 100){
-        pv = newPv;
-    }
-    else{
-        std::cout << "ERROR pv : must be 50 < pv < 100" << std::endl;
-    }
+    pv = newPv;
 }
 
 Type* Blob::getType()
