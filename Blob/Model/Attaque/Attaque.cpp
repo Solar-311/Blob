@@ -2,6 +2,7 @@
 /* FILES */
 #include "Attaque.h"
 
+<<<<<<< HEAD
 
 /* ########## CONSTRUCTOR ########## */
 
@@ -50,3 +51,13 @@ int attaque()
 {
     if ()
 }
+=======
+/* ########## CONSTRUCTOR ########## */
+Attaque::Attaque()
+{
+
+}
+
+/* ######## GETTER & SETTER ######## */
+
+>>>>>>> a514d5c6dbb88d223d3cc42d87cb58389accf7de

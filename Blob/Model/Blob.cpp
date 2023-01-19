@@ -9,12 +9,14 @@ Blob::Blob()
     this->nom = "None";
     this->pv = 0;
     this->type = new Plante();
+    this->pv_courant = 0;
 }
 
 Blob::Blob(std::string nom)
 {
     this->nom = nom;
     this->pv = 0;
+    this->pv_courant = 0;
     this->type = new Plante();
 }
 
@@ -22,6 +24,7 @@ Blob::Blob(std::string nom, int pv)
 {
     this->nom = nom;
     this->pv = pv;
+    this->pv_courant = pv;
     this->type = new Plante();
 }
 
@@ -29,6 +32,7 @@ Blob::Blob(std::string nom, int pv, Type *type)
 {
     this->nom = nom;
     this->pv = pv;
+    this->pv_courant = pv;
     this->type = type;
 }
 
@@ -50,12 +54,7 @@ int Blob::getPv()
 
 void Blob::setPv(int newPv)
 {
-    if(newPv > 50 && newPv < 100){
-        pv = newPv;
-    }
-    else{
-        std::cout << "ERROR pv : must be 50 < pv < 100" << std::endl;
-    }
+    pv = newPv;
 }
 
 Type* Blob::getType()
@@ -66,6 +65,16 @@ Type* Blob::getType()
 void Blob::setType(Type *newType)
 {
     type = newType;
+}
+
+int Blob::getPv_courant()
+{
+    return pv_courant;
+}
+
+void Blob::setPv_courant(int newPv_courant)
+{
+    pv_courant = newPv_courant;
 }
 
 /* ######## FUNCTIONS ######## */

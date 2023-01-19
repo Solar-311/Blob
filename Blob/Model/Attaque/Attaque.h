@@ -11,14 +11,10 @@
 
 class Attaque{
     private :
-        std::string nom;
-        int puissance;
 
     public :
         /* CONSTRUCTOR */
         Attaque();
-        Attaque(std::string nom);
-        Attaque(std::string nom, int puissance);
 
         /* GETTER & SETTER */
         std::string getNom();

@@ -13,9 +13,10 @@
 #include "Type/Eau.h"
 
 class Blob{
-    private :
+    protected :
         std::string nom;
         int pv;
+        int pv_courant;
         Type *type;
         std::string image;
 
@@ -34,10 +35,13 @@ class Blob{
         void setPv(int newPv);
         Type* getType();
         void setType(Type *newType);
+        int getPv_courant();
+        void setPv_courant(int newPv_courant);
 
         /* FUNCTIONS */
         void afficheBlob();
         void creerBlob();
+
 };
 
 #endif // BLOB_H
