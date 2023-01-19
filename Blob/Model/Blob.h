@@ -9,6 +9,8 @@
 /* FILES */
 #include "Type/Type.h"
 #include "Type/Plante.h"
+#include "Type/Feu.h"
+#include "Type/Eau.h"
 
 class Blob{
     private :
