@@ -1,8 +1,12 @@
 #ifndef LISTBLOB_H
 #define LISTBLOB_H
 
-#include "Model/Blob.h"
+/* ########## INCLUDE ########## */
+/* LIBRARY */
 #include <list>
+
+/* FILES */
+#include "Model/Blob.h"
 #include "Model/Type/Type.h"
 #include "Model/Type/Plante.h"
 #include "Model/Type/Feu.h"
@@ -16,9 +20,11 @@ class ListBlob {
         /* CONSTRUCTOR */
         ListBlob();
 
+        /* GETTER & SETTER */
         Blob getBlob();
         void setBlob(Blob blob);
 
+        /* FUNCTIONS */
         Blob slectBlob (int numBlob);
 };
 

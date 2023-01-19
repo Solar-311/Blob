@@ -78,7 +78,8 @@ void Blob::setPv_courant(int newPv_courant)
 }
 
 /* ######## FUNCTIONS ######## */
-void Blob::afficheBlob(){
+void Blob::afficheBlob()
+{
     std::cout << "********** BLOB **********" << std::endl;
     std::cout << "Nom : " << this->nom << std::endl;
     std::cout << "Pv : " << this->pv << std::endl;

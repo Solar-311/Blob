@@ -3,7 +3,6 @@
 #include <iostream>
 #include <stdio.h>
 
-
 /* FILES */
 #include <Model/Blob.h>
 #include <QApplication>
