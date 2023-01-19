@@ -70,14 +70,11 @@ void Blob::setType(Type *newType)
 
 /* ######## FUNCTIONS ######## */
 void Blob::afficheBlob(){
-    std::cout <<
-        "********** BLOB **********" <<
-        "Nom : " << this->nom <<
-        " Pv : " << this->pv <<
-        " Type : "<< this->type->getType();
-    std::cout <<
-        "**************************" <<
-        "\n" <<
-    std::endl;
+    std::cout << "********** BLOB **********" << std::endl;
+    std::cout << "Nom : " << this->nom << std::endl;
+    std::cout << "Pv : " << this->pv << std::endl;
+    std::cout << "Type : "<< this->type->getType() << std::endl;
+    std::cout << "**************************" << std::endl;
+    std::cout << std::endl;
 }
 
