@@ -20,17 +20,18 @@
 int main(int argc, char *argv[])
 {
     Blob *f = new Blob("Fabio", 100, new Eau());
-    f->afficheBlob();
+    //f->afficheBlob();
     f->setPv_courant(80);
-    std::cout << f->getPv_courant() << std::endl;
+    //std::cout << f->getPv_courant() << std::endl;
     Soin s = Soin(50, "Attaque soin");
-    s.afficheAttaque();
-    f->mettreSoins(f, s);
-    std::cout << f->getPv_courant();
+    //s.afficheAttaque();
+    //f->mettreSoins(f, s);
+    std::cout << f->getPv_courant() << std::endl;
 
     Normale n = Normale(40, "Attaque Normale");
-    n.afficheAttaque();
+    //n.afficheAttaque();
     f->attaque(f, n);
-    std::cout << f->getPv_courant();
+    std::cout << f->getPv_courant() << std::endl;
 
+    return 0;
 }

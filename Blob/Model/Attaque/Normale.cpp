@@ -46,7 +46,7 @@ void Normale::setPuissance(int newPuissance)
 void Normale::afficheAttaque()
 {
     std::cout << "***** Attaque *****" << std::endl;
-    //std::cout << "Nom : " << this->getNom() << std::endl;
+    std::cout << "Nom : " << this->getNom() << std::endl;
     std::cout << "Valeur : " << this->getPuissance() << std::endl;
     std::cout << "*******************" << std::endl;
 }
