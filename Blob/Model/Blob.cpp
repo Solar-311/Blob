@@ -129,7 +129,31 @@ int Blob::attaque(Blob *blob, Normale puissance)
 
     return blob->getPv_courant();
 }
+/*
+int Blob::attaqueSpeciale(Blob *blob, Speciale puissance)
+{
+    int crit = Utils::generateRandomNumber(0, 100);
+    int chanceCrit = 5;
+    int lowCritRate = 25;
+    int highCritRate = 30;
+    int damage = Utils::generateRandomNumber(lowCritRate, highCritRate);
+    int critical = (puissance.getPuissance() * (100 + damage) / 100);
 
+    if (blob->getPv_courant() > 0)
+    {
+        if (crit <= chanceCrit)
+        {
+            std::cout << "***** COUP CRITIQUE *****" << std::endl;
+            blob->setPv_courant(blob->getPv_courant() - critical);
+        }
+
+        else
+        {
+            blob->setPv_courant(blob->getPv_courant() - puissance.getPuissance());
+        }
+    }
+}
+*/
 void Blob::isDead(Blob blob)
 {
     if (blob.getPv_courant() < 0)

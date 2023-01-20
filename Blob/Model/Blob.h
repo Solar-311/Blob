@@ -14,6 +14,7 @@
 // ATTAQUE
 #include "Model/Attaque/Soin.h"
 #include "Model/Attaque/Normale.h"
+//#include "Model/Attaque/Speciale.h"
 
 //OUTILS
 #include "Model/Utils/Utils.h"
@@ -49,6 +50,8 @@ class Blob {
         void isDead(Blob blob);
         int mettreSoins(Blob *blob, Soin soin);
         int attaque(Blob *blob, Normale puissance);
+        int attaqueSpeciale(Blob *blob, Normale puissance);
+        int hierarchie(Blob *blob1, Blob *blob2);
 };
 
 #endif // BLOB_H

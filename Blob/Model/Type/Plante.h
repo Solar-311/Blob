@@ -25,6 +25,7 @@ class Plante : public virtual Type {
         std::string getType() const;
 
         /* FUNCTIONS */
+        bool hierarchie();
 };
 
 #endif // PLANTE_H
