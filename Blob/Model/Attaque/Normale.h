@@ -11,11 +11,13 @@
 class Normale{
     private :
         int puissance;
+        std::string nom;
 
     public :
         /* CONSTRUCTOR */
         Normale();
         Normale(int puissance);
+        Normale(int puissance, std::string nom);
 
         /* GETTER & SETTER */
         int getPuissance();
@@ -23,6 +25,8 @@ class Normale{
 
         /* FUNCTIONS */
         void afficheAttaque();
+        std::string getNom();
+        void setNom(std::string newNom);
 };
 
 #endif // NORMALE_H

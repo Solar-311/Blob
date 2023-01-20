@@ -104,14 +104,18 @@ int Blob::mettreSoins(Blob *blob, Soin soin)
     return blob->getPv_courant();
 }
 
-int Blob::attaque(Blob blob, Normale puissance)
+int Blob::attaque(Blob *blob, Normale puissance)
 {
-    if(blob.getPv_courant() > 0)
+    if (blob->getPv_courant() > 0)
     {
-        blob.setPv_courant(blob.getPv_courant() - puissance.getPuissance());
+        blob->setPv_courant(blob->getPv_courant() - puissance.getPuissance());
     }
 
-    return blob.getPv_courant();
+    return blob->getPv_courant();
+
+
+    // 30% d'att en + sur le coup crit
+    // 10% de coup crit
 }
 
 void Blob::isDead(Blob blob)

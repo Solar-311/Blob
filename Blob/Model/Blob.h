@@ -42,7 +42,7 @@ class Blob {
         void afficheBlob();
         void isDead(Blob blob);
         int mettreSoins(Blob *blob, Soin soin);
-        int attaque(Blob blob, Normale puissance);
+        int attaque(Blob *blob, Normale puissance);
 };
 
 #endif // BLOB_H

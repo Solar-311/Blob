@@ -10,13 +10,14 @@
 
 // ATTAQUE
 #include "Model/Attaque/Soin.h"
+#include "Model/Attaque/Normale.h"
 
 // TYPES
 #include "Model/Type/Eau.h"
 #include "Model/Type/Feu.h"
 #include "Model/Type/Plante.h"
 
-int main()
+int main(int argc, char *argv[])
 {
     Blob *f = new Blob("Fabio", 100, new Eau());
     f->afficheBlob();
@@ -27,5 +28,9 @@ int main()
     f->mettreSoins(f, s);
     std::cout << f->getPv_courant();
 
-    return 0;
+    Normale n = Normale(40, "Attaque Normale");
+    n.afficheAttaque();
+    f->attaque(f, n);
+    std::cout << f->getPv_courant();
+
 }

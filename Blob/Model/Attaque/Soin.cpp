@@ -6,13 +6,13 @@
 Soin::Soin()
 {
     this->soin = 0;
-    this->nom = "None";
+    this->nom = "Soin";
 }
 
 Soin::Soin(int soin)
 {
     this->soin = soin;
-    this->nom = "None";
+    this->nom = "Soin";
 }
 
 Soin::Soin(int soin, std::string nom)
