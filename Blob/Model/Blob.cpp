@@ -2,7 +2,6 @@
 /* FILES */
 #include "Blob.h"
 
-
 /* ########## CONSTRUCTOR ########## */
 Blob::Blob()
 {
@@ -83,25 +82,26 @@ void Blob::afficheBlob()
     std::cout << "********** BLOB **********" << std::endl;
     std::cout << "Nom : " << this->nom << std::endl;
     std::cout << "Pv : " << this->pv << std::endl;
+    std::cout << "Pv courant : " << this->pv_courant << std::endl;
     std::cout << "Type : "<< this->type->getType() << std::endl;
     std::cout << "**************************" << std::endl;
     std::cout << std::endl;
 }
 
-int Blob::mettreSoins(Blob blob, Soin soin)
+int Blob::mettreSoins(Blob *blob, Soin soin)
 {
-    if ((blob.getPv_courant() + soin.getSoin()) > blob.getPv() &&
-         blob.getPv_courant() > 0)
+    if ((blob->getPv_courant() + soin.getSoin()) > blob->getPv() &&
+         blob->getPv_courant() > 0)
     {
-        blob.setPv_courant(blob.getPv());
+        blob->setPv_courant(blob->getPv());
     }
 
-    else if (blob.getPv_courant() > 0)
+    else if (blob->getPv_courant() > 0)
     {
-        blob.setPv_courant(blob.getPv_courant() + soin.getSoin());
+        blob->setPv_courant(blob->getPv_courant() + soin.getSoin());
     }
 
-    return blob.getPv_courant();
+    return blob->getPv_courant();
 }
 
 int Blob::attaque(Blob blob, Normale puissance)

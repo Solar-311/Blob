@@ -10,7 +10,6 @@
 #include "Type.h"
 
 class Feu : public virtual Type {
-
     protected:
         std::string sensible;
         std::string resitant;

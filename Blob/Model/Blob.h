@@ -8,13 +8,11 @@
 
 /* FILES */
 #include "Type/Type.h"
-#include "Type/Plante.h"
-#include "Type/Feu.h"
-#include "Type/Eau.h"
 #include "Model/Attaque/Soin.h"
 #include "Model/Attaque/Normale.h"
+#include "Model/Type/Plante.h"
 
-class Blob{
+class Blob {
     protected :
         std::string nom;
         int pv;
@@ -43,7 +41,7 @@ class Blob{
         /* FUNCTIONS */
         void afficheBlob();
         void isDead(Blob blob);
-        int mettreSoins(Blob blob, Soin soin);
+        int mettreSoins(Blob *blob, Soin soin);
         int attaque(Blob blob, Normale puissance);
 };
 

@@ -7,21 +7,25 @@
 #include <Model/Blob.h>
 #include <QApplication>
 #include "mainwindow.h"
-#include "Model/Attaque/Normale.h"
+
+// ATTAQUE
 #include "Model/Attaque/Soin.h"
 
+// TYPES
+#include "Model/Type/Eau.h"
+#include "Model/Type/Feu.h"
+#include "Model/Type/Plante.h"
 
-int main(int argc, char *argv[])
+int main()
 {
-    //Blob *b = new Blob("toto", 100, new Eau());
-    //b->afficheBlob();
-
-    Blob f = Blob("fabio", 100, new Eau());
-    //f->afficheBlob();
-    f.setPv_courant(10);
-    std::cout << f.getPv_courant() << std::endl;
+    Blob *f = new Blob("Fabio", 100, new Eau());
+    f->afficheBlob();
+    f->setPv_courant(80);
+    std::cout << f->getPv_courant() << std::endl;
     Soin s = Soin(50, "Attaque soin");
-    //s.afficheAttaque();
-    std::cout << f.mettreSoins(f, s);
-    std::cout << f.getPv_courant();
+    s.afficheAttaque();
+    f->mettreSoins(f, s);
+    std::cout << f->getPv_courant();
+
+    return 0;
 }
