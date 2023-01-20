@@ -106,18 +106,19 @@ int Blob::mettreSoins(Blob *blob, Soin soin)
 
 int Blob::attaque(Blob *blob, Normale puissance)
 {
-
-
-    float lo = 20, hi = 30;
-    float randMultiplicator = lo + static_cast <float> (rand()) / ( static_cast <float> (RAND_MAX / (hi - lo)));
-    float randCrit = std::rand() % 100;
+    int crit = Utils::generateRandomNumber(0, 100);
+    int chanceCrit = 10;
+    int lowCritRate = 25;
+    int highCritRate = 35;
+    int damage = Utils::generateRandomNumber(lowCritRate, highCritRate);
+    int critical = (puissance.getPuissance() * (100 + damage) / 100);
 
     if (blob->getPv_courant() > 0)
     {
-        if (randCrit <= 10)
+        if (crit <= chanceCrit)
         {
-            blob->setPv_courant(blob->getPv_courant() - puissance.getPuissance() * (100 - randMultiplicator / 100));
-            std::cout << "COUP CRITIQUE" << std::endl;
+            std::cout << "***** COUP CRITIQUE *****" << std::endl;
+            blob->setPv_courant(blob->getPv_courant() - critical);
         }
 
         else

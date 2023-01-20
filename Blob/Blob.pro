@@ -21,6 +21,7 @@ SOURCES += \
     Model/Type/Feu.cpp \
     Model/Type/Plante.cpp \
     Model/Type/Type.cpp \
+    Model/Utils/Utils.cpp \
     View/Empty.cpp \
     main.cpp \
     mainwindow.cpp
@@ -38,6 +39,7 @@ HEADERS += \
     Model/Type/Feu.h \
     Model/Type/Plante.h \
     Model/Type/Type.h \
+    Model/Utils/Utils.h \
     View/Empty.h \
     mainwindow.h
 

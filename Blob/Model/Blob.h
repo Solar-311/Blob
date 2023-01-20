@@ -7,10 +7,16 @@
 #include <stdio.h>
 
 /* FILES */
+// TYPES
 #include "Type/Type.h"
+#include "Model/Type/Plante.h"
+
+// ATTAQUE
 #include "Model/Attaque/Soin.h"
 #include "Model/Attaque/Normale.h"
-#include "Model/Type/Plante.h"
+
+//OUTILS
+#include "Model/Utils/Utils.h"
 
 class Blob {
     protected :
