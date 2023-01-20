@@ -5,24 +5,33 @@
 /* ########## CONSTRUCTOR ########## */
 Speciale::Speciale()
 {
-    this->puissance = 0;
+    this->multiplicateur = 1;
 }
 
-Speciale::Speciale(int puissance)
+Speciale::Speciale(int multiplicateur)
 {
-    this->puissance = puissance;
+    this->multiplicateur = multiplicateur;
 }
 
 /* ######## GETTER & SETTER ######## */
-int Speciale::getPuissance()
+int Speciale::getMultiplicateur()
 {
-    return puissance;
+    return multiplicateur;
 }
 
-void Speciale::setPuissance(int newPuissance)
+void Speciale::setMultiplicateur(int newMultiplicateur)
 {
-    puissance = newPuissance;
+    multiplicateur = newMultiplicateur;
 }
 
 /* ######## FUNCTIONS ######## */
-
+int Speciale::attaque(Blob blob1, Blob blob2)
+{
+    if (blob1.getType()->estSensible() == "Plante")
+    {
+        if(blob2.getPv_courant() > 0)
+        {
+            blob2.setPv_courant(blob2.getPv_courant() /* rajouter attaque */);
+        }
+    }
+}

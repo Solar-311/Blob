@@ -7,10 +7,14 @@
 #include <stdio.h>
 
 /* FILES */
+#include "Model/Blob.h"
+#include "Model/Type/Eau.h"
+#include "Model/Type/Feu.h"
+#include "Model/Type/Plante.h"
 
 class Speciale{
     private :
-        int puissance;
+        int multiplicateur;
 
     public :
         /* CONSTRUCTOR */
@@ -18,11 +22,11 @@ class Speciale{
         Speciale(int puissance);
 
         /* GETTER & SETTER */
-        int getPuissance();
-        void setPuissance(int newPuissance);
+        int getMultiplicateur();
+        void setMultiplicateur(int newMultiplicateur);
 
         /* FUNCTIONS */
-
+        int attaque(Blob blob1, Blob blob2);
 };
 
 #endif // SPECIALE_H

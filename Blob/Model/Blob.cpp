@@ -24,7 +24,7 @@ Blob::Blob(std::string nom, int pv)
 {
     this->nom = nom;
     this->pv = pv;
-    this->pv_courant = pv;
+    this->pv_courant = 0;
     this->type = new Plante();
 }
 
@@ -88,15 +88,41 @@ void Blob::afficheBlob()
     std::cout << std::endl;
 }
 
+int Blob::mettreSoins(Blob blob, Soin soin)
+{
+    if ((blob.getPv_courant() + soin.getSoin()) > blob.getPv() &&
+         blob.getPv_courant() > 0)
+    {
+        blob.setPv_courant(blob.getPv());
+    }
+
+    else if (blob.getPv_courant() > 0)
+    {
+        blob.setPv_courant(blob.getPv_courant() + soin.getSoin());
+    }
+
+    return blob.getPv_courant();
+}
+
+int Blob::attaque(Blob blob, Normale puissance)
+{
+    if(blob.getPv_courant() > 0)
+    {
+        blob.setPv_courant(blob.getPv_courant() - puissance.getPuissance());
+    }
+
+    return blob.getPv_courant();
+}
+
 void Blob::isDead(Blob blob)
 {
     if (blob.getPv_courant() < 0)
     {
-        std::cout << " BLOB MORT" << std::endl;
+        std::cout << "BLOB MORT" << std::endl;
     }
 
     else
     {
-        std::cout << " BLOB VIVANT" << std::endl;
+        std::cout << "BLOB VIVANT" << std::endl;
     }
 }

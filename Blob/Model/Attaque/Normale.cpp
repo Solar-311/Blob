@@ -25,14 +25,6 @@ void Normale::setPuissance(int newPuissance)
 }
 
 /* ######## FUNCTIONS ######## */
-int Normale::attaque(Blob blob)
-{
-    if(blob.getPv_courant() > 0)
-    {
-        blob.setPv_courant(blob.getPv_courant() - this->puissance);
-    }
-}
-
 void Normale::afficheAttaque()
 {
     std::cout << "***** Attaque *****" << std::endl;

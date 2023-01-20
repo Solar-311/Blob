@@ -7,7 +7,6 @@
 #include <stdio.h>
 
 /* FILES */
-#include "Model/Blob.h"
 
 class Normale{
     private :
@@ -23,7 +22,6 @@ class Normale{
         void setPuissance(int newPuissance);
 
         /* FUNCTIONS */
-        int attaque(Blob blob);
         void afficheAttaque();
 };
 

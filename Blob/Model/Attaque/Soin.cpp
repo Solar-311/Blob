@@ -43,20 +43,6 @@ void Soin::setSoin(int newSoin)
 }
 
 /* ######## FUNCTIONS ######## */
-int Soin::mettreSoins(Blob blob)
-{
-    if ((blob.getPv_courant() + soin) > blob.getPv() &&
-         blob.getPv_courant() > 0)
-    {
-        blob.setPv(blob.getPv());
-    }
-
-    else
-    {
-        blob.setPv(blob.getPv_courant() + soin);
-    }
-}
-
 void Soin::afficheAttaque()
 {
     std::cout << "***** Soins *****" << std::endl;

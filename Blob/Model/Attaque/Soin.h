@@ -7,7 +7,6 @@
 #include <stdio.h>
 
 /* FILES */
-#include "Model/Blob.h"
 
 class Soin{
     private :
@@ -27,7 +26,6 @@ class Soin{
         void setNom(std::string newNom);
 
         /* FUNCTIONS */
-        int mettreSoins(Blob blob);
         void afficheAttaque();
 };
 
