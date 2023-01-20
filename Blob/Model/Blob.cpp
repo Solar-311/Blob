@@ -127,9 +127,6 @@ int Blob::attaque(Blob *blob, Normale puissance)
     }
 
     return blob->getPv_courant();
-
-
-    // 30% d'att en + sur le coup crit
 }
 
 void Blob::isDead(Blob blob)
