@@ -11,15 +11,23 @@
 
 class Joueur {
     private :
+        std::string nom;
+        Blob *blob;
 
     public :
         /* CONSTRUCTOR */
         Joueur();
+        Joueur(std::string nom);
+        Joueur(std::string nom, Blob *blob);
 
         /* GETTER & SETTER */
-
+        std::string getNom();
+        void setNom(std::string newNom);
+        Blob *getBlob();
+        void setBlob(Blob *newBlob);
 
         /* FUNCTIONS */
+        void afficherJoueur();
 };
 
 #endif // JOUEUR_H

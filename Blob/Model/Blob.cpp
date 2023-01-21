@@ -187,13 +187,12 @@ void Blob::setSoin(Soin *newSoin)
 /* ######## FUNCTIONS ######## */
 void Blob::afficheBlob()
 {
-    std::cout << "********** BLOB **********" << std::endl;
+    std::cout << "---------- Etat ----------" << std::endl;
     std::cout << "Nom : " << this->nom << std::endl;
     std::cout << "Pv : " << this->pv << std::endl;
     std::cout << "Pv courant : " << this->pv_courant << std::endl;
     std::cout << "Type : "<< this->type->getType() << std::endl;
-    std::cout << "**************************" << std::endl;
-    std::cout << std::endl;
+    std::cout << "--------------------------" << std::endl;
 }
 
 int Blob::mettreSoins(Blob *blob, Soin soin)
