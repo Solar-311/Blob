@@ -56,7 +56,7 @@ class Blob {
         // ATTAQUES
         int mettreSoins(Blob *blob, Soin soin);
         int attaqueNormale(Blob *blob, Normale puissance);
-        //int attaqueSpeciale(Blob *blob, Normale puissance);
+        int attaqueSpeciale(Blob *blob, Speciale speciale);
         bool isTypeBetter(Blob *blob);
 
 };

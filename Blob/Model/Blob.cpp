@@ -159,6 +159,32 @@ int Blob::attaqueNormale(Blob *blob, Normale puissance)
 
     return blob->getPv_courant();
 }
+
+int Blob::attaqueSpeciale(Blob *blob, Speciale speciale)
+{
+    int crit = Utils::generateRandomNumber(0, 100);
+    int chanceCrit = 5;
+    int lowCritRate = 20;
+    int highCritRate = 25;
+    int damage = Utils::generateRandomNumber(lowCritRate, highCritRate);
+    int critical = (speciale.getPuissance() * (100 + damage) / 100);
+
+    if (blob->getPv_courant() > 0 && blob->getIsBetter() == true)
+    {
+        if (crit <= chanceCrit)
+        {
+            std::cout << "***** COUP SPECIAL CRITIQUE *****" << std::endl;
+            blob->setPv_courant(blob->getPv_courant() - critical);
+        }
+
+        else
+        {
+            blob->setPv_courant(blob->getPv_courant() - speciale.getPuissance());
+        }
+    }
+
+    return blob->getPv_courant();
+}
 /*
 int Blob::attaqueSpeciale(Blob *blob, Speciale puissance)
 {
@@ -184,7 +210,7 @@ int Blob::attaqueSpeciale(Blob *blob, Speciale puissance)
     }
 }
 */
-bool Blob::hierarchie(Blob *blob)
+bool Blob::isTypeBetter(Blob *blob)
 {
     if (this->getType()->estResistant() == blob->getType()->estSensible())
     {

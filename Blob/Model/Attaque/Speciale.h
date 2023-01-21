@@ -13,7 +13,7 @@
 
 class Speciale{
     private :
-        int multiplicateur;
+        int puissance;
         std::string nom;
 
     public :
@@ -23,8 +23,8 @@ class Speciale{
         Speciale(int puissance, std::string nom);
 
         /* GETTER & SETTER */
-        int getMultiplicateur();
-        void setMultiplicateur(int newMultiplicateur);
+        int getPuissance();
+        void setPuissance(int newPuissance);
         std::string getNom();
         void setNom(std::string newNom);
 

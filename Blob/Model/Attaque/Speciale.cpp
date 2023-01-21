@@ -5,19 +5,19 @@
 /* ########## CONSTRUCTOR ########## */
 Speciale::Speciale()
 {
-    this->multiplicateur = 1;
+    this->puissance = 0;
     this->nom = "Speciale";
 }
 
-Speciale::Speciale(int multiplicateur)
+Speciale::Speciale(int puissance)
 {
-    this->multiplicateur = multiplicateur;
+    this->puissance = puissance;
     this->nom = "Speciale";
 }
 
-Speciale::Speciale(int multiplicateur, std::string nom)
+Speciale::Speciale(int puissance, std::string nom)
 {
-    this->multiplicateur = multiplicateur;
+    this->puissance = puissance;
     this->nom = nom;
 }
 
@@ -32,14 +32,14 @@ void Speciale::setNom(std::string newNom)
     nom = newNom;
 }
 
-int Speciale::getMultiplicateur()
+int Speciale::getPuissance()
 {
-    return multiplicateur;
+    return puissance;
 }
 
-void Speciale::setMultiplicateur(int newMultiplicateur)
+void Speciale::setPuissance(int newPuissance)
 {
-    multiplicateur = newMultiplicateur;
+    puissance = newPuissance;
 }
 
 /* ######## FUNCTIONS ######## */

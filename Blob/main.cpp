@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
     //std::cout << f->getPv_courant() << std::endl;
 
     //std::cout << f->isTypeBetter(g);
+    Speciale sp = Speciale(60, "Attaque Speciale");
 
     return 0;
 }
