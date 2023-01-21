@@ -8,6 +8,7 @@ Feu::Feu()
     this->type="Feu";
     this->resitant="Plante";
     this->sensible="Eau";
+    this->isBetter = false;
 }
 
 /* ######## GETTER & SETTER ######## */
@@ -22,3 +23,5 @@ std::string Feu::estSensible() const{
 std::string Feu::getType() const{
     return this->type;
 }
+
+/* ######## FUNCTIONS ######## */

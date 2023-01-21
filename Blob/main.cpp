@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 
     Normale n = Normale(40, "Attaque Normale");
     //n.afficheAttaque();
-    f->attaque(f, n);
+    f->attaqueNormale(f, n);
     std::cout << f->getPv_courant() << std::endl;
 
     return 0;

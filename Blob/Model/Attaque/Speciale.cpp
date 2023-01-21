@@ -42,25 +42,24 @@ void Speciale::setMultiplicateur(int newMultiplicateur)
     multiplicateur = newMultiplicateur;
 }
 
-/* ######## FUNCTIONS ######## */
+/* ######## FUNCTIONS ######## *//*
 int Speciale::hierarchie(Blob *blob1, Blob *blob2)
 {
-    bool result = false;
-
     if (blob1->getType()->estSensible() == "Plante" && blob2->getType()->estResistant() == "Plante")
     {
-        result = true;
+        this->isBetter = true;
     }
 
     if (blob1->getType()->estSensible() == "Feu" && blob2->getType()->estResistant() == "Feu")
     {
-        result = true;
+        this->isBetter = true;
     }
 
     if (blob1->getType()->estSensible() == "Eau" && blob2->getType()->estResistant() == "Eau")
     {
-        result = true;
+        this->isBetter = true;
     }
 
-    return result;
+    return this->isBetter;
 }
+*/

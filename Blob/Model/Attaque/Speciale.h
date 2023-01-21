@@ -10,12 +10,12 @@
 #include "Model/Type/Eau.h"
 #include "Model/Type/Feu.h"
 #include "Model/Type/Plante.h"
-#include "Model/Blob.h"
 
 class Speciale{
     private :
         int multiplicateur;
         std::string nom;
+        bool isBetter;
 
     public :
         /* CONSTRUCTOR */
@@ -28,9 +28,11 @@ class Speciale{
         void setMultiplicateur(int newMultiplicateur);
         std::string getNom();
         void setNom(std::string newNom);
+        bool getIsBetter();
+        void setIsBetter(bool newIsBetter);
 
         /* FUNCTIONS */
-        int hierarchie(Blob *blob1, Blob *blob2);
+
 };
 
 #endif // SPECIALE_H

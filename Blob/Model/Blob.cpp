@@ -104,7 +104,7 @@ int Blob::mettreSoins(Blob *blob, Soin soin)
     return blob->getPv_courant();
 }
 
-int Blob::attaque(Blob *blob, Normale puissance)
+int Blob::attaqueNormale(Blob *blob, Normale puissance)
 {
     int crit = Utils::generateRandomNumber(0, 100);
     int chanceCrit = 10;
