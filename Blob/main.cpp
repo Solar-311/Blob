@@ -8,6 +8,9 @@
 #include <QApplication>
 #include "mainwindow.h"
 
+// ARENE
+#include "Model/Arene/Arene.h"
+
 // ATTAQUE
 
 // JOUEUR
@@ -38,6 +41,13 @@ int main(int argc, char *argv[])
     // JOUEUR
     Joueur *j = new Joueur("Fabio", f);
     j->afficherJoueur();
+
+    Joueur *j2 = new Joueur("Fabio", f);
+    j2->afficherJoueur();
+
+    // ARENE
+    Arene *a = new Arene("ARENA WAR", j, j2);
+    a->afficherArene();
 
     /* ACTIONS */
     return 0;
