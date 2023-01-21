@@ -7,7 +7,8 @@
 
 /* FILES */
 #include "Model/Blob.h"
-#include "Model/Type/Type.h"
+
+// TYPES
 #include "Model/Type/Plante.h"
 #include "Model/Type/Feu.h"
 #include "Model/Type/Eau.h"
