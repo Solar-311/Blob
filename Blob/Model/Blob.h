@@ -9,7 +9,6 @@
 /* FILES */
 // TYPES
 #include "Type/Type.h"
-#include "Model/Type/Plante.h"
 
 // ATTAQUE
 #include "Model/Attaque/Soin.h"

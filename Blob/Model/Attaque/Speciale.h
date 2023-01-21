@@ -7,9 +7,6 @@
 #include <stdio.h>
 
 /* FILES */
-#include "Model/Type/Eau.h"
-#include "Model/Type/Feu.h"
-#include "Model/Type/Plante.h"
 
 class Speciale{
     private :
