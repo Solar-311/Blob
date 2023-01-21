@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     //srand(time(nullptr));
 
     Blob *f = new Blob("Fabio", 100, new Eau());
-    Blob *g = new Blob("FabioGODMODE", 9999, new Eau());
+    Blob *g = new Blob("FabioGODMODE", 9999, new Plante());
     //f->afficheBlob();
     //f->setPv_courant(50);
     //f->afficheBlob();
@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     //f->attaqueNormale(f, n);
     //std::cout << f->getPv_courant() << std::endl;
 
-    //std::cout << ->hierarchie(p);
+    std::cout << f->isTypeBetter(g);
 
     return 0;
 }

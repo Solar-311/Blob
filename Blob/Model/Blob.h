@@ -49,13 +49,15 @@ class Blob {
         void setIsBetter(bool newIsBetter);
 
         /* FUNCTIONS */
+        // STATE
         void afficheBlob();
         void isDead(Blob blob);
-        bool hierarchie(Blob *blob1, Blob *blob2);
+
+        // ATTAQUES
         int mettreSoins(Blob *blob, Soin soin);
         int attaqueNormale(Blob *blob, Normale puissance);
         //int attaqueSpeciale(Blob *blob, Normale puissance);
-        bool hierarchie(Blob *blob);
+        bool isTypeBetter(Blob *blob);
 
 };
 
