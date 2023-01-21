@@ -50,7 +50,7 @@ class Blob {
         void isDead(Blob blob);
         bool hierarchie(Blob *blob1, Blob *blob2);
         int mettreSoins(Blob *blob, Soin soin);
-        int attaque(Blob *blob, Normale puissance);
+        int attaqueNormale(Blob *blob, Normale puissance);
         int attaqueSpeciale(Blob *blob, Normale puissance);
 };
 

@@ -11,7 +11,8 @@ Type::Type()
 
 Type::Type(std::string type)
 {
-    this->type=type;
+    this->type = type;
+    this->isBetter = false;
 }
 
 /* ######## GETTER & SETTER ######## */
@@ -28,17 +29,17 @@ void Type::setIsBetter(bool newIsBetter)
 /* ######## FUNCTIONS ######## */
 bool Type::hierarchie(Type *type)
 {
-    if (this->estResistant() == "Plante" && type->estSensible() == "Plante")
+    if (this->type == "Plante" && type->estSensible() == "Plante")
     {
         setIsBetter(true);
     }
 
-    if (this->estResistant() == "Feu" && type->estSensible() == "Feu")
+    if (this->type == "Feu" && type->estSensible() == "Feu")
     {
         setIsBetter(true);
     }
 
-    if (this->estResistant() == "Eau" && type->estSensible() == "Eau")
+    if (this->type == "Eau" && type->estSensible() == "Eau")
     {
         setIsBetter(true);
     }

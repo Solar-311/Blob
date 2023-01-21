@@ -34,8 +34,13 @@ int main(int argc, char *argv[])
 
     Normale n = Normale(40, "Attaque Normale");
     //n.afficheAttaque();
-    f->attaqueNormale(f, n);
-    std::cout << f->getPv_courant() << std::endl;
+    //f->attaqueNormale(f, n);
+    //std::cout << f->getPv_courant() << std::endl;
+
+    Type *e = new Eau();
+    Type *p = new Plante();
+
+    std::cout << e->hierarchie(p);
 
     return 0;
 }

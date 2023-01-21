@@ -15,7 +15,6 @@ class Speciale{
     private :
         int multiplicateur;
         std::string nom;
-        bool isBetter;
 
     public :
         /* CONSTRUCTOR */
@@ -28,8 +27,6 @@ class Speciale{
         void setMultiplicateur(int newMultiplicateur);
         std::string getNom();
         void setNom(std::string newNom);
-        bool getIsBetter();
-        void setIsBetter(bool newIsBetter);
 
         /* FUNCTIONS */
 
