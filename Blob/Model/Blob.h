@@ -26,6 +26,7 @@ class Blob {
         int pv_courant;
         Type *type;
         std::string image;
+        bool isBetter;
 
     public :
         /* CONSTRUCTOR */
@@ -44,6 +45,8 @@ class Blob {
         void setType(Type *newType);
         int getPv_courant();
         void setPv_courant(int newPv_courant);
+        bool getIsBetter();
+        void setIsBetter(bool newIsBetter);
 
         /* FUNCTIONS */
         void afficheBlob();
@@ -51,7 +54,9 @@ class Blob {
         bool hierarchie(Blob *blob1, Blob *blob2);
         int mettreSoins(Blob *blob, Soin soin);
         int attaqueNormale(Blob *blob, Normale puissance);
-        int attaqueSpeciale(Blob *blob, Normale puissance);
+        //int attaqueSpeciale(Blob *blob, Normale puissance);
+        bool hierarchie(Blob *blob);
+
 };
 
 #endif // BLOB_H

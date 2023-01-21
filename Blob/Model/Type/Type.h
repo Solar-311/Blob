@@ -11,7 +11,6 @@
 class Type {
     protected :
         std::string type;
-        bool isBetter;
 
     public :
         /* CONSTRUCTOR */
@@ -22,11 +21,8 @@ class Type {
         std::string virtual estSensible() const = 0;
         std::string virtual estResistant() const = 0;
         std::string virtual getType() const = 0;
-        bool getIsBetter();
-        void setIsBetter(bool newIsBetter);
 
         /* FUNCTIONS */
-        bool hierarchie(Type *type);
 };
 
 #endif // TYPE_H

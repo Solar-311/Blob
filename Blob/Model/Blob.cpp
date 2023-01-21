@@ -9,6 +9,7 @@ Blob::Blob()
     this->pv = 0;
     this->type = new Plante();
     this->pv_courant = 0;
+    this->isBetter = false;
 }
 
 Blob::Blob(std::string nom)
@@ -17,6 +18,7 @@ Blob::Blob(std::string nom)
     this->pv = 0;
     this->pv_courant = 0;
     this->type = new Plante();
+    this->isBetter = false;
 }
 
 Blob::Blob(std::string nom, int pv)
@@ -25,6 +27,7 @@ Blob::Blob(std::string nom, int pv)
     this->pv = pv;
     this->pv_courant = 0;
     this->type = new Plante();
+    this->isBetter = false;
 }
 
 Blob::Blob(std::string nom, int pv, Type *type)
@@ -33,9 +36,20 @@ Blob::Blob(std::string nom, int pv, Type *type)
     this->pv = pv;
     this->pv_courant = pv;
     this->type = type;
+    this->isBetter = false;
 }
 
 /* ######## GETTER & SETTER ######## */
+bool Blob::getIsBetter()
+{
+    return isBetter;
+}
+
+void Blob::setIsBetter(bool newIsBetter)
+{
+    isBetter = newIsBetter;
+}
+
 std::string Blob::getNom()
 {
     return nom;
@@ -53,7 +67,15 @@ int Blob::getPv()
 
 void Blob::setPv(int newPv)
 {
-    pv = newPv;
+    if (newPv > 0)
+    {
+        pv = newPv;
+    }
+
+    else
+    {
+        pv = 0;
+    }
 }
 
 Type* Blob::getType()
@@ -73,7 +95,15 @@ int Blob::getPv_courant()
 
 void Blob::setPv_courant(int newPv_courant)
 {
-    pv_courant = newPv_courant;
+    if (newPv_courant  > 0)
+    {
+        pv_courant = newPv_courant;
+    }
+
+    else
+    {
+        pv_courant = 0;
+    }
 }
 
 /* ######## FUNCTIONS ######## */
@@ -154,6 +184,16 @@ int Blob::attaqueSpeciale(Blob *blob, Speciale puissance)
     }
 }
 */
+bool Blob::hierarchie(Blob *blob)
+{
+    if (this->getType()->estResistant() == blob->getType()->estSensible())
+    {
+        setIsBetter(true);
+    }
+
+    return getIsBetter();
+}
+
 void Blob::isDead(Blob blob)
 {
     if (blob.getPv_courant() < 0)

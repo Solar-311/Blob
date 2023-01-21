@@ -8,7 +8,6 @@ Feu::Feu()
     this->type="Feu";
     this->resitant="Plante";
     this->sensible="Eau";
-    this->isBetter = false;
 }
 
 /* ######## GETTER & SETTER ######## */

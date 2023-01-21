@@ -23,9 +23,11 @@ int main(int argc, char *argv[])
     /* PARAMETRES */
     //srand(time(nullptr));
 
-    Blob *f = new Blob("Fabio", 9999, new Eau());
+    Blob *f = new Blob("Fabio", 100, new Eau());
+    Blob *g = new Blob("FabioGODMODE", 9999, new Eau());
     //f->afficheBlob();
-    f->setPv_courant(9999);
+    //f->setPv_courant(50);
+    //f->afficheBlob();
     //std::cout << f->getPv_courant() << std::endl;
     Soin s = Soin(50, "Attaque soin");
     //s.afficheAttaque();
@@ -37,10 +39,7 @@ int main(int argc, char *argv[])
     //f->attaqueNormale(f, n);
     //std::cout << f->getPv_courant() << std::endl;
 
-    Type *e = new Plante();
-    Type *p = new Eau();
-
-    std::cout << e->hierarchie(p);
+    //std::cout << ->hierarchie(p);
 
     return 0;
 }
