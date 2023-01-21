@@ -10,6 +10,9 @@ Blob::Blob()
     this->type = new Plante();
     this->pv_courant = 0;
     this->isBetter = false;
+    this->normale = new Normale();
+    this->speciale = new Speciale();
+    this->soin = new Soin();
 }
 
 Blob::Blob(std::string nom)
@@ -19,6 +22,9 @@ Blob::Blob(std::string nom)
     this->pv_courant = 0;
     this->type = new Plante();
     this->isBetter = false;
+    this->normale = new Normale();
+    this->speciale = new Speciale();
+    this->soin = new Soin();
 }
 
 Blob::Blob(std::string nom, int pv)
@@ -28,6 +34,9 @@ Blob::Blob(std::string nom, int pv)
     this->pv_courant = 0;
     this->type = new Plante();
     this->isBetter = false;
+    this->normale = new Normale();
+    this->speciale = new Speciale();
+    this->soin = new Soin();
 }
 
 Blob::Blob(std::string nom, int pv, Type *type)
@@ -37,6 +46,45 @@ Blob::Blob(std::string nom, int pv, Type *type)
     this->pv_courant = pv;
     this->type = type;
     this->isBetter = false;
+    this->normale = new Normale();
+    this->speciale = new Speciale();
+    this->soin = new Soin();
+}
+
+Blob::Blob(std::string nom, int pv, Type *type, Speciale *speciale)
+{
+    this->nom = nom;
+    this->pv = pv;
+    this->pv_courant = pv;
+    this->type = type;
+    this->isBetter = false;
+    this->normale = new Normale();
+    this->speciale = speciale;
+    this->soin = new Soin();
+}
+
+Blob::Blob(std::string nom, int pv, Type *type, Speciale *speciale, Normale *normale)
+{
+    this->nom = nom;
+    this->pv = pv;
+    this->pv_courant = pv;
+    this->type = type;
+    this->isBetter = false;
+    this->normale = normale;
+    this->speciale = speciale;
+    this->soin = new Soin();
+}
+
+Blob::Blob(std::string nom, int pv, Type *type, Speciale *speciale, Normale *normale, Soin *soin)
+{
+    this->nom = nom;
+    this->pv = pv;
+    this->pv_courant = pv;
+    this->type = type;
+    this->isBetter = false;
+    this->normale = normale;
+    this->speciale = speciale;
+    this->soin = soin;
 }
 
 /* ######## GETTER & SETTER ######## */
@@ -104,6 +152,36 @@ void Blob::setPv_courant(int newPv_courant)
     {
         pv_courant = 0;
     }
+}
+
+Speciale *Blob::getSpeciale()
+{
+    return speciale;
+}
+
+void Blob::setSpeciale(Speciale *newSpeciale)
+{
+    speciale = newSpeciale;
+}
+
+Normale *Blob::getNormale()
+{
+    return normale;
+}
+
+void Blob::setNormale(Normale *newNormale)
+{
+    normale = newNormale;
+}
+
+Soin *Blob::getSoin()
+{
+    return soin;
+}
+
+void Blob::setSoin(Soin *newSoin)
+{
+    soin = newSoin;
 }
 
 /* ######## FUNCTIONS ######## */
@@ -185,31 +263,7 @@ int Blob::attaqueSpeciale(Blob *blob, Speciale speciale)
 
     return blob->getPv_courant();
 }
-/*
-int Blob::attaqueSpeciale(Blob *blob, Speciale puissance)
-{
-    int crit = Utils::generateRandomNumber(0, 100);
-    int chanceCrit = 5;
-    int lowCritRate = 25;
-    int highCritRate = 30;
-    int damage = Utils::generateRandomNumber(lowCritRate, highCritRate);
-    int critical = (puissance.getPuissance() * (100 + damage) / 100);
 
-    if (blob->getPv_courant() > 0)
-    {
-        if (crit <= chanceCrit)
-        {
-            std::cout << "***** COUP CRITIQUE *****" << std::endl;
-            blob->setPv_courant(blob->getPv_courant() - critical);
-        }
-
-        else
-        {
-            blob->setPv_courant(blob->getPv_courant() - puissance.getPuissance());
-        }
-    }
-}
-*/
 bool Blob::isTypeBetter(Blob *blob)
 {
     if (this->getType()->estResistant() == blob->getType()->estSensible())
@@ -224,11 +278,11 @@ void Blob::isDead(Blob blob)
 {
     if (blob.getPv_courant() < 0)
     {
-        std::cout << "BLOB MORT" << std::endl;
+        std::cout << "***** BLOB MORT *****" << std::endl;
     }
 
     else
     {
-        std::cout << "BLOB VIVANT" << std::endl;
+        std::cout << "***** BLOB VIVANT *****" << std::endl;
     }
 }

@@ -8,7 +8,9 @@
 
 /* FILES */
 // TYPES
-#include "Type/Type.h"
+#include "Type/Plante.h"
+#include "Type/Eau.h"
+#include "Type/Feu.h"
 
 // ATTAQUE
 #include "Model/Attaque/Soin.h"
@@ -27,12 +29,20 @@ class Blob {
         std::string image;
         bool isBetter;
 
+        // ATTAQUES
+        Speciale *speciale;
+        Normale *normale;
+        Soin *soin;
+
     public :
         /* CONSTRUCTOR */
         Blob();
         Blob(std::string nom);
         Blob(std::string nom, int pv);
         Blob(std::string nom, int pv, Type *type);
+        Blob(std::string nom, int pv, Type *type, Speciale *speciale);
+        Blob(std::string nom, int pv, Type *type, Speciale *speciale, Normale *normale);
+        Blob(std::string nom, int pv, Type *type, Speciale *speciale, Normale *normale, Soin *soin);
 
 
         /* GETTER & SETTER */
@@ -46,6 +56,12 @@ class Blob {
         void setPv_courant(int newPv_courant);
         bool getIsBetter();
         void setIsBetter(bool newIsBetter);
+        Speciale *getSpeciale();
+        void setSpeciale(Speciale *newSpeciale);
+        Normale *getNormale();
+        void setNormale(Normale *newNormale);
+        Soin *getSoin();
+        void setSoin(Soin *newSoin);
 
         /* FUNCTIONS */
         // STATE
@@ -57,6 +73,7 @@ class Blob {
         int attaqueNormale(Blob *blob, Normale puissance);
         int attaqueSpeciale(Blob *blob, Speciale speciale);
         bool isTypeBetter(Blob *blob);
+
 
 };
 
