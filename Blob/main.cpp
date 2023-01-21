@@ -37,8 +37,8 @@ int main(int argc, char *argv[])
     //f->attaqueNormale(f, n);
     //std::cout << f->getPv_courant() << std::endl;
 
-    Type *e = new Eau();
-    Type *p = new Plante();
+    Type *e = new Plante();
+    Type *p = new Eau();
 
     std::cout << e->hierarchie(p);
 

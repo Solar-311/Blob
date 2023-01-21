@@ -5,7 +5,7 @@
 /* ########## CONSTRUCTOR ########## */
 Type::Type()
 {
-    //NULL
+    this->isBetter = false;
 }
 
 
