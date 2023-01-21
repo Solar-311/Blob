@@ -15,7 +15,7 @@ Speciale::Speciale(int multiplicateur)
     this->nom = "Speciale";
 }
 
-Speciale::Speciale(int puissance, std::string nom)
+Speciale::Speciale(int multiplicateur, std::string nom)
 {
     this->multiplicateur = multiplicateur;
     this->nom = nom;
@@ -42,24 +42,5 @@ void Speciale::setMultiplicateur(int newMultiplicateur)
     multiplicateur = newMultiplicateur;
 }
 
-/* ######## FUNCTIONS ######## *//*
-int Speciale::hierarchie(Blob *blob1, Blob *blob2)
-{
-    if (blob1->getType()->estSensible() == "Plante" && blob2->getType()->estResistant() == "Plante")
-    {
-        this->isBetter = true;
-    }
+/* ######## FUNCTIONS ######## */
 
-    if (blob1->getType()->estSensible() == "Feu" && blob2->getType()->estResistant() == "Feu")
-    {
-        this->isBetter = true;
-    }
-
-    if (blob1->getType()->estSensible() == "Eau" && blob2->getType()->estResistant() == "Eau")
-    {
-        this->isBetter = true;
-    }
-
-    return this->isBetter;
-}
-*/

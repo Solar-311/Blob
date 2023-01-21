@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     //f->attaqueNormale(f, n);
     //std::cout << f->getPv_courant() << std::endl;
 
-    std::cout << f->isTypeBetter(g);
+    //std::cout << f->isTypeBetter(g);
 
     return 0;
 }
