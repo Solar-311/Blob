@@ -9,7 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    Controller/Empty.cpp \
+    Controller/Fight.cpp \
     Model/Arene/Arene.cpp \
     Model/Attaque/Normale.cpp \
     Model/Attaque/Soin.cpp \
@@ -27,7 +27,7 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
-    Controller/Empty.h \
+    Controller/Fight.h \
     Model/Arene/Arene.h \
     Model/Attaque/Normale.h \
     Model/Attaque/Soin.h \
