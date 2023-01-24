@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+/* ########## INCLUDE ########## */
+/* LIBRARY QT */
 #include <QMainWindow>
 #include <QApplication>
 #include <QPushButton>
@@ -20,30 +22,32 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    public:
+        MainWindow(QWidget *parent = nullptr);
+        ~MainWindow();
 
-private:
-    Ui::MainWindow *ui;
-    QWidget* centre;
-    QLabel* nom;
-    QLabel* type;
-    QVBoxLayout* vboxlayout;
-    QHBoxLayout* hBoxUn;
-    QHBoxLayout* hBoxDeux;
-    QGridLayout* gridTrois;
-    QPushButton* boutonAtttaqueNormale;
-    QPushButton* boutonSoin;
-    QPushButton* boutonFuir;//abandonne le combat
-    QPushButton* boutonAttaqueSpe;
-    QLabel* nomAdversaire;
-    QLabel* typeAdversaire;
-    QPixmap* imageAdversaire;
-    QPixmap* imagePerso;
-    QLabel* imageLabelPerso;
-    QLabel* imageLabelAdversaire;
-    void init_components();
-    void init_layout();
+    private:
+        Ui::MainWindow *ui;
+        QWidget* centre;
+        QLabel* nom;
+        QLabel* type;
+        QLabel* pv;
+        QLabel* pvAdversaire;
+        QVBoxLayout* vboxlayout;
+        QHBoxLayout* hBoxUn;
+        QHBoxLayout* hBoxDeux;
+        QGridLayout* gridTrois;
+        QPushButton* boutonAtttaqueNormale;
+        QPushButton* boutonSoin;
+        QPushButton* boutonFuir;//abandonne le combat
+        QPushButton* boutonAttaqueSpe;
+        QLabel* nomAdversaire;
+        QLabel* typeAdversaire;
+        QPixmap* imageAdversaire;
+        QPixmap* imagePerso;
+        QLabel* imageLabelPerso;
+        QLabel* imageLabelAdversaire;
+        void init_components();
+        void init_layout();
 };
 #endif // MAINWINDOW_H

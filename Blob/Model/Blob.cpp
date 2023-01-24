@@ -192,6 +192,9 @@ void Blob::afficheBlob()
     std::cout << "Pv : " << this->pv << std::endl;
     std::cout << "Pv courant : " << this->pv_courant << std::endl;
     std::cout << "Type : "<< this->type->getType() << std::endl;
+    std::cout << "Attaque Speciale : " << this->getSpeciale()->getPuissance() << std::endl;
+    std::cout << "Attaque Normale : "<< this->getNormale()->getPuissance() << std::endl;
+    std::cout << "Attaque Soin : "<< this->getSoin()->getSoin() << std::endl;
     std::cout << "--------------------------" << std::endl;
 }
 
