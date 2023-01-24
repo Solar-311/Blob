@@ -6,10 +6,13 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+
     this->setWindowTitle("Blob");
     this->setGeometry(100,100,800,600);
     this->init_components();
     this->init_layout();
+
 }
 
 void MainWindow::init_components(){
@@ -25,7 +28,9 @@ void MainWindow::init_components(){
 }
 
 void MainWindow::init_layout(){
+    QString imagePath ="C:/Users/Morin/Pictures/d83m36e-3b58ca48-fe8a-456e-9ffc-a5a84eca6613.png";
     this->setCentralWidget(this->centre);
+    this->centre->setStyleSheet("background-image: url("+imagePath+");");
     this->hBoxUn = new QHBoxLayout();
     this->hBoxDeux = new QHBoxLayout();
     this->gridTrois = new QGridLayout();
@@ -49,6 +54,7 @@ void MainWindow::init_layout(){
     //this->imageLabelPerso->setPixmap(imagePerso);
 
 }
+
 
 MainWindow::~MainWindow()
 {
