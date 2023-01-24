@@ -22,11 +22,12 @@ class ListBlob {
         ListBlob();
 
         /* GETTER & SETTER */
-        Blob getBlob();
-        void setBlob(Blob blob);
+        std::list<Blob *> getListeBlob();
+        void setListeBlob(std::list<Blob *> newListeBlob);
 
         /* FUNCTIONS */
         Blob slectBlob (int numBlob);
+
 };
 
 #endif // LISTBLOB_H
