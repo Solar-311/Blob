@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+/* ########## INCLUDE ########## */
+/* LIBRARY QT */
 #include <QMainWindow>
 #include <QApplication>
 #include <QPushButton>
@@ -20,10 +22,11 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    public:
+        MainWindow(QWidget *parent = nullptr);
+        ~MainWindow();
 
+<<<<<<< HEAD
 private:
     Ui::MainWindow *ui;
     QWidget* centre;
@@ -47,5 +50,36 @@ private:
     QLabel* imageLabelAdversaire;
     void init_components();
     void init_layout();
+=======
+    private:
+        Ui::MainWindow *ui;
+        QWidget* centre;
+        QLabel* nom;
+        QLabel* type;
+        QLabel* pv;
+        QLabel* pvAdversaire;
+
+        /* LAYOUT */
+        QVBoxLayout* vboxlayout;
+        QHBoxLayout* hBoxUn;
+        QHBoxLayout* hBoxDeux;
+        QGridLayout* gridTrois;
+
+        /* ELEMENTS */
+        QPushButton* boutonAtttaqueNormale;
+        QPushButton* boutonSoin;
+        QPushButton* boutonFuir;//abandonne le combat
+        QPushButton* boutonAttaqueSpe;
+        QLabel* nomAdversaire;
+        QLabel* typeAdversaire;
+        QPixmap* imageAdversaire;
+        QPixmap* imagePerso;
+        QLabel* imageLabelPerso;
+        QLabel* imageLabelAdversaire;
+
+        /* INIT */
+        void init_components();
+        void init_layout();
+>>>>>>> ec3dc388f0d2dee0e23d7bbe5603ecfa21100669
 };
 #endif // MAINWINDOW_H

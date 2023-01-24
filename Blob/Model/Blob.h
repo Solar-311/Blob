@@ -66,12 +66,12 @@ class Blob {
         /* FUNCTIONS */
         // STATE
         void afficheBlob();
-        void isDead(Blob blob);
+        void isDead(Blob *blob);
 
         // ATTAQUES
-        int mettreSoins(Blob *blob, Soin soin);
-        int attaqueNormale(Blob *blob, Normale puissance);
-        int attaqueSpeciale(Blob *blob, Speciale speciale);
+        int mettreSoins(Blob *blob, Soin *soin);
+        int attaqueNormale(Blob *blob, Normale *puissance);
+        int attaqueSpeciale(Blob *blob, Speciale *speciale);
         bool isTypeBetter(Blob *blob);
 
 

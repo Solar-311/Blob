@@ -187,17 +187,19 @@ void Blob::setSoin(Soin *newSoin)
 /* ######## FUNCTIONS ######## */
 void Blob::afficheBlob()
 {
-    std::cout << "---------- Etat ----------" << std::endl;
+    std::cout << "+----------- Etat -----------+" << std::endl;
     std::cout << "Nom : " << this->nom << std::endl;
     std::cout << "Pv : " << this->pv << std::endl;
     std::cout << "Pv courant : " << this->pv_courant << std::endl;
     std::cout << "Type : "<< this->type->getType() << std::endl;
-    std::cout << "--------------------------" << std::endl;
+    std::cout << "Attaque Speciale : " << this->getSpeciale()->getPuissance() << std::endl;
+    std::cout << "Attaque Normale : "<< this->getNormale()->getPuissance() << std::endl;
+    std::cout << "Attaque Soin : "<< this->getSoin()->getSoin() << std::endl;
 }
 
-int Blob::mettreSoins(Blob *blob, Soin soin)
+int Blob::mettreSoins(Blob *blob, Soin *soin)
 {
-    if ((blob->getPv_courant() + soin.getSoin()) > blob->getPv() &&
+    if ((blob->getPv_courant() + soin->getSoin()) > blob->getPv() &&
          blob->getPv_courant() > 0)
     {
         blob->setPv_courant(blob->getPv());
@@ -205,58 +207,61 @@ int Blob::mettreSoins(Blob *blob, Soin soin)
 
     else if (blob->getPv_courant() > 0)
     {
-        blob->setPv_courant(blob->getPv_courant() + soin.getSoin());
+        blob->setPv_courant(blob->getPv_courant() + soin->getSoin());
     }
 
     return blob->getPv_courant();
 }
 
-int Blob::attaqueNormale(Blob *blob, Normale puissance)
+int Blob::attaqueNormale(Blob *blob, Normale *puissance)
 {
     int crit = Utils::generateRandomNumber(0, 100);
     int chanceCrit = 10;
     int lowCritRate = 25;
     int highCritRate = 35;
     int damage = Utils::generateRandomNumber(lowCritRate, highCritRate);
-    int critical = (puissance.getPuissance() * (100 + damage) / 100);
+    int critical = (puissance->getPuissance() * (100 + damage) / 100);
 
     if (blob->getPv_courant() > 0)
     {
         if (crit <= chanceCrit)
         {
-            std::cout << "***** COUP CRITIQUE *****" << std::endl;
+            std::cout << "======= COUP CRITIQUE =======" << std::endl;
             blob->setPv_courant(blob->getPv_courant() - critical);
         }
 
         else
         {
-            blob->setPv_courant(blob->getPv_courant() - puissance.getPuissance());
+            blob->setPv_courant(blob->getPv_courant() - puissance->getPuissance());
         }
     }
 
     return blob->getPv_courant();
 }
 
-int Blob::attaqueSpeciale(Blob *blob, Speciale speciale)
+int Blob::attaqueSpeciale(Blob *blob, Speciale *speciale)
 {
+    this->isTypeBetter(blob);
+
     int crit = Utils::generateRandomNumber(0, 100);
-    int chanceCrit = 5;
+    int chanceCrit = 7;
     int lowCritRate = 20;
     int highCritRate = 25;
     int damage = Utils::generateRandomNumber(lowCritRate, highCritRate);
-    int critical = (speciale.getPuissance() * (100 + damage) / 100);
+    int critical = (speciale->getPuissance() * (100 + damage) / 100);
 
-    if (blob->getPv_courant() > 0 && blob->getIsBetter() == true)
+    if (blob->getPv_courant() > 0 && this->getIsBetter() == true)
     {
         if (crit <= chanceCrit)
         {
-            std::cout << "***** COUP SPECIAL CRITIQUE *****" << std::endl;
+            std::cout << "======= COUP SPECIAL CRITIQUE =======" << std::endl;
+            std::cout << std::endl;
             blob->setPv_courant(blob->getPv_courant() - critical);
         }
 
         else
         {
-            blob->setPv_courant(blob->getPv_courant() - speciale.getPuissance());
+            blob->setPv_courant(blob->getPv_courant() - speciale->getPuissance());
         }
     }
 
@@ -265,17 +270,19 @@ int Blob::attaqueSpeciale(Blob *blob, Speciale speciale)
 
 bool Blob::isTypeBetter(Blob *blob)
 {
-    if (this->getType()->estResistant() == blob->getType()->estSensible())
+    if (this->getType()->estResistant() == blob->getType()->getType())
     {
         setIsBetter(true);
+        std::cout << this->getType()->getType() << " A L'AVANTAGE SUR " << blob->getType()->getType() << std::endl;
+        std::cout << std::endl;
     }
 
     return getIsBetter();
 }
 
-void Blob::isDead(Blob blob)
+void Blob::isDead(Blob *blob)
 {
-    if (blob.getPv_courant() < 0)
+    if (blob->getPv_courant() < 0)
     {
         std::cout << "***** BLOB MORT *****" << std::endl;
     }

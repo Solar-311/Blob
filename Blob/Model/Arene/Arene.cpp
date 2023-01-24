@@ -65,12 +65,18 @@ void Arene::setNom(std::string newNom)
 /* ######## FUNCTIONS ######## */
 void Arene::afficherArene()
 {
-    std::cout << "########## ARENE ##########" << std::endl;
-    std::cout << "_______ " << this->getNom() << " _______" << std::endl;
+    std::cout << std::endl;
+    std::cout << "+-------------------- ARENE --------------------+" << std::endl;
+    std::cout << "                    " << this->getNom() << std::endl;
+    std::cout << std::endl;
     std::cout << "Joueur 1 : " << this->joueur1->getNom() << std::endl;
     std::cout << "Blob : " << this->joueur1->getBlob()->getNom() << std::endl;
-    std::cout << "---------------------------" << std::endl;
+    std::cout << std::endl;
+    std::cout << "+-----------------------------------------------+" << std::endl;
+    std::cout << std::endl;
     std::cout << "Joueur 2 : " << this->joueur2->getNom() << std::endl;
     std::cout << "Blob : " << this->joueur2->getBlob()->getNom() << std::endl;
-    std::cout << "###########################" << std::endl;
+    std::cout << std::endl;
+    std::cout << "+-----------------------------------------------+" << std::endl;
+    std::cout << std::endl;
 }

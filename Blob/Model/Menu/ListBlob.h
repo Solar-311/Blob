@@ -15,7 +15,7 @@
 
 class ListBlob {
     protected :
-       std::list<Blob> listeBlob;
+       std::list<Blob*> listeBlob;
 
     public :
         /* CONSTRUCTOR */
