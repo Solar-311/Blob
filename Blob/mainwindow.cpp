@@ -26,8 +26,8 @@ void MainWindow::init_components(){
     this->boutonFuir = new QPushButton("Attaque normale");
     this->boutonSoin = new QPushButton("Soin");
     this->boutonAttaqueSpe = new QPushButton("Attaque Speciale !");
-     this->pv = new QLabel("100");
-     this->pvAdversaire = new QLabel("100");
+    this->pv = new QLabel("100");
+    this->pvAdversaire = new QLabel("100");
 }
 
 void MainWindow::init_layout(){
