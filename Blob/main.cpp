@@ -30,9 +30,9 @@ int main(int argc, char *argv[])
 
     /* TESTS */
     // ATTAQUES
-    Soin *s = new Soin(50, "Attaque soin");
-    Speciale *sp = new Speciale(60, "Attaque Speciale");
-    Normale *n = new Normale(40, "Attaque Normale");
+    Soin *s = new Soin(50, "Soin");
+    Speciale *sp = new Speciale(60, "Speciale");
+    Normale *n = new Normale(40, "Normale");
 
     // BLOBS
     Blob *f = new Blob("Noob", 100, new Eau(), sp, n, s);
