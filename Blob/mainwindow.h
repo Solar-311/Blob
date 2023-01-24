@@ -33,10 +33,14 @@ class MainWindow : public QMainWindow
         QLabel* type;
         QLabel* pv;
         QLabel* pvAdversaire;
+
+        /* LAYOUT */
         QVBoxLayout* vboxlayout;
         QHBoxLayout* hBoxUn;
         QHBoxLayout* hBoxDeux;
         QGridLayout* gridTrois;
+
+        /* ELEMENTS */
         QPushButton* boutonAtttaqueNormale;
         QPushButton* boutonSoin;
         QPushButton* boutonFuir;//abandonne le combat
@@ -47,6 +51,8 @@ class MainWindow : public QMainWindow
         QPixmap* imagePerso;
         QLabel* imageLabelPerso;
         QLabel* imageLabelAdversaire;
+
+        /* INIT */
         void init_components();
         void init_layout();
 };
