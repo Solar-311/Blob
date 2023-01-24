@@ -50,7 +50,6 @@ int main(int argc, char *argv[])
     j->afficherJoueur();
 
     // ARENE
-
     Arene *arene = new Arene("ARENA WAR", j, j2);
     //arene->afficherArene();
 
