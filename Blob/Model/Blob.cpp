@@ -198,9 +198,9 @@ void Blob::afficheBlob()
     std::cout << "--------------------------" << std::endl;
 }
 
-int Blob::mettreSoins(Blob *blob, Soin soin)
+int Blob::mettreSoins(Blob *blob, Soin *soin)
 {
-    if ((blob->getPv_courant() + soin.getSoin()) > blob->getPv() &&
+    if ((blob->getPv_courant() + soin->getSoin()) > blob->getPv() &&
          blob->getPv_courant() > 0)
     {
         blob->setPv_courant(blob->getPv());
@@ -208,20 +208,20 @@ int Blob::mettreSoins(Blob *blob, Soin soin)
 
     else if (blob->getPv_courant() > 0)
     {
-        blob->setPv_courant(blob->getPv_courant() + soin.getSoin());
+        blob->setPv_courant(blob->getPv_courant() + soin->getSoin());
     }
 
     return blob->getPv_courant();
 }
 
-int Blob::attaqueNormale(Blob *blob, Normale puissance)
+int Blob::attaqueNormale(Blob *blob, Normale *puissance)
 {
     int crit = Utils::generateRandomNumber(0, 100);
     int chanceCrit = 10;
     int lowCritRate = 25;
     int highCritRate = 35;
     int damage = Utils::generateRandomNumber(lowCritRate, highCritRate);
-    int critical = (puissance.getPuissance() * (100 + damage) / 100);
+    int critical = (puissance->getPuissance() * (100 + damage) / 100);
 
     if (blob->getPv_courant() > 0)
     {
@@ -233,23 +233,25 @@ int Blob::attaqueNormale(Blob *blob, Normale puissance)
 
         else
         {
-            blob->setPv_courant(blob->getPv_courant() - puissance.getPuissance());
+            blob->setPv_courant(blob->getPv_courant() - puissance->getPuissance());
         }
     }
 
     return blob->getPv_courant();
 }
 
-int Blob::attaqueSpeciale(Blob *blob, Speciale speciale)
+int Blob::attaqueSpeciale(Blob *blob, Speciale *speciale)
 {
+    this->isTypeBetter(blob);
+
     int crit = Utils::generateRandomNumber(0, 100);
     int chanceCrit = 5;
     int lowCritRate = 20;
     int highCritRate = 25;
     int damage = Utils::generateRandomNumber(lowCritRate, highCritRate);
-    int critical = (speciale.getPuissance() * (100 + damage) / 100);
+    int critical = (speciale->getPuissance() * (100 + damage) / 100);
 
-    if (blob->getPv_courant() > 0 && blob->getIsBetter() == true)
+    if (blob->getPv_courant() > 0 && this->getIsBetter() == true)
     {
         if (crit <= chanceCrit)
         {
@@ -259,7 +261,7 @@ int Blob::attaqueSpeciale(Blob *blob, Speciale speciale)
 
         else
         {
-            blob->setPv_courant(blob->getPv_courant() - speciale.getPuissance());
+            blob->setPv_courant(blob->getPv_courant() - speciale->getPuissance());
         }
     }
 
