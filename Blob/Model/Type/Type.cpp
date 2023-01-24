@@ -8,7 +8,6 @@ Type::Type()
     // NULL
 }
 
-
 Type::Type(std::string type)
 {
     this->type = type;
