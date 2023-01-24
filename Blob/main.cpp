@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
 {
     /* PARAMETRES */
     //srand(time(nullptr));
+    // NE PAS OUBLIER DE SET LES TYPES
 
     /* TESTS */
     // ATTAQUES
