@@ -47,8 +47,14 @@ int main(int argc, char *argv[])
     j2->afficherJoueur();
 
     // ARENE
-    Arene *a = new Arene("ARENA WAR", j, j2);
-    a->afficherArene();
+    Arene *arene = new Arene("ARENA WAR", j, j2);
+    arene->afficherArene();
+
+    /* UI */
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
 
     /* ACTIONS */
     return 0;
