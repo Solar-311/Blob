@@ -17,8 +17,13 @@ class Attaque{
         Attaque();
 
         /* GETTER & SETTER */
+        std::string getNom();
+        void setNom(std::string nom);
+        int getPuissance();
+        void setPuissance(int puissance);
 
         /* FUNCTIONS */
+        int attaque();
 };
 
 #endif // ATTAQUE_H

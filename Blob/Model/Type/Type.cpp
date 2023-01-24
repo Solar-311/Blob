@@ -5,16 +5,15 @@
 /* ########## CONSTRUCTOR ########## */
 Type::Type()
 {
-    //0
+    // NULL
 }
 
 
 Type::Type(std::string type)
 {
-    this->type=type;
+    this->type = type;
 }
 
 /* ######## GETTER & SETTER ######## */
-
 
 /* ######## FUNCTIONS ######## */

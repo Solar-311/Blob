@@ -22,3 +22,5 @@ std::string Eau::estSensible() const{
 std::string Eau::getType() const{
     return this->type;
 }
+
+/* ######## FUNCTIONS ######## */

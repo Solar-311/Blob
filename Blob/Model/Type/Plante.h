@@ -10,21 +10,21 @@
 #include "Type.h"
 
 class Plante : public virtual Type {
-protected:
-    std::string sensible;
-    std::string resitant;
-    std::string type;
+    protected:
+        std::string sensible;
+        std::string resitant;
+        std::string type;
 
-public :
-    /* CONSTRUCTOR */
-    Plante();
+    public :
+        /* CONSTRUCTOR */
+        Plante();
 
-    /* GETTER & SETTER */
-    std::string estSensible() const;
-    std::string estResistant() const;
-    std::string getType() const;
+        /* GETTER & SETTER */
+        std::string estSensible() const;
+        std::string estResistant() const;
+        std::string getType() const;
 
-    /* FUNCTIONS */
+        /* FUNCTIONS */
 };
 
 #endif // PLANTE_H

@@ -22,3 +22,5 @@ std::string Feu::estSensible() const{
 std::string Feu::getType() const{
     return this->type;
 }
+
+/* ######## FUNCTIONS ######## */

@@ -22,3 +22,5 @@ std::string Plante::estSensible() const{
 std::string Plante::getType() const{
     return this->type;
 }
+
+/* ######## FUNCTIONS ######## */

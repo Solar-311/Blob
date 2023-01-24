@@ -2,7 +2,6 @@
 /* FILES */
 #include "Blob.h"
 
-
 /* ########## CONSTRUCTOR ########## */
 Blob::Blob()
 {
@@ -10,6 +9,10 @@ Blob::Blob()
     this->pv = 0;
     this->type = new Plante();
     this->pv_courant = 0;
+    this->isBetter = false;
+    this->normale = new Normale();
+    this->speciale = new Speciale();
+    this->soin = new Soin();
 }
 
 Blob::Blob(std::string nom)
@@ -18,14 +21,22 @@ Blob::Blob(std::string nom)
     this->pv = 0;
     this->pv_courant = 0;
     this->type = new Plante();
+    this->isBetter = false;
+    this->normale = new Normale();
+    this->speciale = new Speciale();
+    this->soin = new Soin();
 }
 
 Blob::Blob(std::string nom, int pv)
 {
     this->nom = nom;
     this->pv = pv;
-    this->pv_courant = pv;
+    this->pv_courant = 0;
     this->type = new Plante();
+    this->isBetter = false;
+    this->normale = new Normale();
+    this->speciale = new Speciale();
+    this->soin = new Soin();
 }
 
 Blob::Blob(std::string nom, int pv, Type *type)
@@ -34,9 +45,59 @@ Blob::Blob(std::string nom, int pv, Type *type)
     this->pv = pv;
     this->pv_courant = pv;
     this->type = type;
+    this->isBetter = false;
+    this->normale = new Normale();
+    this->speciale = new Speciale();
+    this->soin = new Soin();
+}
+
+Blob::Blob(std::string nom, int pv, Type *type, Speciale *speciale)
+{
+    this->nom = nom;
+    this->pv = pv;
+    this->pv_courant = pv;
+    this->type = type;
+    this->isBetter = false;
+    this->normale = new Normale();
+    this->speciale = speciale;
+    this->soin = new Soin();
+}
+
+Blob::Blob(std::string nom, int pv, Type *type, Speciale *speciale, Normale *normale)
+{
+    this->nom = nom;
+    this->pv = pv;
+    this->pv_courant = pv;
+    this->type = type;
+    this->isBetter = false;
+    this->normale = normale;
+    this->speciale = speciale;
+    this->soin = new Soin();
+}
+
+Blob::Blob(std::string nom, int pv, Type *type, Speciale *speciale, Normale *normale, Soin *soin)
+{
+    this->nom = nom;
+    this->pv = pv;
+    this->pv_courant = pv;
+    this->type = type;
+    this->isBetter = false;
+    this->normale = normale;
+    this->speciale = speciale;
+    this->soin = soin;
 }
 
 /* ######## GETTER & SETTER ######## */
+bool Blob::getIsBetter()
+{
+    return isBetter;
+}
+
+void Blob::setIsBetter(bool newIsBetter)
+{
+    isBetter = newIsBetter;
+}
+
 std::string Blob::getNom()
 {
     return nom;
@@ -54,7 +115,15 @@ int Blob::getPv()
 
 void Blob::setPv(int newPv)
 {
-    pv = newPv;
+    if (newPv > 0)
+    {
+        pv = newPv;
+    }
+
+    else
+    {
+        pv = 0;
+    }
 }
 
 Type* Blob::getType()
@@ -74,16 +143,145 @@ int Blob::getPv_courant()
 
 void Blob::setPv_courant(int newPv_courant)
 {
-    pv_courant = newPv_courant;
+    if (newPv_courant  > 0)
+    {
+        pv_courant = newPv_courant;
+    }
+
+    else
+    {
+        pv_courant = 0;
+    }
+}
+
+Speciale *Blob::getSpeciale()
+{
+    return speciale;
+}
+
+void Blob::setSpeciale(Speciale *newSpeciale)
+{
+    speciale = newSpeciale;
+}
+
+Normale *Blob::getNormale()
+{
+    return normale;
+}
+
+void Blob::setNormale(Normale *newNormale)
+{
+    normale = newNormale;
+}
+
+Soin *Blob::getSoin()
+{
+    return soin;
+}
+
+void Blob::setSoin(Soin *newSoin)
+{
+    soin = newSoin;
 }
 
 /* ######## FUNCTIONS ######## */
-void Blob::afficheBlob(){
-    std::cout << "********** BLOB **********" << std::endl;
+void Blob::afficheBlob()
+{
+    std::cout << "---------- Etat ----------" << std::endl;
     std::cout << "Nom : " << this->nom << std::endl;
     std::cout << "Pv : " << this->pv << std::endl;
+    std::cout << "Pv courant : " << this->pv_courant << std::endl;
     std::cout << "Type : "<< this->type->getType() << std::endl;
-    std::cout << "**************************" << std::endl;
-    std::cout << std::endl;
+    std::cout << "--------------------------" << std::endl;
 }
 
+int Blob::mettreSoins(Blob *blob, Soin soin)
+{
+    if ((blob->getPv_courant() + soin.getSoin()) > blob->getPv() &&
+         blob->getPv_courant() > 0)
+    {
+        blob->setPv_courant(blob->getPv());
+    }
+
+    else if (blob->getPv_courant() > 0)
+    {
+        blob->setPv_courant(blob->getPv_courant() + soin.getSoin());
+    }
+
+    return blob->getPv_courant();
+}
+
+int Blob::attaqueNormale(Blob *blob, Normale puissance)
+{
+    int crit = Utils::generateRandomNumber(0, 100);
+    int chanceCrit = 10;
+    int lowCritRate = 25;
+    int highCritRate = 35;
+    int damage = Utils::generateRandomNumber(lowCritRate, highCritRate);
+    int critical = (puissance.getPuissance() * (100 + damage) / 100);
+
+    if (blob->getPv_courant() > 0)
+    {
+        if (crit <= chanceCrit)
+        {
+            std::cout << "***** COUP CRITIQUE *****" << std::endl;
+            blob->setPv_courant(blob->getPv_courant() - critical);
+        }
+
+        else
+        {
+            blob->setPv_courant(blob->getPv_courant() - puissance.getPuissance());
+        }
+    }
+
+    return blob->getPv_courant();
+}
+
+int Blob::attaqueSpeciale(Blob *blob, Speciale speciale)
+{
+    int crit = Utils::generateRandomNumber(0, 100);
+    int chanceCrit = 5;
+    int lowCritRate = 20;
+    int highCritRate = 25;
+    int damage = Utils::generateRandomNumber(lowCritRate, highCritRate);
+    int critical = (speciale.getPuissance() * (100 + damage) / 100);
+
+    if (blob->getPv_courant() > 0 && blob->getIsBetter() == true)
+    {
+        if (crit <= chanceCrit)
+        {
+            std::cout << "***** COUP SPECIAL CRITIQUE *****" << std::endl;
+            blob->setPv_courant(blob->getPv_courant() - critical);
+        }
+
+        else
+        {
+            blob->setPv_courant(blob->getPv_courant() - speciale.getPuissance());
+        }
+    }
+
+    return blob->getPv_courant();
+}
+
+bool Blob::isTypeBetter(Blob *blob)
+{
+    if (this->getType()->estResistant() == blob->getType()->estSensible())
+    {
+        setIsBetter(true);
+    }
+
+    return getIsBetter();
+}
+
+void Blob::isDead(Blob blob)
+{
+    if (blob.getPv_courant() < 0)
+    {
+        std::cout << "***** BLOB MORT *****" << std::endl;
+    }
+
+    else
+    {
+        std::cout << "***** BLOB VIVANT *****" << std::endl;
+    }
+}
