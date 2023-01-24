@@ -187,7 +187,7 @@ void Blob::setSoin(Soin *newSoin)
 /* ######## FUNCTIONS ######## */
 void Blob::afficheBlob()
 {
-    std::cout << "---------- Etat ----------" << std::endl;
+    std::cout << "+----------- Etat -----------+" << std::endl;
     std::cout << "Nom : " << this->nom << std::endl;
     std::cout << "Pv : " << this->pv << std::endl;
     std::cout << "Pv courant : " << this->pv_courant << std::endl;
@@ -195,7 +195,6 @@ void Blob::afficheBlob()
     std::cout << "Attaque Speciale : " << this->getSpeciale()->getPuissance() << std::endl;
     std::cout << "Attaque Normale : "<< this->getNormale()->getPuissance() << std::endl;
     std::cout << "Attaque Soin : "<< this->getSoin()->getSoin() << std::endl;
-    std::cout << "--------------------------" << std::endl;
 }
 
 int Blob::mettreSoins(Blob *blob, Soin *soin)
@@ -273,14 +272,15 @@ bool Blob::isTypeBetter(Blob *blob)
     if (this->getType()->estResistant() == blob->getType()->estSensible())
     {
         setIsBetter(true);
+        std::cout << this->getType() << " A L'AVANTAGE SUR " << blob->getType() << std::endl;
     }
 
     return getIsBetter();
 }
 
-void Blob::isDead(Blob blob)
+void Blob::isDead(Blob *blob)
 {
-    if (blob.getPv_courant() < 0)
+    if (blob->getPv_courant() < 0)
     {
         std::cout << "***** BLOB MORT *****" << std::endl;
     }

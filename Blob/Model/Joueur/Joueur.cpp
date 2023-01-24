@@ -45,9 +45,9 @@ void Joueur::setNom(std::string newNom)
 /* ######## FUNCTIONS ######## */
 void Joueur::afficherJoueur()
 {
-    std::cout << "########## JOUEUR ##########" << std::endl;
+    std::cout << "+---------- JOUEUR ----------+" << std::endl;
     std::cout << "Nom : " << this->getNom() << std::endl;
     std::cout << "***** Blob de " << this->getNom() << " *****" << std::endl;
     this->getBlob()->afficheBlob();
-    std::cout << "############################" << std::endl;
+    std::cout << "+----------------------------+" << std::endl;
 }

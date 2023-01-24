@@ -40,19 +40,18 @@ int main(int argc, char *argv[])
 
     // JOUEUR
     Joueur *j = new Joueur("Noob", f);
-    j->afficherJoueur();
+    //j->afficherJoueur();
 
     Joueur *j2 = new Joueur("Fabio", g);
-    j2->afficherJoueur();
-    j2->getBlob()->attaqueNormale(f, n);
-    j->afficherJoueur();
-    j->getBlob()->mettreSoins(j->getBlob(), s);
+    //j2->afficherJoueur();
+    j2->getBlob()->attaqueSpeciale(j->getBlob(), sp);
+    j2->getBlob()->getIsBetter();
     j->afficherJoueur();
 
     // ARENE
-    /*
+
     Arene *arene = new Arene("ARENA WAR", j, j2);
-    arene->afficherArene();*/
+    //arene->afficherArene();
 
     /* UI */
     /*
