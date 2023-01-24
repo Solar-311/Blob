@@ -29,6 +29,8 @@ private:
     QWidget* centre;
     QLabel* nom;
     QLabel* type;
+    QLabel* pv;
+    QLabel* pvAdversaire;
     QVBoxLayout* vboxlayout;
     QHBoxLayout* hBoxUn;
     QHBoxLayout* hBoxDeux;
