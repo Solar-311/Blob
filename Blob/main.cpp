@@ -45,7 +45,6 @@ int main(int argc, char *argv[])
     Joueur *j2 = new Joueur("Fabio", g);
     //j2->afficherJoueur();
     j2->getBlob()->attaqueSpeciale(j->getBlob(), sp);
-    j2->getBlob()->getIsBetter();
     j->afficherJoueur();
 
     // ARENE

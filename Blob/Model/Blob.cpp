@@ -226,7 +226,7 @@ int Blob::attaqueNormale(Blob *blob, Normale *puissance)
     {
         if (crit <= chanceCrit)
         {
-            std::cout << "***** COUP CRITIQUE *****" << std::endl;
+            std::cout << "======= COUP CRITIQUE =======" << std::endl;
             blob->setPv_courant(blob->getPv_courant() - critical);
         }
 
@@ -244,7 +244,7 @@ int Blob::attaqueSpeciale(Blob *blob, Speciale *speciale)
     this->isTypeBetter(blob);
 
     int crit = Utils::generateRandomNumber(0, 100);
-    int chanceCrit = 5;
+    int chanceCrit = 7;
     int lowCritRate = 20;
     int highCritRate = 25;
     int damage = Utils::generateRandomNumber(lowCritRate, highCritRate);
@@ -254,7 +254,8 @@ int Blob::attaqueSpeciale(Blob *blob, Speciale *speciale)
     {
         if (crit <= chanceCrit)
         {
-            std::cout << "***** COUP SPECIAL CRITIQUE *****" << std::endl;
+            std::cout << "======= COUP SPECIAL CRITIQUE =======" << std::endl;
+            std::cout << std::endl;
             blob->setPv_courant(blob->getPv_courant() - critical);
         }
 
@@ -269,10 +270,11 @@ int Blob::attaqueSpeciale(Blob *blob, Speciale *speciale)
 
 bool Blob::isTypeBetter(Blob *blob)
 {
-    if (this->getType()->estResistant() == blob->getType()->estSensible())
+    if (this->getType()->estResistant() == blob->getType()->getType())
     {
         setIsBetter(true);
-        std::cout << this->getType() << " A L'AVANTAGE SUR " << blob->getType() << std::endl;
+        std::cout << this->getType()->getType() << " A L'AVANTAGE SUR " << blob->getType()->getType() << std::endl;
+        std::cout << std::endl;
     }
 
     return getIsBetter();
