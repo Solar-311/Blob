@@ -31,16 +31,16 @@ int main(int argc, char *argv[])
 
     /* TESTS */
     // ATTAQUES
-    Soin s = Soin(50, "Attaque soin");
-    Speciale sp = Speciale(60, "Attaque Speciale");
-    Normale n = Normale(40, "Attaque Normale");
+    Soin *s = new Soin(50, "Attaque soin");
+    Speciale *sp = new Speciale(60, "Attaque Speciale");
+    Normale *n = new Normale(40, "Attaque Normale");
 
     // BLOBS
-    Blob *f = new Blob("Fabio", 100, new Eau());
+    Blob *f = new Blob("Fabio", 100, new Eau(), sp, n, s);
     Blob *g = new Blob("FabioGODMODE", 9999, new Plante());
 
     // JOUEUR
-    Joueur *j = new Joueur("Fabio", f);
+    Joueur *j = new Joueur("Fabio", g);
     j->afficherJoueur();
 
     Joueur *j2 = new Joueur("Fabio", f);

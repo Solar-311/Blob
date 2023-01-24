@@ -1,3 +1,7 @@
+/* ########## INCLUDE ########## */
+/* LIBRARY */
+
+/* FILES */
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -17,14 +21,16 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::init_components(){
     this->centre = new QWidget();
-    this->nom = new QLabel("Blob allie!");
+    this->nom = new QLabel("Notre Blob");
     this->type = new QLabel("Feu"); // importer type.h et remplacer Feu
     this->typeAdversaire = new QLabel("Plante"); // pareil
-    this->nomAdversaire = new QLabel("lob adverse"); // pareil
+    this->nomAdversaire = new QLabel("BLob méchant"); // pareil
     this->boutonAtttaqueNormale = new QPushButton("Attaque normale");
-    this->boutonFuir = new QPushButton("Fuir");
+    this->boutonFuir = new QPushButton("Attaque normale");
     this->boutonSoin = new QPushButton("Soin");
     this->boutonAttaqueSpe = new QPushButton("Attaque Speciale !");
+    this->pv = new QLabel("100");
+    this->pvAdversaire = new QLabel("100");
 }
 
 void MainWindow::init_layout(){
@@ -39,21 +45,35 @@ void MainWindow::init_layout(){
     this->gridTrois->addWidget(boutonSoin,1,0);
     this->gridTrois->addWidget(boutonFuir,1,1);
     this->hBoxUn->addWidget(new QLabel("Un"));
-    this->hBoxUn->addWidget(new QLabel("Un"));
-    this->hBoxUn->addWidget(new QPushButton("Un"));
-    this->hBoxDeux->addWidget(new QPushButton("Deux"));
-    this->hBoxDeux->addWidget(new QLabel("Deux"));
-    this->hBoxDeux->addWidget(new QLabel("Deux"));
+    this->hBoxUn->addWidget(new QLabel("deux"));
+    this->hBoxUn->addWidget(new QPushButton("trois"));
+    this->hBoxDeux->addWidget(this->nom);
+    this->hBoxDeux->addWidget(this->pv);
+    this->hBoxDeux->addWidget(this->type);
+    this->hBoxDeux->addWidget(new QPushButton("quatre"));
+    this->hBoxDeux->addWidget(new QLabel("cinq"));
+    this->hBoxDeux->addWidget(new QLabel("six"));
     this->vboxlayout = new QVBoxLayout();
     this->vboxlayout->addLayout(hBoxUn,1);
     this->vboxlayout->addLayout(hBoxDeux,2);
     this->vboxlayout->addLayout(gridTrois,3);
 
     this->centre->setLayout(this->vboxlayout);
+
+        // ...
+        this->hBoxDeux->addWidget(this->nom);
+        this->hBoxDeux->addWidget(this->pv);
+        this->hBoxDeux->addWidget(this->type);
+        // ...
+        this->hBoxUn->addWidget(this->nomAdversaire);
+        this->hBoxUn->addWidget(this->pvAdversaire);
+        this->hBoxUn->addWidget(this->typeAdversaire);
+        // ...
+    }
     //this->imageLabelAdversaire->setPixmap(imageAdversaire);
     //this->imageLabelPerso->setPixmap(imagePerso);
 
-}
+
 
 
 MainWindow::~MainWindow()
