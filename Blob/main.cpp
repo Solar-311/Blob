@@ -44,7 +44,9 @@ int main(int argc, char *argv[])
 
     Joueur *j2 = new Joueur("Fabio", g);
     //j2->afficherJoueur();
-    j2->getBlob()->attaqueSpeciale(j->getBlob(), sp);
+    j2->useNormale(j);
+    j->useSoin();
+    j2->useSpeciale(j);
     j->afficherJoueur();
 
     // ARENE
@@ -52,8 +54,7 @@ int main(int argc, char *argv[])
     Arene *arene = new Arene("ARENA WAR", j, j2);
     //arene->afficherArene();
 
-    /* UI */
-    /*
+    /* UI *//*
     QApplication a(argc, argv);
     MainWindow w;
     w.show();

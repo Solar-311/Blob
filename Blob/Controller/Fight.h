@@ -6,21 +6,17 @@
 #include <iostream>
 #include <stdio.h>
 
+/* FILES */
+
 class Fight{
     private :
 
-
     public :
         /* CONSTRUCTOR */
-        Fight();
 
         /* GETTER & SETTER */
 
-
         /* FUNCTIONS */
-        void useAttaqueSpeciale();
-        void useAttaqueSoin();
-        void useAttaqueNormale();
 };
 
 #endif // FIGHT_H
