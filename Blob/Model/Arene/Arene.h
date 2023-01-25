@@ -14,6 +14,7 @@ class Arene{
         std::string nom;
         Joueur *joueur1;
         Joueur *joueur2;
+        Joueur *currentPlayer;
 
     public :
         /* CONSTRUCTOR */
@@ -29,9 +30,12 @@ class Arene{
         void setJoueur1(Joueur *newJoueur);
         Joueur *getJoueur2();
         void setJoueur2(Joueur *newJoueur2);
+        Joueur *getCurrentPlayer();
+        void setCurrentPlayer(Joueur *newCurrentPlayer);
 
         /* FUNCTIONS */
         void afficherArene();
+        Joueur* changeJoueur();
 };
 
 #endif // ARENE_H

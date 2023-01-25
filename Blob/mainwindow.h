@@ -16,6 +16,9 @@
 
 
 
+/* FILES */
+#include "Model/Joueur/Joueur.h"
+#include "Model/Arene/Arene.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -36,8 +39,8 @@ class MainWindow : public QMainWindow
         QLabel* type;
         QLabel* pv;
         QLabel* pvAdversaire;
-        QLabel* imageBlobAlier;
-        QLabel* imageBlobEnnemie;
+        QLabel* imageBlobAllier; // Allié = Joueur 1
+        QLabel* imageBlobEnnemie; // Adversaire = Joueur 2
         QMovie mv;
 
 
@@ -62,6 +65,9 @@ class MainWindow : public QMainWindow
         /* INIT */
         void init_components();
         void init_layout();
+
+        /* FUNCTIONS */
+        void playerButton(Joueur *currentPlayer);
         void init_slots();
 
 public slots :

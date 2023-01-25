@@ -8,6 +8,7 @@ Arene::Arene()
     this->nom = "Arene";
     this->joueur1 = new Joueur();
     this->joueur2 = new Joueur();
+    this->currentPlayer = new Joueur();
 }
 
 Arene::Arene(std::string nom)
@@ -15,6 +16,7 @@ Arene::Arene(std::string nom)
     this->nom = nom;
     this->joueur1 = new Joueur();
     this->joueur2 = new Joueur();
+    this->currentPlayer = new Joueur();
 }
 
 Arene::Arene(std::string nom, Joueur *joueur1)
@@ -22,6 +24,7 @@ Arene::Arene(std::string nom, Joueur *joueur1)
     this->nom = nom;
     this->joueur1 = joueur1;
     this->joueur2 = new Joueur();
+    this->currentPlayer = new Joueur();
 }
 
 Arene::Arene(std::string nom, Joueur *joueur1, Joueur *joueur2)
@@ -29,6 +32,7 @@ Arene::Arene(std::string nom, Joueur *joueur1, Joueur *joueur2)
     this->nom = nom;
     this->joueur1 = joueur1;
     this->joueur2 = joueur2;
+    this->currentPlayer = joueur1;
 }
 
 /* ######## GETTER & SETTER ######## */
@@ -62,6 +66,16 @@ void Arene::setNom(std::string newNom)
     nom = newNom;
 }
 
+Joueur *Arene::getCurrentPlayer()
+{
+    return currentPlayer;
+}
+
+void Arene::setCurrentPlayer(Joueur *newCurrentPlayer)
+{
+    currentPlayer = newCurrentPlayer;
+}
+
 /* ######## FUNCTIONS ######## */
 void Arene::afficherArene()
 {
@@ -79,4 +93,19 @@ void Arene::afficherArene()
     std::cout << std::endl;
     std::cout << "+-----------------------------------------------+" << std::endl;
     std::cout << std::endl;
+}
+
+Joueur* Arene::changeJoueur()
+{
+    if(this->getCurrentPlayer() == this->getJoueur1())
+    {
+        this->setCurrentPlayer(this->getJoueur2());
+    }
+
+    else
+    {
+        this->setCurrentPlayer(this->getJoueur1());
+    }
+
+    return this->getCurrentPlayer();
 }

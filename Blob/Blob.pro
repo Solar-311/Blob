@@ -9,7 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    Controller/Fight.cpp \
+    Controller/Empty.cpp \
     Model/Arene/Arene.cpp \
     Model/Attaque/Normale.cpp \
     Model/Attaque/Soin.cpp \
@@ -27,7 +27,7 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
-    Controller/Fight.h \
+    Controller/Empty.h \
     Model/Arene/Arene.h \
     Model/Attaque/Normale.h \
     Model/Attaque/Soin.h \
@@ -51,4 +51,5 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES +=
+DISTFILES += \
+    Others/Images/Empty.txt
