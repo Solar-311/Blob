@@ -8,15 +8,17 @@
 
 MainWindow::MainWindow(Arene *arene, QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainWindow)
 {
+    this->arene = arene;
     ui->setupUi(this);
-    QPixmap bkgrnd("../../../Blob/Others/Images/Background.png");
+    QPixmap bkgrnd(":Images/Images/Background.png");
     QPalette palette;
     bkgrnd = bkgrnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     palette.setBrush(QPalette::Window, bkgrnd);
     this->setPalette(palette);
     this->setWindowTitle("Blob");
-    this->setGeometry(100,100,800,600);
-    this->arene = arene;
+    this->setGeometry(100,100,960,448);
+    // Centrer image, et adapter a la taille
+
 
     /* INITS */
     this->init_components();
@@ -32,7 +34,7 @@ void MainWindow::init_components(){
     /* JOUEUR 2 */
     // Image Blob
     this->imageBlobJoueur2 = new QLabel();
-    QMovie *videoBlobJoueur2= new QMovie("C:/Users/Morin/Pictures/giphy.gif");
+    QMovie *videoBlobJoueur2= new QMovie(":Images/Images/GreenBlob.gif");
     videoBlobJoueur2->setScaledSize(QSize(100, 100));
     this->imageBlobJoueur2->setMovie(videoBlobJoueur2);
     videoBlobJoueur2->start();
@@ -46,7 +48,7 @@ void MainWindow::init_components(){
     /* JOUEUR 1 */
     // Image Blob
     this->imageBlobJoueur1 = new QLabel();
-    QMovie *videoBlobJoueur1= new QMovie("C:/Users/Morin/Pictures/Fabio.gif");
+    QMovie *videoBlobJoueur1= new QMovie(":Images/Images/BlobFabio.gif");
     videoBlobJoueur1->setScaledSize(QSize(100, 100));
     this->imageBlobJoueur1->setMovie(videoBlobJoueur1);
     videoBlobJoueur1->start();
