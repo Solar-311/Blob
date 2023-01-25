@@ -27,14 +27,14 @@ void MainWindow::init_components(){
 
     /* COMPONENTS LAYOUT BACK */
     // Image Blob
-    this->imageBlobAlier = new QLabel();
+    this->imageBlobAllier = new QLabel();
     QMovie *mavideo= new QMovie("C:/Users/Morin/Pictures/giphy.gif");
     mavideo->setScaledSize(QSize(100,100));
-    this->imageBlobAlier->setMovie(mavideo);
+    this->imageBlobAllier->setMovie(mavideo);
     mavideo->start();
     // Components
     this->typeAdversaire = new QLabel("Plante"); // pareil
-    this->nomAdversaire = new QLabel("BLob méchant"); // pareil
+    this->nomAdversaire = new QLabel(); // pareil
     this->pvAdversaire = new QLabel("100");
 
     /* COMPONENTS LAYOUT FRONT */
@@ -89,7 +89,7 @@ void MainWindow::init_layout(){
     this->hBoxDeux->addWidget(new QPushButton("quatre"));
     this->hBoxDeux->addWidget(new QLabel("cinq"));
     this->hBoxDeux->addWidget(new QLabel("six"));
-    this->hBoxDeux->addWidget(this->imageBlobAlier);
+    this->hBoxDeux->addWidget(this->imageBlobAllier);
 
     /* ADD COMPONENTS CENTRAL LAYOUT */
     this->vboxlayout = new QVBoxLayout();
@@ -105,11 +105,6 @@ void MainWindow::init_layout(){
 void MainWindow::init_slots(){
     connect(this->boutonFuir, SIGNAL(clicked()),this,SLOT(fenetrechoix()));
 }
-
-
-
-
-
 
 MainWindow::~MainWindow()
 {

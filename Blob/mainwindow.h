@@ -39,8 +39,8 @@ class MainWindow : public QMainWindow
         QLabel* type;
         QLabel* pv;
         QLabel* pvAdversaire;
-        QLabel* imageBlobAlier;
-        QLabel* imageBlobEnnemie;
+        QLabel* imageBlobAllier; // Allié = Joueur 1
+        QLabel* imageBlobEnnemie; // Adversaire = Joueur 2
         QMovie mv;
         QMainWindow *fenetreChoix;
 
