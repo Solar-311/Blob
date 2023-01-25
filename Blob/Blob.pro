@@ -52,4 +52,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    Others/Images/Empty.txt
+    Others/Images/Background.png \
+    Others/Images/BlobFabio.gif \
+    Others/Images/GreenBlob.gif \
+    Others/Images/Maskass.png

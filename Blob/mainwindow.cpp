@@ -10,9 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QPixmap bkgrnd("C:/Users/Morin/Pictures/d83m36e-3b58ca48-fe8a-456e-9ffc-a5a84eca6613.png");
+    QPixmap bkgrnd("/Others/Images/Background.png");
     QPalette palette;
-    bkgrnd =bkgrnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    bkgrnd = bkgrnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     palette.setBrush(QPalette::Window, bkgrnd);
     this->setPalette(palette);
     this->setWindowTitle("Blob");
