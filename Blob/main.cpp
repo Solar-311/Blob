@@ -11,8 +11,6 @@
 // ARENE
 #include "Model/Arene/Arene.h"
 
-// ATTAQUE
-
 // JOUEUR
 #include "Model/Joueur/Joueur.h"
 
