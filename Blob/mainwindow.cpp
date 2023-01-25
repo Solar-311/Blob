@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setGeometry(100,100,800,600);
     this->init_components();
     this->init_layout();
+    this->init_slots();
 }
 
 void MainWindow::init_components(){
