@@ -51,3 +51,21 @@ void Joueur::afficherJoueur()
     this->getBlob()->afficheBlob();
     std::cout << "+----------------------------+" << std::endl;
 }
+
+int Joueur::useSpeciale(Joueur *target)
+{
+    int speciale = this->getBlob()->attaqueSpeciale(target->getBlob(), this->getBlob()->getSpeciale());
+    return speciale;
+}
+
+int Joueur::useSoin()
+{
+    int soin = this->getBlob()->mettreSoins(this->getBlob(), this->getBlob()->getSoin());
+    return soin;
+}
+
+int Joueur::useNormale(Joueur *target)
+{
+    int normale = this->getBlob()->attaqueNormale(target->getBlob(), this->getBlob()->getNormale());
+    return normale;
+}

@@ -28,6 +28,9 @@ class Joueur {
 
         /* FUNCTIONS */
         void afficherJoueur();
+        int useSpeciale(Joueur *target);
+        int useSoin();
+        int useNormale(Joueur *target);
 };
 
 #endif // JOUEUR_H

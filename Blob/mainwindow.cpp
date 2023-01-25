@@ -32,81 +32,127 @@ layout->addWidget(imageAdversaire, 3, 1);
 =======
 /* ########## INCLUDE ########## */
 /* LIBRARY */
+#include <iostream>
 
 /* FILES */
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+MainWindow::MainWindow(Arene *arene, QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-
+    QPixmap bkgrnd("../../../Blob/Others/Images/Background.png");
+    QPalette palette;
+    bkgrnd = bkgrnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    palette.setBrush(QPalette::Window, bkgrnd);
+    this->setPalette(palette);
     this->setWindowTitle("Blob");
     this->setGeometry(100,100,800,600);
+    this->arene = arene;
+    /* INITS */
     this->init_components();
     this->init_layout();
+    this->init_slots();
+
 
 }
 
 void MainWindow::init_components(){
+    /* CENTRAL WIDGET */
     this->centre = new QWidget();
-    this->nom = new QLabel("Notre Blob");
-    this->type = new QLabel("Feu"); // importer type.h et remplacer Feu
-    this->typeAdversaire = new QLabel("Plante"); // pareil
-    this->nomAdversaire = new QLabel("BLob méchant"); // pareil
-    this->boutonAtttaqueNormale = new QPushButton("Attaque normale");
-    this->boutonFuir = new QPushButton("Attaque normale");
-    this->boutonSoin = new QPushButton("Soin");
-    this->boutonAttaqueSpe = new QPushButton("Attaque Speciale !");
-    this->pv = new QLabel("100");
-    this->pvAdversaire = new QLabel("100");
+
+    /* COMPONENTS LAYOUT BACK */
+    /* JOUEUR 2 */
+    // Image Blob
+    this->imageBlobJoueur2 = new QLabel();
+    QMovie *videoBlobJoueur2= new QMovie("C:/Users/Morin/Pictures/giphy.gif");
+    videoBlobJoueur2->setScaledSize(QSize(100, 100));
+    this->imageBlobJoueur2->setMovie(videoBlobJoueur2);
+    videoBlobJoueur2->start();
+    // Components
+    Joueur* j = this->arene->getJoueur2();
+    j->getBlob();
+    this->typeJoueur2 = new QLabel( QString::fromStdString(this->arene->getJoueur2()->getBlob()->getType()->getType()) );
+    this->nomBlobJoueur2 = new QLabel( QString::fromStdString(this->arene->getJoueur2()->getBlob()->getNom()) );
+    this->pvCourantJoueur2 = new QLabel ( QString::number(this->arene->getJoueur2()->getBlob()->getPv_courant()) );
+    this->nomJoueur2 = new QLabel( QString::fromStdString(this->arene->getJoueur2()->getNom()) );
+
+    /* COMPONENTS LAYOUT FRONT */
+    /* JOUEUR 1 */
+    // Image Blob
+    this->imageBlobJoueur1 = new QLabel();
+    QMovie *videoBlobJoueur1= new QMovie("C:/Users/Morin/Pictures/Fabio.gif");
+    videoBlobJoueur1->setScaledSize(QSize(100, 100));
+    this->imageBlobJoueur1->setMovie(videoBlobJoueur1);
+    videoBlobJoueur1->start();
+    // Components
+    this->typeJoueur1 = new QLabel( QString::fromStdString(this->arene->getJoueur1()->getBlob()->getType()->getType()) );
+    this->nomBlobJoueur1 = new QLabel( QString::fromStdString(this->arene->getJoueur1()->getBlob()->getNom()) );
+    this->pvCourantJoueur1 = new QLabel ( QString::number(this->arene->getJoueur1()->getBlob()->getPv_courant()) );
+    this->nomJoueur1 = new QLabel( QString::fromStdString(this->arene->getJoueur1()->getNom()) );
+
+    /* COMPONENT ATTAQUES */
+    this->boutonNormale = new QPushButton( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getNormale()->getNom()) );
+    this->boutonSoin = new QPushButton( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getSoin()->getNom()) );
+    this->boutonSpeciale = new QPushButton( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getSpeciale()->getNom()) );
+    this->boutonPasserTour = new QPushButton("PASSER");
 }
 
 void MainWindow::init_layout(){
-    QString imagePath ="C:/Users/Morin/Pictures/d83m36e-3b58ca48-fe8a-456e-9ffc-a5a84eca6613.png";
+    /* CENTRAL WIDGET */
     this->setCentralWidget(this->centre);
-    this->centre->setStyleSheet("background-image: url("+imagePath+");");
+
+    /* LAYOUT JOUEUR BACK */
     this->hBoxUn = new QHBoxLayout();
+
+    /* LAYOUT JOUEUR FRONT */
     this->hBoxDeux = new QHBoxLayout();
+
+    /* LAYOUT BOUTONS ATTAQUES */
     this->gridTrois = new QGridLayout();
-    this->gridTrois->addWidget(boutonAtttaqueNormale,0,0);
-    this->gridTrois->addWidget(boutonAttaqueSpe,0,1);
+    this->gridTrois->addWidget(boutonNormale,0,0);
+    this->gridTrois->addWidget(boutonSpeciale,0,1);
     this->gridTrois->addWidget(boutonSoin,1,0);
-    this->gridTrois->addWidget(boutonFuir,1,1);
+    this->gridTrois->addWidget(boutonPasserTour,1,1);
+
+    /* ADD COMPONENTS LAYOUT BACK */
     this->hBoxUn->addWidget(new QLabel("Un"));
     this->hBoxUn->addWidget(new QLabel("deux"));
     this->hBoxUn->addWidget(new QPushButton("trois"));
-    this->hBoxDeux->addWidget(this->nom);
-    this->hBoxDeux->addWidget(this->pv);
-    this->hBoxDeux->addWidget(this->type);
+    this->hBoxUn->addWidget(this->nomBlobJoueur2);
+    this->hBoxUn->addWidget(this->pvCourantJoueur2);
+    this->hBoxUn->addWidget(this->typeJoueur2);
+    this->hBoxUn->addWidget(this->imageBlobJoueur2);
+
+    /* ADD COMPONENTS LAYOUT FRONT */
+    this->hBoxDeux->addWidget(this->nomBlobJoueur1);
+    this->hBoxDeux->addWidget(this->pvCourantJoueur1);
+    this->hBoxDeux->addWidget(this->typeJoueur1);
     this->hBoxDeux->addWidget(new QPushButton("quatre"));
     this->hBoxDeux->addWidget(new QLabel("cinq"));
     this->hBoxDeux->addWidget(new QLabel("six"));
+    this->hBoxDeux->addWidget(this->imageBlobJoueur1);
+
+    /* ADD COMPONENTS CENTRAL LAYOUT */
     this->vboxlayout = new QVBoxLayout();
     this->vboxlayout->addLayout(hBoxUn,1);
     this->vboxlayout->addLayout(hBoxDeux,2);
     this->vboxlayout->addLayout(gridTrois,3);
 
+    /* SET VLAYOUT TO CENTRAL */
     this->centre->setLayout(this->vboxlayout);
-
-        // ...
-        this->hBoxDeux->addWidget(this->nom);
-        this->hBoxDeux->addWidget(this->pv);
-        this->hBoxDeux->addWidget(this->type);
-        // ...
-        this->hBoxUn->addWidget(this->nomAdversaire);
-        this->hBoxUn->addWidget(this->pvAdversaire);
-        this->hBoxUn->addWidget(this->typeAdversaire);
-        // ...
-    }
-    //this->imageLabelAdversaire->setPixmap(imageAdversaire);
-    //this->imageLabelPerso->setPixmap(imagePerso);
+}
 
 
+void MainWindow::init_slots(){
+    connect(this->boutonPasserTour, SIGNAL(clicked()),this,SLOT(fermeJeux()));
+}
 
+
+void MainWindow::fermeJeux(){
+    std::cout<<"aaaahhh"<<std::endl;
+    this->close();
+}
 
 MainWindow::~MainWindow()
 {
