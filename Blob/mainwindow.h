@@ -38,9 +38,13 @@ class MainWindow : public QMainWindow
 
         /* LAYOUT */
         QVBoxLayout* vboxlayout;
-        QHBoxLayout* hBoxUn;
-        QHBoxLayout* hBoxDeux;
         QGridLayout* gridTrois;
+        QHBoxLayout* hBoxL;
+        QVBoxLayout* vBoxTopL;
+        QVBoxLayout* vBoxBottomL;
+        QHBoxLayout* hBoxR;
+        QVBoxLayout* vBoxTopR;
+        QVBoxLayout* vBoxBottomR;
 
         /* JOUEUR 1 */
         QLabel* nomBlobJoueur1;
@@ -73,8 +77,11 @@ class MainWindow : public QMainWindow
         void playerButton(Joueur *currentPlayer);
         void init_slots();
 
-public slots :
+    public slots :
         void fermeJeux();
-
+        void slotChangeJoueur();
+        void slotNormale();
+        void slotSoins();
+        void slotSpeciale();
 };
 #endif // MAINWINDOW_H

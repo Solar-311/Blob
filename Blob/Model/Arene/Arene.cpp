@@ -9,6 +9,7 @@ Arene::Arene()
     this->joueur1 = new Joueur();
     this->joueur2 = new Joueur();
     this->currentPlayer = new Joueur();
+    this->notCurrentPlayer = new Joueur();
 }
 
 Arene::Arene(std::string nom)
@@ -17,6 +18,7 @@ Arene::Arene(std::string nom)
     this->joueur1 = new Joueur();
     this->joueur2 = new Joueur();
     this->currentPlayer = new Joueur();
+    this->notCurrentPlayer = new Joueur();
 }
 
 Arene::Arene(std::string nom, Joueur *joueur1)
@@ -25,6 +27,7 @@ Arene::Arene(std::string nom, Joueur *joueur1)
     this->joueur1 = joueur1;
     this->joueur2 = new Joueur();
     this->currentPlayer = new Joueur();
+    this->notCurrentPlayer = new Joueur();
 }
 
 Arene::Arene(std::string nom, Joueur *joueur1, Joueur *joueur2)
@@ -33,6 +36,7 @@ Arene::Arene(std::string nom, Joueur *joueur1, Joueur *joueur2)
     this->joueur1 = joueur1;
     this->joueur2 = joueur2;
     this->currentPlayer = joueur1;
+    this->notCurrentPlayer = joueur2;
 }
 
 /* ######## GETTER & SETTER ######## */
@@ -76,6 +80,16 @@ void Arene::setCurrentPlayer(Joueur *newCurrentPlayer)
     currentPlayer = newCurrentPlayer;
 }
 
+Joueur *Arene::getNotCurrentPlayer()
+{
+    return notCurrentPlayer;
+}
+
+void Arene::setNotCurrentPlayer(Joueur *newNotCurrentPlayer)
+{
+    notCurrentPlayer = newNotCurrentPlayer;
+}
+
 /* ######## FUNCTIONS ######## */
 void Arene::afficherArene()
 {
@@ -100,11 +114,13 @@ Joueur* Arene::changeJoueur()
     if(this->getCurrentPlayer() == this->getJoueur1())
     {
         this->setCurrentPlayer(this->getJoueur2());
+        this->setNotCurrentPlayer(this->getJoueur1());
     }
 
     else
     {
         this->setCurrentPlayer(this->getJoueur1());
+        this->setNotCurrentPlayer(this->getJoueur2());
     }
 
     return this->getCurrentPlayer();

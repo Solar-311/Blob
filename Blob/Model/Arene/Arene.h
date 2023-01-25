@@ -15,6 +15,7 @@ class Arene{
         Joueur *joueur1;
         Joueur *joueur2;
         Joueur *currentPlayer;
+        Joueur *notCurrentPlayer;
 
     public :
         /* CONSTRUCTOR */
@@ -32,6 +33,8 @@ class Arene{
         void setJoueur2(Joueur *newJoueur2);
         Joueur *getCurrentPlayer();
         void setCurrentPlayer(Joueur *newCurrentPlayer);
+        Joueur *getNotCurrentPlayer();
+        void setNotCurrentPlayer(Joueur *newNotCurrentPlayer);
 
         /* FUNCTIONS */
         void afficherArene();

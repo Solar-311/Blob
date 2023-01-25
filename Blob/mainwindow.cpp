@@ -38,7 +38,7 @@ void MainWindow::init_components(){
     // Image Blob
     this->imageBlobJoueur2 = new QLabel();
     QMovie *videoBlobJoueur2= new QMovie(":Images/Images/GreenBlob.gif");
-    videoBlobJoueur2->setScaledSize(QSize(100, 100));
+    videoBlobJoueur2->setScaledSize(QSize(150, 150));
     this->imageBlobJoueur2->setMovie(videoBlobJoueur2);
     videoBlobJoueur2->start();
     // Components
@@ -52,7 +52,7 @@ void MainWindow::init_components(){
     // Image Blob
     this->imageBlobJoueur1 = new QLabel();
     QMovie *videoBlobJoueur1= new QMovie(":Images/Images/BlobFabio.gif");
-    videoBlobJoueur1->setScaledSize(QSize(100, 100));
+    videoBlobJoueur1->setScaledSize(QSize(150, 150));
     this->imageBlobJoueur1->setMovie(videoBlobJoueur1);
     videoBlobJoueur1->start();
     // Components
@@ -65,18 +65,18 @@ void MainWindow::init_components(){
     this->boutonNormale = new QPushButton( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getNormale()->getNom()) );
     this->boutonSoin = new QPushButton( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getSoin()->getNom()) );
     this->boutonSpeciale = new QPushButton( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getSpeciale()->getNom()) );
-    this->boutonPasserTour = new QPushButton("PASSER");
+    this->boutonPasserTour = new QPushButton("TOUR SUIVANT");
 }
 
 void MainWindow::init_layout(){
     /* CENTRAL WIDGET */
     this->setCentralWidget(this->centre);
-
-    /* LAYOUT JOUEUR BACK */
-    this->hBoxUn = new QHBoxLayout();
-
-    /* LAYOUT JOUEUR FRONT */
-    this->hBoxDeux = new QHBoxLayout();
+    this->hBoxL = new QHBoxLayout();
+    this->vBoxTopL = new QVBoxLayout();
+    this->vBoxBottomL = new QVBoxLayout();
+    this->hBoxR = new QHBoxLayout();
+    this->vBoxTopR = new QVBoxLayout();
+    this->vBoxBottomR = new QVBoxLayout();
 
     /* LAYOUT BOUTONS ATTAQUES */
     this->gridTrois = new QGridLayout();
@@ -86,40 +86,62 @@ void MainWindow::init_layout(){
     this->gridTrois->addWidget(boutonPasserTour,1,1);
 
     /* ADD COMPONENTS LAYOUT BACK */
-    this->hBoxUn->addWidget(new QLabel("Un"));
-    this->hBoxUn->addWidget(new QLabel("deux"));
-    this->hBoxUn->addWidget(new QPushButton("trois"));
-    this->hBoxUn->addWidget(this->nomBlobJoueur2);
-    this->hBoxUn->addWidget(this->pvCourantJoueur2);
-    this->hBoxUn->addWidget(this->typeJoueur2);
-    this->hBoxUn->addWidget(this->imageBlobJoueur2);
+    this->vBoxTopL->addWidget(this->nomJoueur2);
+    this->vBoxTopL->addWidget(this->nomBlobJoueur2);
+    this->vBoxTopL->addWidget(this->pvCourantJoueur2);
+    this->vBoxTopR->addWidget(this->imageBlobJoueur2);
 
     /* ADD COMPONENTS LAYOUT FRONT */
-    this->hBoxDeux->addWidget(this->nomBlobJoueur1);
-    this->hBoxDeux->addWidget(this->pvCourantJoueur1);
-    this->hBoxDeux->addWidget(this->typeJoueur1);
-    this->hBoxDeux->addWidget(new QPushButton("quatre"));
-    this->hBoxDeux->addWidget(new QLabel("cinq"));
-    this->hBoxDeux->addWidget(new QLabel("six"));
-    this->hBoxDeux->addWidget(this->imageBlobJoueur1);
+    this->vBoxTopL->addWidget(this->nomJoueur1);
+    this->vBoxTopL->addWidget(this->nomBlobJoueur1);
+    this->vBoxTopL->addWidget(this->pvCourantJoueur1);
+    this->vBoxBottomL->addWidget(this->imageBlobJoueur1);
 
     /* ADD COMPONENTS CENTRAL LAYOUT */
     this->vboxlayout = new QVBoxLayout();
-    this->vboxlayout->addLayout(hBoxUn,1);
-    this->vboxlayout->addLayout(hBoxDeux,2);
-    this->vboxlayout->addLayout(gridTrois,3);
+    this->vboxlayout->addLayout(hBoxL);
+    this->vboxlayout->addLayout(hBoxR);
+    this->hBoxL->addLayout(vBoxTopL);
+    this->hBoxL->addLayout(vBoxBottomL);
+    this->hBoxR->addLayout(vBoxTopR);
+    this->hBoxR->addLayout(vBoxBottomR);
+    this->vBoxBottomR->addLayout(gridTrois,3);
 
     /* SET VLAYOUT TO CENTRAL */
     this->centre->setLayout(this->vboxlayout);
 }
 
+/* SLOTS */
 void MainWindow::init_slots(){
-    connect(this->boutonPasserTour, SIGNAL(clicked()),this,SLOT(fermeJeux()));
+    connect(this->boutonPasserTour, &QPushButton::released, this, &MainWindow::slotChangeJoueur);
+    connect(this->boutonNormale, &QPushButton::released, this, &MainWindow::slotNormale);
+    connect(this->boutonSoin, &QPushButton::released, this, &MainWindow::slotSoins);
+    connect(this->boutonSpeciale, &QPushButton::released, this, &MainWindow::slotSpeciale);
 }
 
 void MainWindow::fermeJeux(){
     std::cout<<"aaaahhh"<<std::endl;
     this->close();
+}
+
+void MainWindow::slotChangeJoueur()
+{
+    this->arene->changeJoueur();
+}
+
+void MainWindow::slotNormale()
+{
+    this->arene->getCurrentPlayer()->useNormale(this->arene->getNotCurrentPlayer());
+}
+
+void MainWindow::slotSoins()
+{
+    this->arene->getCurrentPlayer()->useSoin();
+}
+
+void MainWindow::slotSpeciale()
+{
+    this->arene->getCurrentPlayer()->useSpeciale(this->arene->getNotCurrentPlayer());
 }
 
 MainWindow::~MainWindow()
