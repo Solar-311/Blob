@@ -12,6 +12,9 @@
 #include <QLabel>
 #include <QPixmap>
 #include <QRect>
+#include <QMovie>
+
+
 
 
 QT_BEGIN_NAMESPACE
@@ -33,6 +36,10 @@ class MainWindow : public QMainWindow
         QLabel* type;
         QLabel* pv;
         QLabel* pvAdversaire;
+        QLabel* imageBlobAlier;
+        QLabel* imageBlobEnnemie;
+        QMovie mv;
+        QMainWindow *fenetreChoix;
 
         /* LAYOUT */
         QVBoxLayout* vboxlayout;
@@ -55,5 +62,7 @@ class MainWindow : public QMainWindow
         /* INIT */
         void init_components();
         void init_layout();
+        void init_slots();
+        void fenetrechoix();
 };
 #endif // MAINWINDOW_H
