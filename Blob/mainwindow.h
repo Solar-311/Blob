@@ -42,7 +42,7 @@ class MainWindow : public QMainWindow
         QLabel* imageBlobAllier; // Allié = Joueur 1
         QLabel* imageBlobEnnemie; // Adversaire = Joueur 2
         QMovie mv;
-        QMainWindow *fenetreChoix;
+
 
         /* LAYOUT */
         QVBoxLayout* vboxlayout;
@@ -69,6 +69,8 @@ class MainWindow : public QMainWindow
         /* FUNCTIONS */
         void playerButton(Joueur *currentPlayer);
         void init_slots();
-        void fenetrechoix();
+
+public slots :
+        void fermeJeux();
 };
 #endif // MAINWINDOW_H
