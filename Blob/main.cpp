@@ -37,23 +37,18 @@ int main(int argc, char *argv[])
     Blob *g = new Blob("FabioGODMODE", 9999, new Plante(), sp, n, s);
 
     // JOUEUR
-    Joueur *j = new Joueur("Noob", f);
+    Joueur *j1 = new Joueur("Noob", f);
     //j->afficherJoueur();
 
     Joueur *j2 = new Joueur("Fabio", g);
     //j2->afficherJoueur();
-    j2->useNormale(j);
-    j->useSoin();
-    j2->useSpeciale(j);
-    j->afficherJoueur();
 
     // ARENE
-    Arene *arene = new Arene("ARENA WAR", j, j2);
+    Arene *arene = new Arene("ARENA WAR", j1, j2);
     //arene->afficherArene();
 
-
     QApplication a(argc, argv);
-    MainWindow w;
+    MainWindow w (arene) ;
     w.show();
     return a.exec();
 

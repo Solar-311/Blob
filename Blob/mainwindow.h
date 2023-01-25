@@ -29,20 +29,13 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
     public:
-        MainWindow(QWidget *parent = nullptr);
+        Arene *arene;
+        MainWindow(Arene *arene, QWidget *parent = nullptr);
         ~MainWindow();
 
     private:
         Ui::MainWindow *ui;
         QWidget* centre;
-        QLabel* nom;
-        QLabel* type;
-        QLabel* pv;
-        QLabel* pvAdversaire;
-        QLabel* imageBlobAllier; // Allié = Joueur 1
-        QLabel* imageBlobEnnemie; // Adversaire = Joueur 2
-        QMovie mv;
-
 
         /* LAYOUT */
         QVBoxLayout* vboxlayout;
@@ -50,21 +43,31 @@ class MainWindow : public QMainWindow
         QHBoxLayout* hBoxDeux;
         QGridLayout* gridTrois;
 
-        /* ELEMENTS */
-        QPushButton* boutonAtttaqueNormale;
+        /* JOUEUR 1 */
+        QLabel* nomBlobJoueur1;
+        QLabel* nomJoueur1;
+        QLabel* typeJoueur1;
+        QLabel* pvCourantJoueur1;
+        QLabel* imageBlobJoueur1;
+
+        /* JOUEUR 2 */
+        QLabel* nomBlobJoueur2;
+        QLabel* nomJoueur2;
+        QLabel* typeJoueur2;
+        QLabel* pvCourantJoueur2;
+        QLabel* imageBlobJoueur2;
+
+        /* BOUTONS */
+        QPushButton* boutonNormale;
         QPushButton* boutonSoin;
-        QPushButton* boutonFuir;//abandonne le combat
-        QPushButton* boutonAttaqueSpe;
-        QLabel* nomAdversaire;
-        QLabel* typeAdversaire;
-        QPixmap* imageAdversaire;
-        QPixmap* imagePerso;
-        QLabel* imageLabelPerso;
-        QLabel* imageLabelAdversaire;
+        QPushButton* boutonSpeciale;
+        QPushButton* boutonPasserTour;
 
         /* INIT */
         void init_components();
         void init_layout();
+
+        /* GETTER & SETTER */
 
         /* FUNCTIONS */
         void playerButton(Joueur *currentPlayer);
