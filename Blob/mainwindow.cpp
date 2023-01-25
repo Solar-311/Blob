@@ -28,7 +28,7 @@ void MainWindow::init_components(){
     this->boutonAtttaqueNormale = new QPushButton("Attaque normale");
     this->boutonFuir = new QPushButton("Attaque normale");
     this->boutonSoin = new QPushButton("Soin");
-    this->boutonAttaqueSpe = new QPushButton("Attaque Speciale !");
+    this->boutonAttaqueSpe = new QPushButton("Attaque Speciale !"); // this.getcurrentplayer().getAttribut
     this->pv = new QLabel("100");
     this->pvAdversaire = new QLabel("100");
 }
@@ -39,11 +39,11 @@ void MainWindow::init_layout(){
     this->centre->setStyleSheet("background-image: url("+imagePath+");");
     this->hBoxUn = new QHBoxLayout();
     this->hBoxDeux = new QHBoxLayout();
-    this->gridTrois = new QGridLayout();
-    this->gridTrois->addWidget(boutonAtttaqueNormale,0,0);
-    this->gridTrois->addWidget(boutonAttaqueSpe,0,1);
-    this->gridTrois->addWidget(boutonSoin,1,0);
-    this->gridTrois->addWidget(boutonFuir,1,1);
+                            this->gridTrois = new QGridLayout();
+                            this->gridTrois->addWidget(boutonAtttaqueNormale,0,0);
+                            this->gridTrois->addWidget(boutonAttaqueSpe,0,1);
+                            this->gridTrois->addWidget(boutonSoin,1,0);
+                            this->gridTrois->addWidget(boutonFuir,1,1);
     this->hBoxUn->addWidget(new QLabel("Un"));
     this->hBoxUn->addWidget(new QLabel("deux"));
     this->hBoxUn->addWidget(new QPushButton("trois"));
@@ -60,15 +60,15 @@ void MainWindow::init_layout(){
 
     this->centre->setLayout(this->vboxlayout);
 
-        // ...
-        this->hBoxDeux->addWidget(this->nom);
-        this->hBoxDeux->addWidget(this->pv);
-        this->hBoxDeux->addWidget(this->type);
-        // ...
-        this->hBoxUn->addWidget(this->nomAdversaire);
-        this->hBoxUn->addWidget(this->pvAdversaire);
-        this->hBoxUn->addWidget(this->typeAdversaire);
-        // ...
+    // ...
+    this->hBoxDeux->addWidget(this->nom);
+    this->hBoxDeux->addWidget(this->pv);
+    this->hBoxDeux->addWidget(this->type);
+    // ...
+    this->hBoxUn->addWidget(this->nomAdversaire);
+    this->hBoxUn->addWidget(this->pvAdversaire);
+    this->hBoxUn->addWidget(this->typeAdversaire);
+    // ...
     }
     //this->imageLabelAdversaire->setPixmap(imageAdversaire);
     //this->imageLabelPerso->setPixmap(imagePerso);

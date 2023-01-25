@@ -13,6 +13,8 @@
 #include <QPixmap>
 #include <QRect>
 
+/* FILES */
+#include "Model/Joueur/Joueur.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -55,5 +57,8 @@ class MainWindow : public QMainWindow
         /* INIT */
         void init_components();
         void init_layout();
+
+        /* FUNCTIONS */
+        void playerButton(Joueur *currentPlayer);
 };
 #endif // MAINWINDOW_H
