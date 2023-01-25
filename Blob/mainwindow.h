@@ -39,7 +39,7 @@ class MainWindow : public QMainWindow
         QLabel* imageBlobAlier;
         QLabel* imageBlobEnnemie;
         QMovie mv;
-        QMainWindow *fenetreChoix;
+
 
         /* LAYOUT */
         QVBoxLayout* vboxlayout;
@@ -63,6 +63,8 @@ class MainWindow : public QMainWindow
         void init_components();
         void init_layout();
         void init_slots();
-        void fenetrechoix();
+
+public slots :
+        void fermeJeux();
 };
 #endif // MAINWINDOW_H

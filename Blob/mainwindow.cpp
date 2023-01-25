@@ -4,6 +4,7 @@
 /* FILES */
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -43,7 +44,7 @@ void MainWindow::init_components(){
     this->typeAdversaire = new QLabel("Plante"); // pareil
     this->nomAdversaire = new QLabel("BLob méchant"); // pareil
     this->boutonAtttaqueNormale = new QPushButton("Attaque normale");
-    this->boutonFuir = new QPushButton("Fuir");
+    this->boutonFuir = new QPushButton("fuir");
     this->boutonSoin = new QPushButton("Soin");
     this->boutonAttaqueSpe = new QPushButton("Attaque Speciale !");
     this->pv = new QLabel("100");
@@ -90,7 +91,12 @@ void MainWindow::init_layout(){
 
 
 void MainWindow::init_slots(){
-    connect(this->boutonFuir, SIGNAL(clicked()),this,SLOT(fenetrechoix()));
+    connect(this->boutonFuir, SIGNAL(clicked()),this,SLOT(fermeJeux()));
+}
+
+void MainWindow::fermeJeux(){
+    std::cout<<"aaaahhh"<<std::endl;
+    this->close();
 }
 
 
