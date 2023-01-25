@@ -21,8 +21,6 @@ MainWindow::MainWindow(Arene *arene, QWidget *parent) : QMainWindow(parent) , ui
     this->init_components();
     this->init_layout();
     this->init_slots();
-
-
 }
 
 void MainWindow::init_components(){
