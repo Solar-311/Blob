@@ -18,6 +18,7 @@
 
 /* FILES */
 #include "Model/Joueur/Joueur.h"
+#include "Model/Arene/Arene.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -64,13 +65,10 @@ class MainWindow : public QMainWindow
         /* INIT */
         void init_components();
         void init_layout();
-<<<<<<< HEAD
 
         /* FUNCTIONS */
         void playerButton(Joueur *currentPlayer);
-=======
         void init_slots();
         void fenetrechoix();
->>>>>>> cdde4e4f323adfd4b6332e55ba5a05daeae22338
 };
 #endif // MAINWINDOW_H

@@ -35,6 +35,7 @@ class Arene{
 
         /* FUNCTIONS */
         void afficherArene();
+        Joueur* changeJoueur();
 };
 
 #endif // ARENE_H

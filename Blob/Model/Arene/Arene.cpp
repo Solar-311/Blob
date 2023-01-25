@@ -94,3 +94,18 @@ void Arene::afficherArene()
     std::cout << "+-----------------------------------------------+" << std::endl;
     std::cout << std::endl;
 }
+
+Joueur* Arene::changeJoueur()
+{
+    if(this->getCurrentPlayer() == this->getJoueur1())
+    {
+        this->setCurrentPlayer(this->getJoueur2());
+    }
+
+    else
+    {
+        this->setCurrentPlayer(this->getJoueur1());
+    }
+
+    return this->getCurrentPlayer();
+}

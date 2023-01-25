@@ -19,86 +19,87 @@ MainWindow::MainWindow(QWidget *parent)
     this->setGeometry(100,100,800,600);
     this->init_components();
     this->init_layout();
-
 }
 
 void MainWindow::init_components(){
+    /* CENTRAL WIDGET */
     this->centre = new QWidget();
 
+    /* COMPONENTS LAYOUT BACK */
+    // Image Blob
     this->imageBlobAlier = new QLabel();
     QMovie *mavideo= new QMovie("C:/Users/Morin/Pictures/giphy.gif");
     mavideo->setScaledSize(QSize(100,100));
     this->imageBlobAlier->setMovie(mavideo);
+    mavideo->start();
+    // Components
+    this->typeAdversaire = new QLabel("Plante"); // pareil
+    this->nomAdversaire = new QLabel("BLob méchant"); // pareil
+    this->pvAdversaire = new QLabel("100");
 
+    /* COMPONENTS LAYOUT FRONT */
+    // Image Blob
     this->imageBlobEnnemie = new QLabel();
     QMovie *mavideo2= new QMovie("C:/Users/Morin/Pictures/Fabio.gif");
     mavideo2->setScaledSize(QSize(100,100));
     this->imageBlobEnnemie->setMovie(mavideo2);
-
-    mavideo->start();
     mavideo2->start();
-
+    // Components
+    this->pv = new QLabel("100");
     this->nom = new QLabel("Notre Blob");
     this->type = new QLabel("Feu"); // importer type.h et remplacer Feu
-    this->typeAdversaire = new QLabel("Plante"); // pareil
-    this->nomAdversaire = new QLabel("BLob méchant"); // pareil
+
+    /* COMPONENTS BOUTONS ATTAQUES */
     this->boutonAtttaqueNormale = new QPushButton("Attaque normale");
     this->boutonFuir = new QPushButton("Fuir");
     this->boutonSoin = new QPushButton("Soin");
     this->boutonAttaqueSpe = new QPushButton("Attaque Speciale !"); // this.getcurrentplayer().getAttribut
-    this->pv = new QLabel("100");
-    this->pvAdversaire = new QLabel("100");
 }
 
 void MainWindow::init_layout(){
+    /* CENTRAL WIDGET */
     this->setCentralWidget(this->centre);
+
+    /* LAYOUT JOUEUR BACK */
     this->hBoxUn = new QHBoxLayout();
+
+    /* LAYOUT JOUEUR FRONT */
     this->hBoxDeux = new QHBoxLayout();
-                            this->gridTrois = new QGridLayout();
-                            this->gridTrois->addWidget(boutonAtttaqueNormale,0,0);
-                            this->gridTrois->addWidget(boutonAttaqueSpe,0,1);
-                            this->gridTrois->addWidget(boutonSoin,1,0);
-                            this->gridTrois->addWidget(boutonFuir,1,1);
+
+    /* LAYOUT BOUTONS ATTAQUES */
+    this->gridTrois = new QGridLayout();
+    this->gridTrois->addWidget(boutonAtttaqueNormale,0,0);
+    this->gridTrois->addWidget(boutonAttaqueSpe,0,1);
+    this->gridTrois->addWidget(boutonSoin,1,0);
+    this->gridTrois->addWidget(boutonFuir,1,1);
+
+    /* ADD COMPONENTS LAYOUT BACK */
     this->hBoxUn->addWidget(new QLabel("Un"));
     this->hBoxUn->addWidget(new QLabel("deux"));
     this->hBoxUn->addWidget(new QPushButton("trois"));
+    this->hBoxUn->addWidget(this->nomAdversaire);
+    this->hBoxUn->addWidget(this->pvAdversaire);
+    this->hBoxUn->addWidget(this->typeAdversaire);
+    this->hBoxUn->addWidget(this->imageBlobEnnemie);
+
+    /* ADD COMPONENTS LAYOUT FRONT */
     this->hBoxDeux->addWidget(this->nom);
     this->hBoxDeux->addWidget(this->pv);
     this->hBoxDeux->addWidget(this->type);
     this->hBoxDeux->addWidget(new QPushButton("quatre"));
     this->hBoxDeux->addWidget(new QLabel("cinq"));
     this->hBoxDeux->addWidget(new QLabel("six"));
+    this->hBoxDeux->addWidget(this->imageBlobAlier);
+
+    /* ADD COMPONENTS CENTRAL LAYOUT */
     this->vboxlayout = new QVBoxLayout();
     this->vboxlayout->addLayout(hBoxUn,1);
     this->vboxlayout->addLayout(hBoxDeux,2);
     this->vboxlayout->addLayout(gridTrois,3);
 
+    /* SET VLAYOUT TO CENTRAL */
     this->centre->setLayout(this->vboxlayout);
-
-<<<<<<< HEAD
-    // ...
-    this->hBoxDeux->addWidget(this->nom);
-    this->hBoxDeux->addWidget(this->pv);
-    this->hBoxDeux->addWidget(this->type);
-    // ...
-    this->hBoxUn->addWidget(this->nomAdversaire);
-    this->hBoxUn->addWidget(this->pvAdversaire);
-    this->hBoxUn->addWidget(this->typeAdversaire);
-    // ...
-=======
-        // ...
-        this->hBoxDeux->addWidget(this->nom);
-        this->hBoxDeux->addWidget(this->pv);
-        this->hBoxDeux->addWidget(this->type);
-        this->hBoxDeux->addWidget(this->imageBlobAlier);
-        // ...
-        this->hBoxUn->addWidget(this->nomAdversaire);
-        this->hBoxUn->addWidget(this->pvAdversaire);
-        this->hBoxUn->addWidget(this->typeAdversaire);
-        this->hBoxUn->addWidget(this->imageBlobEnnemie);
-        // ...
->>>>>>> cdde4e4f323adfd4b6332e55ba5a05daeae22338
-    }
+}
 
 
 void MainWindow::init_slots(){

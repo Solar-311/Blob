@@ -51,11 +51,11 @@ int main(int argc, char *argv[])
     Arene *arene = new Arene("ARENA WAR", j, j2);
     //arene->afficherArene();
 
-    /* UI *//*
+    /* UI */
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
-    return a.exec();*/
+    return a.exec();
 
     /* ACTIONS */
     return 0;
