@@ -10,15 +10,18 @@ MainWindow::MainWindow(Arene *arene, QWidget *parent) : QMainWindow(parent) , ui
 {
     this->arene = arene;
     ui->setupUi(this);
-    QPixmap bkgrnd(":Images/Images/Background.png");
-    QPalette palette;
-    bkgrnd = bkgrnd.scaled(this->size(), Qt::IgnoreAspectRatio);
-    palette.setBrush(QPalette::Window, bkgrnd);
-    this->setPalette(palette);
-    this->setWindowTitle("Blob");
-    this->setGeometry(100,100,960,448);
-    // Centrer image, et adapter a la taille
 
+    /* BACKGROUND */
+    QPixmap bkgnd(":Images/Images/Background.png");
+    QPalette palette;
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::FastTransformation);
+    palette.setBrush(QPalette::Window, bkgnd);
+    this->setPalette(palette);
+
+    /* WINDOW */
+    this->setWindowTitle("Blob");
+    this->setWindowIcon(QIcon(":Images/Images/Icon.png"));
+    this->setFixedSize(this->geometry().width(), this->geometry().height());
 
     /* INITS */
     this->init_components();
@@ -110,11 +113,9 @@ void MainWindow::init_layout(){
     this->centre->setLayout(this->vboxlayout);
 }
 
-
 void MainWindow::init_slots(){
     connect(this->boutonPasserTour, SIGNAL(clicked()),this,SLOT(fermeJeux()));
 }
-
 
 void MainWindow::fermeJeux(){
     std::cout<<"aaaahhh"<<std::endl;

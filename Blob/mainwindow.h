@@ -13,8 +13,7 @@
 #include <QPixmap>
 #include <QRect>
 #include <QMovie>
-
-
+#include <QLineEdit>
 
 /* FILES */
 #include "Model/Joueur/Joueur.h"
