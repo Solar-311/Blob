@@ -12,6 +12,9 @@
 #include <QLabel>
 #include <QPixmap>
 #include <QRect>
+#include <QMovie>
+
+
 
 /* FILES */
 #include "Model/Joueur/Joueur.h"
@@ -35,6 +38,10 @@ class MainWindow : public QMainWindow
         QLabel* type;
         QLabel* pv;
         QLabel* pvAdversaire;
+        QLabel* imageBlobAlier;
+        QLabel* imageBlobEnnemie;
+        QMovie mv;
+        QMainWindow *fenetreChoix;
 
         /* LAYOUT */
         QVBoxLayout* vboxlayout;
@@ -57,8 +64,13 @@ class MainWindow : public QMainWindow
         /* INIT */
         void init_components();
         void init_layout();
+<<<<<<< HEAD
 
         /* FUNCTIONS */
         void playerButton(Joueur *currentPlayer);
+=======
+        void init_slots();
+        void fenetrechoix();
+>>>>>>> cdde4e4f323adfd4b6332e55ba5a05daeae22338
 };
 #endif // MAINWINDOW_H
