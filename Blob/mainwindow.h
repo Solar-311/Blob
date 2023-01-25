@@ -33,7 +33,7 @@ class MainWindow : public QMainWindow
         MainWindow(Arene *arene, QWidget *parent = nullptr);
         ~MainWindow();
 
-<<<<<<< HEAD
+
 private:
     Ui::MainWindow *ui;
     QWidget* centre;
@@ -57,7 +57,7 @@ private:
     QLabel* imageLabelAdversaire;
     void init_components();
     void init_layout();
-=======
+
     private:
         Ui::MainWindow *ui;
         QWidget* centre;
@@ -91,9 +91,7 @@ private:
         /* INIT */
         void init_components();
         void init_layout();
-<<<<<<< HEAD
->>>>>>> ec3dc388f0d2dee0e23d7bbe5603ecfa21100669
-=======
+
 
         /* GETTER & SETTER */
 
@@ -103,6 +101,6 @@ private:
 
 public slots :
         void fermeJeux();
->>>>>>> 781399f0aef46cb039cb503232eb93d37f5af162
+
 };
 #endif // MAINWINDOW_H

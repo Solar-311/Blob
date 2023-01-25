@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 #include <QGridLayout>
 #include <QLabel>
 #include <QPixmap>
@@ -21,15 +21,7 @@ QLabel* imageAdversaire = new QLabel();
 QPixmap imageAdversairePixmap("chemin/vers/imageAdversaire.png");
 //imageAdversaire->setPixmap(imageAdversairePixmap);
 
-QLayout->addWidget(nomAllie, 0, 0);
-layout->addWidget(typeAllie, 1, 0);
-layout->addWidget(pvAllie, 2, 0);
-layout->addWidget(imageAllie, 3, 0);
-layout->addWidget(nomAdversaire, 0, 1);
-layout->addWidget(typeAdversaire, 1, 1);
-layout->addWidget(pvAdversaire, 2, 1);
-layout->addWidget(imageAdversaire, 3, 1);
-=======
+
 /* ########## INCLUDE ########## */
 /* LIBRARY */
 #include <iostream>
@@ -160,6 +152,6 @@ MainWindow::~MainWindow()
     delete this->vboxlayout;
     delete this->centre;
 }
->>>>>>> ec3dc388f0d2dee0e23d7bbe5603ecfa21100669
+
 
 setLayout(QLayout);
