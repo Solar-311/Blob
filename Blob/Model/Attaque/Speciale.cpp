@@ -43,4 +43,10 @@ void Speciale::setPuissance(int newPuissance)
 }
 
 /* ######## FUNCTIONS ######## */
-
+void Speciale::afficheAttaqueSpeciale()
+{
+    std::cout << "***** Speciale *****" << std::endl;
+    std::cout << "Nom : " << this->getNom() << std::endl;
+    std::cout << "Valeur : " << this->getPuissance() << std::endl;
+    std::cout << "*****************" << std::endl;
+}

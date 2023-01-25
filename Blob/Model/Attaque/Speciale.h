@@ -26,7 +26,7 @@ class Speciale{
         void setNom(std::string newNom);
 
         /* FUNCTIONS */
-
+        void afficheAttaqueSpeciale();
 };
 
 #endif // SPECIALE_H

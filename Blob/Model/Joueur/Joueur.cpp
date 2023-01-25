@@ -45,9 +45,27 @@ void Joueur::setNom(std::string newNom)
 /* ######## FUNCTIONS ######## */
 void Joueur::afficherJoueur()
 {
-    std::cout << "########## JOUEUR ##########" << std::endl;
+    std::cout << "+---------- JOUEUR ----------+" << std::endl;
     std::cout << "Nom : " << this->getNom() << std::endl;
     std::cout << "***** Blob de " << this->getNom() << " *****" << std::endl;
     this->getBlob()->afficheBlob();
-    std::cout << "############################" << std::endl;
+    std::cout << "+----------------------------+" << std::endl;
+}
+
+int Joueur::useSpeciale(Joueur *target)
+{
+    int speciale = this->getBlob()->attaqueSpeciale(target->getBlob(), this->getBlob()->getSpeciale());
+    return speciale;
+}
+
+int Joueur::useSoin()
+{
+    int soin = this->getBlob()->mettreSoins(this->getBlob(), this->getBlob()->getSoin());
+    return soin;
+}
+
+int Joueur::useNormale(Joueur *target)
+{
+    int normale = this->getBlob()->attaqueNormale(target->getBlob(), this->getBlob()->getNormale());
+    return normale;
 }
