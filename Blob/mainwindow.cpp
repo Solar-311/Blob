@@ -1,27 +1,3 @@
-
-#include <QGridLayout>
-#include <QLabel>
-#include <QPixmap>
-
-// ...
-
-QGridLayout* layout = new QGridLayout();
-
-QLabel* nomAllie = new QLabel("Notre Blob");
-QLabel* typeAllie = new QLabel("Feu");
-QLabel* pvAllie = new QLabel("100");
-QLabel* imageAllie = new QLabel();
-QPixmap imageAlliePixmap("chemin/vers/imageAllie.png");
-//imageAllie->setPixmap(imageAlliePixmap);
-
-QLabel* nomAdversaire = new QLabel("Blob méchant");
-QLabel* typeAdversaire = new QLabel("Plante");
-QLabel* pvAdversaire = new QLabel("100");
-QLabel* imageAdversaire = new QLabel();
-QPixmap imageAdversairePixmap("chemin/vers/imageAdversaire.png");
-//imageAdversaire->setPixmap(imageAdversairePixmap);
-
-
 /* ########## INCLUDE ########## */
 /* LIBRARY */
 #include <iostream>
@@ -41,6 +17,7 @@ MainWindow::MainWindow(Arene *arene, QWidget *parent) : QMainWindow(parent) , ui
     this->setWindowTitle("Blob");
     this->setGeometry(100,100,800,600);
     this->arene = arene;
+
     /* INITS */
     this->init_components();
     this->init_layout();
@@ -60,8 +37,6 @@ void MainWindow::init_components(){
     this->imageBlobJoueur2->setMovie(videoBlobJoueur2);
     videoBlobJoueur2->start();
     // Components
-    Joueur* j = this->arene->getJoueur2();
-    j->getBlob();
     this->typeJoueur2 = new QLabel( QString::fromStdString(this->arene->getJoueur2()->getBlob()->getType()->getType()) );
     this->nomBlobJoueur2 = new QLabel( QString::fromStdString(this->arene->getJoueur2()->getBlob()->getNom()) );
     this->pvCourantJoueur2 = new QLabel ( QString::number(this->arene->getJoueur2()->getBlob()->getPv_courant()) );
@@ -151,5 +126,3 @@ MainWindow::~MainWindow()
     delete this->centre;
 }
 
-
-setLayout(QLayout);
