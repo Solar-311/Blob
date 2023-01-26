@@ -265,6 +265,11 @@ int Blob::attaqueSpeciale(Blob *blob, Speciale *speciale)
         }
     }
 
+    else
+    {
+        blob->setPv_courant(blob->getPv_courant());
+    }
+
     return blob->getPv_courant();
 }
 

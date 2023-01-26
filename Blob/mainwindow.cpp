@@ -41,6 +41,7 @@ void MainWindow::init_components(){
     QMovie *videoBlobJoueur2= new QMovie(":Images/Images/GreenBlob.gif");
     videoBlobJoueur2->setScaledSize(QSize(150, 150));
     this->imageBlobJoueur2->setMovie(videoBlobJoueur2);
+    this->imageBlobJoueur2->setAlignment(Qt::AlignCenter);
     videoBlobJoueur2->start();
     // Components
     this->typeJoueur2 = new QLabel( QString::fromStdString(this->arene->getJoueur2()->getBlob()->getType()->getType()) );
@@ -54,6 +55,7 @@ void MainWindow::init_components(){
     QMovie *videoBlobJoueur1= new QMovie(":Images/Images/BlobFabio.gif");
     videoBlobJoueur1->setScaledSize(QSize(150, 150));
     this->imageBlobJoueur1->setMovie(videoBlobJoueur1);
+    this->imageBlobJoueur1->setAlignment(Qt::AlignCenter);
     videoBlobJoueur1->start();
     // Components
     this->typeJoueur1 = new QLabel( QString::fromStdString(this->arene->getJoueur1()->getBlob()->getType()->getType()) );
@@ -66,6 +68,21 @@ void MainWindow::init_components(){
     this->boutonSoin = new QPushButton( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getSoin()->getNom()) );
     this->boutonSpeciale = new QPushButton( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getSpeciale()->getNom()) );
     this->boutonPasserTour = new QPushButton("NEXT");
+    this->boutonPasserTour->setStyleSheet(
+                "font-size:15px;"
+                "font-family:Arial;"
+                "width:140px;"
+                "height:50px;"
+                "border-width:1px;"
+                "color:#fff;"
+                "border-color:#18ab29;"
+                "font-weight:bold;"
+                "border-top-left-radius:28px;"
+                "border-top-right-radius:28px;"
+                "border-bottom-left-radius:28px;"
+                "border-bottom-right-radius:28px;"
+                "text-shadow: 1px 1px 0px #2f6627;"
+                "background:#44c767;");
 }
 
 /* ########### LAYOUTS ########### */

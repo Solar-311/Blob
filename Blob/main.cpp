@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
     // BLOBS
     Blob *f = new Blob("Noob", 100, new Eau(), sp, n, s);
     Blob *g = new Blob("FabioGODMODE", 9999, new Plante(), sp2, n2, s2);
+    Blob *x = new Blob("FabioGODMODE", 9999, new Feu(), sp2, n2, s2);
 
     // JOUEUR
     Joueur *j1 = new Joueur("Noob", f);
@@ -46,9 +47,10 @@ int main(int argc, char *argv[])
     Joueur *j2 = new Joueur("Fabio", g);
     // j2->afficherJoueur();
 
+    Joueur *j3 = new Joueur("Fabio", x);
+
     // ARENE
     Arene *arene = new Arene("ARENA WAR", j1, j2);
-
     //arene->afficherArene();
 
     QApplication a(argc, argv);
