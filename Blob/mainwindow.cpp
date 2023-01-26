@@ -29,13 +29,6 @@ MainWindow::MainWindow(Arene *arene, QWidget *parent) : QMainWindow(parent) , ui
     this->init_components();
     this->init_layout();
     this->init_slots();
-
-    /*
-    if(this->arene->getJoueur1()->getBlob()->getPv_courant() <= 0 || this->arene->getJoueur2()->getBlob()->getPv_courant() <= 0)
-    {
-        this->winWindow();
-    }
-    */
 }
 
 /* ########### COMPONENTS ########### */
@@ -225,7 +218,7 @@ void MainWindow::init_layout(){
 
 /* SLOTS */
 void MainWindow::init_slots(){
-    connect(this->boutonPasserTour, &QPushButton::released, this, &MainWindow::slotChangeJoueur);
+    connect(this->boutonPasserTour, &QPushButton::pressed, this, &MainWindow::slotChangeJoueur);
     connect(this->boutonNormale, &QPushButton::released, this, &MainWindow::slotNormale);
     connect(this->boutonSoin, &QPushButton::released, this, &MainWindow::slotSoins);
     connect(this->boutonSpeciale, &QPushButton::released, this, &MainWindow::slotSpeciale);
@@ -239,15 +232,16 @@ void MainWindow::fermeJeux(){
 void MainWindow::slotChangeJoueur()
 {
     this->arene->changeJoueur();
-    // Refresh
-    this->boutonNormale->setText( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getNormale()->getNom()) );
-    this->boutonSpeciale->setText( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getSpeciale()->getNom()) );
-    this->boutonSoin->setText( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getSoin()->getNom()) );
 
     // Buttons
     this->boutonNormale->setVisible(true);
     this->boutonSpeciale->setVisible(true);
     this->boutonSoin->setVisible(true);
+
+    // Refresh
+    this->boutonNormale->setText( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getNormale()->getNom()) );
+    this->boutonSpeciale->setText( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getSpeciale()->getNom()) );
+    this->boutonSoin->setText( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getSoin()->getNom()) );
 
     // Reset Animation
     this->pvCourantJoueur2->setStyleSheet("font-family: Consolas;"
@@ -303,7 +297,7 @@ void MainWindow::slotSoins()
     this->boutonSoin->setVisible(false);
 
     // Animation
-    if (this->arene->getCurrentPlayer() == this->arene->getJoueur1() && this->arene->getJoueur1()->getBlob()->getPv_courant() < this->arene->getJoueur1()->getBlob()->getPv()
+    if (this->arene->getCurrentPlayer() == this->arene->getJoueur1()
             && this->arene->getJoueur1()->getBlob()->getPv_courant() > 0)
     {
         this->pvCourantJoueur1->setStyleSheet("border-image: url(:/Images/Images/Heal.png);"
@@ -312,8 +306,8 @@ void MainWindow::slotSoins()
                                             "font-size: 15px;"
                                             "color: white;");
     }
-    else if (this->arene->getJoueur2()->getBlob()->getPv_courant() < this->arene->getJoueur2()->getBlob()->getPv()
-             && this->arene->getJoueur2()->getBlob()->getPv_courant() > 0)
+    else if (this->arene->getCurrentPlayer() == this->arene->getJoueur2()
+            && this->arene->getJoueur2()->getBlob()->getPv_courant() > 0)
     {
         this->pvCourantJoueur2->setStyleSheet("border-image: url(:/Images/Images/Heal.png);"
                                             "font-family: Consolas;"
@@ -352,12 +346,7 @@ void MainWindow::slotSpeciale()
                                             "color: white;");
     }
 }
-/*
-void MainWindow::winWindow()
-{
-    delete this->vboxlayout;
-}
-*/
+
 /* ########### MAINWINDOW ########### */
 MainWindow::~MainWindow()
 {

@@ -7,6 +7,7 @@
 #include "Model/Blob.h"
 #include <QApplication>
 #include "mainwindow.h"
+#include "View/endWindow.h"
 
 // ARENE
 #include "Model/Arene/Arene.h"
@@ -32,8 +33,8 @@ int main(int argc, char *argv[])
     Speciale *sp = new Speciale(60, "Speciale");
     Normale *n = new Normale(40, "Normale");
     Soin *s2 = new Soin(50, "Fabio Soin");
-    Speciale *sp2 = new Speciale(60, "Fabio Attaque");
-    Normale *n2 = new Normale(40, "Fabio Speciale");
+    Speciale *sp2 = new Speciale(60, "Fabio Speciale");
+    Normale *n2 = new Normale(40, "Fabio Attaque");
 
     // BLOBS
     Blob *f = new Blob("Noob", 100, new Eau(), sp, n, s);
@@ -54,7 +55,7 @@ int main(int argc, char *argv[])
     //arene->afficherArene();
 
     QApplication a(argc, argv);
-    MainWindow w (arene) ;
+    MainWindow w (arene);
     w.show();
     return a.exec();
 

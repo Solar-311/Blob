@@ -18,6 +18,7 @@
 /* FILES */
 #include "Model/Joueur/Joueur.h"
 #include "Model/Arene/Arene.h"
+#include "View/endWindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

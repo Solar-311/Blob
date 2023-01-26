@@ -1,5 +1,5 @@
-#ifndef WINWINDOW_H
-#define WINWINDOW_H
+#ifndef ENDWINDOW_H
+#define ENDWINDOW_H
 
 /* ########## INCLUDE ########## */
 /* LIBRARY QT */
@@ -23,26 +23,20 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
+class endWindow : public QMainWindow
 {
     Q_OBJECT
 
     public:
         Arene *arene;
-        MainWindow(Arene *arene, QWidget *parent = nullptr);
-        ~MainWindow();
+        endWindow(Arene *arene, QWidget *parent = nullptr);
+        ~endWindow();
 
     private:
         Ui::MainWindow *ui;
         QWidget* centre;
-
-        /* INIT */
-        void init_components();
-        void init_layout();
-
-        /* GETTER & SETTER */
-
-    public slots :
+        QVBoxLayout* vboxlayout;
+        QLabel* lb;
 };
 
-#endif // WINWINDOW_H
+#endif // ENDWINDOW_H

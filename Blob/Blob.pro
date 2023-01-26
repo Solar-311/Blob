@@ -22,7 +22,7 @@ SOURCES += \
     Model/Type/Plante.cpp \
     Model/Type/Type.cpp \
     Model/Utils/Utils.cpp \
-    View/Empty.cpp \
+    View/endWindow.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -40,7 +40,7 @@ HEADERS += \
     Model/Type/Plante.h \
     Model/Type/Type.h \
     Model/Utils/Utils.h \
-    View/Empty.h \
+    View/endWindow.h \
     mainwindow.h
 
 FORMS += \

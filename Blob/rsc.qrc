@@ -13,5 +13,6 @@
         <file>Images/borderImageSpeciale.png</file>
         <file>Images/blood.png</file>
         <file>Images/Heal.png</file>
+        <file>Images/winBackground.gif</file>
     </qresource>
 </RCC>

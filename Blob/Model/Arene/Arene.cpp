@@ -35,8 +35,8 @@ Arene::Arene(std::string nom, Joueur *joueur1, Joueur *joueur2)
     this->nom = nom;
     this->joueur1 = joueur1;
     this->joueur2 = joueur2;
-    this->currentPlayer = joueur1;
-    this->notCurrentPlayer = joueur2;
+    this->currentPlayer = joueur2;
+    this->notCurrentPlayer = joueur1;
 }
 
 /* ######## GETTER & SETTER ######## */

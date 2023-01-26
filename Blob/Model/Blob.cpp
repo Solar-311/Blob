@@ -199,7 +199,7 @@ void Blob::afficheBlob()
 
 int Blob::mettreSoins(Blob *blob, Soin *soin)
 {
-    if ((blob->getPv_courant() + soin->getSoin()) > blob->getPv() &&
+    if ((blob->getPv_courant() + soin->getSoin()) >= blob->getPv() &&
          blob->getPv_courant() > 0)
     {
         blob->setPv_courant(blob->getPv());
