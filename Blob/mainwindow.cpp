@@ -46,16 +46,21 @@ void MainWindow::init_components(){
     /* COMPONENTS JOUEUR 2 */
     // Image Blob
     this->imageBlobJoueur2 = new QLabel();
-    QMovie *videoBlobJoueur2= new QMovie(":/Images/Images/GreenBlob.gif");
-    videoBlobJoueur2->setScaledSize(QSize(150, 150));
-    this->imageBlobJoueur2->setMovie(videoBlobJoueur2);
+    //QMovie *videoBlobJoueur2= new QMovie(":/Images/Images/GreenBlob.gif");
+    //videoBlobJoueur2->setScaledSize(QSize(150, 150));
+    //this->imageBlobJoueur2->setMovie(videoBlobJoueur2);
+    QPixmap image(":/Images/Images/Icon.png");
+    QPixmap image2 = image.scaled(150, 150, Qt::KeepAspectRatio);
+    this->imageBlobJoueur2->setPixmap(image2);
+    this->imageBlobJoueur2->show();
     // Position
     this->imageBlobJoueur2->setAlignment(Qt::AlignCenter);
-    videoBlobJoueur2->start();
+    //videoBlobJoueur2->start();
     // Components
     this->typeJoueur2 = new QLabel( QString::fromStdString(this->arene->getJoueur2()->getBlob()->getType()->getType()) );
     this->nomBlobJoueur2 = new QLabel( QString::fromStdString(this->arene->getJoueur2()->getBlob()->getNom()) );
     this->nomBlobJoueur2->setStyleSheet("font-family: Consolas;"
+                                    "font-style: italic;"
                                     "font-size: 15px;"
                                     "color: rgb(255, 255, 100);");
     this->pvCourantJoueur2 = new QLabel ( QString::number(this->arene->getJoueur2()->getBlob()->getPv_courant()) );
@@ -66,15 +71,15 @@ void MainWindow::init_components(){
     this->nomJoueur2 = new QLabel( QString::fromStdString(this->arene->getJoueur2()->getNom()) );
     this->nomJoueur2->setStyleSheet("font-family: Consolas;"
                                     "font-size: 18px;"
+                                    "background-color: rgb(30, 30, 30);"
                                     "color: white;"
-                                    "font-weight: bold;"
-                                    "text-decoration: underline;");
+                                    "font-weight: bold;");
 
     /* COMPONENTS JOUEUR 1 */
     // Image Blob
     this->imageBlobJoueur1 = new QLabel();
     QMovie *videoBlobJoueur1= new QMovie(":/Images/Images/BlobFabio.gif");
-    videoBlobJoueur1->setScaledSize(QSize(150, 150));
+    videoBlobJoueur1->setScaledSize(QSize(100, 100));
     this->imageBlobJoueur1->setMovie(videoBlobJoueur1);
     // Position
     this->imageBlobJoueur1->setAlignment(Qt::AlignCenter);
@@ -83,6 +88,7 @@ void MainWindow::init_components(){
     this->typeJoueur1 = new QLabel( QString::fromStdString(this->arene->getJoueur1()->getBlob()->getType()->getType()) );
     this->nomBlobJoueur1 = new QLabel( QString::fromStdString(this->arene->getJoueur1()->getBlob()->getNom()) );
     this->nomBlobJoueur1->setStyleSheet("font-family: Consolas;"
+                                    "font-style: italic;"
                                     "font-size: 15px;"
                                     "color: rgb(255, 255, 100);");
     this->pvCourantJoueur1 = new QLabel ( QString::number(this->arene->getJoueur1()->getBlob()->getPv_courant()) );
@@ -94,8 +100,8 @@ void MainWindow::init_components(){
     this->nomJoueur1->setStyleSheet("font-family: Consolas;"
                                     "font-size: 18px;"
                                     "color: white;"
-                                    "font-weight: bold;"
-                                    "text-decoration: underline;");
+                                    "background-color: rgb(30, 30, 30);"
+                                    "font-weight: bold;");
 
     /* GLOBAL COMPONENTS */
     this->boutonNormale = new QPushButton( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getNormale()->getNom()) );
@@ -326,12 +332,12 @@ void MainWindow::slotSpeciale()
                                             "color: white;");
     }
 }
-
+/*
 void MainWindow::winWindow()
 {
     delete this->vboxlayout;
 }
-
+*/
 /* ########### MAINWINDOW ########### */
 MainWindow::~MainWindow()
 {

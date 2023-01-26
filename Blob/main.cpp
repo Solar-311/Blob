@@ -31,9 +31,9 @@ int main(int argc, char *argv[])
     Soin *s = new Soin(50, "Soin");
     Speciale *sp = new Speciale(60, "Speciale");
     Normale *n = new Normale(40, "Normale");
-    Soin *s2 = new Soin(50, "TEST");
-    Speciale *sp2 = new Speciale(60, "TEST");
-    Normale *n2 = new Normale(40, "TEST");
+    Soin *s2 = new Soin(50, "Fabio Soin");
+    Speciale *sp2 = new Speciale(60, "Fabio Attaque");
+    Normale *n2 = new Normale(40, "Fabio Speciale");
 
     // BLOBS
     Blob *f = new Blob("Noob", 100, new Eau(), sp, n, s);

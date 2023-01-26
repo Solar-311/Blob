@@ -84,6 +84,5 @@ class MainWindow : public QMainWindow
         void slotNormale();
         void slotSoins();
         void slotSpeciale();
-        void winWindow();
 };
 #endif // MAINWINDOW_H
