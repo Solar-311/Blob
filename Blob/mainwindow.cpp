@@ -56,7 +56,6 @@ void MainWindow::init_components(){
                                           "font-weight: bold;"
                                           "font-size: 15px;"
                                           "color: white;");
-
     this->nomJoueur2 = new QLabel( QString::fromStdString(this->arene->getJoueur2()->getNom()) );
     this->nomJoueur2->setStyleSheet("font-family: Consolas;"
                                     "font-size: 18px;"
@@ -151,10 +150,10 @@ void MainWindow::init_components(){
                 "border-width: 3px;"
                 "border-style: solid;"
                 "border-top-color: rgba(255, 255, 255, 0);"
-                "border-left-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 blue);"
-                "border-right-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 blue);"
+                "border-left-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 grey);"
+                "border-right-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 grey);"
                 "border-bottom-color: black;"
-                "background-color: rgb(40, 60, 255);"
+                "background-color: grey;"
                 "color: white;");
 }
 
@@ -238,8 +237,14 @@ void MainWindow::slotChangeJoueur()
     this->boutonSoin->setVisible(true);
 
     // Reset Animation
-    this->pvCourantJoueur2->setStyleSheet("border-image: rgba(255, 255, 255, 0);");
-    this->pvCourantJoueur1->setStyleSheet("border-image: rgba(255, 255, 255, 0);");
+    this->pvCourantJoueur2->setStyleSheet("font-family: Consolas;"
+                                          "font-weight: bold;"
+                                          "font-size: 15px;"
+                                          "color: white;");
+    this->pvCourantJoueur1->setStyleSheet("font-family: Consolas;"
+                                          "font-weight: bold;"
+                                          "font-size: 15px;"
+                                          "color: white;");
 }
 
 void MainWindow::slotNormale()
@@ -255,11 +260,19 @@ void MainWindow::slotNormale()
     this->boutonSoin->setVisible(false);
 
     if (this->arene->getCurrentPlayer() == this->arene->getJoueur1()){
-        this->pvCourantJoueur2->setStyleSheet("border-image: url(:/Images/Images/blood.png);");
+        this->pvCourantJoueur2->setStyleSheet("border-image: url(:/Images/Images/blood.png);"
+                                            "font-family: Consolas;"
+                                            "font-weight: bold;"
+                                            "font-size: 15px;"
+                                            "color: white;");
     }
     else
     {
-        this->pvCourantJoueur1->setStyleSheet("border-image: url(:/Images/Images/blood.png);");
+        this->pvCourantJoueur1->setStyleSheet("border-image: url(:/Images/Images/blood.png);"
+                                            "font-family: Consolas;"
+                                            "font-weight: bold;"
+                                            "font-size: 15px;"
+                                            "color: white;");
     }
 }
 
