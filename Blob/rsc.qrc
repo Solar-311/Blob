@@ -11,5 +11,6 @@
         <file>Images/borderImageSkip.png</file>
         <file>Images/borderImageSoin.png</file>
         <file>Images/borderImageSpeciale.png</file>
+        <file>Images/blood.png</file>
     </qresource>
 </RCC>

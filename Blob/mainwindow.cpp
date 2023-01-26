@@ -48,8 +48,21 @@ void MainWindow::init_components(){
     // Components
     this->typeJoueur2 = new QLabel( QString::fromStdString(this->arene->getJoueur2()->getBlob()->getType()->getType()) );
     this->nomBlobJoueur2 = new QLabel( QString::fromStdString(this->arene->getJoueur2()->getBlob()->getNom()) );
+    this->nomBlobJoueur2->setStyleSheet("font-family: Consolas;"
+                                    "font-size: 15px;"
+                                    "color: rgb(255, 255, 100);");
     this->pvCourantJoueur2 = new QLabel ( QString::number(this->arene->getJoueur2()->getBlob()->getPv_courant()) );
+    this->pvCourantJoueur2->setStyleSheet("font-family: Consolas;"
+                                          "font-weight: bold;"
+                                          "font-size: 15px;"
+                                          "color: white;");
+
     this->nomJoueur2 = new QLabel( QString::fromStdString(this->arene->getJoueur2()->getNom()) );
+    this->nomJoueur2->setStyleSheet("font-family: Consolas;"
+                                    "font-size: 18px;"
+                                    "color: white;"
+                                    "font-weight: bold;"
+                                    "text-decoration: underline;");
 
     /* COMPONENTS JOUEUR 1 */
     // Image Blob
@@ -63,66 +76,86 @@ void MainWindow::init_components(){
     // Components
     this->typeJoueur1 = new QLabel( QString::fromStdString(this->arene->getJoueur1()->getBlob()->getType()->getType()) );
     this->nomBlobJoueur1 = new QLabel( QString::fromStdString(this->arene->getJoueur1()->getBlob()->getNom()) );
+    this->nomBlobJoueur1->setStyleSheet("font-family: Consolas;"
+                                    "font-size: 15px;"
+                                    "color: rgb(255, 255, 100);");
     this->pvCourantJoueur1 = new QLabel ( QString::number(this->arene->getJoueur1()->getBlob()->getPv_courant()) );
+    this->pvCourantJoueur1->setStyleSheet("font-family: Consolas;"
+                                        "font-weight: bold;"
+                                        "font-size: 15px;"
+                                        "color: white;");
     this->nomJoueur1 = new QLabel( QString::fromStdString(this->arene->getJoueur1()->getNom()) );
+    this->nomJoueur1->setStyleSheet("font-family: Consolas;"
+                                    "font-size: 18px;"
+                                    "color: white;"
+                                    "font-weight: bold;"
+                                    "text-decoration: underline;");
 
     /* GLOBAL COMPONENTS */
     this->boutonNormale = new QPushButton( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getNormale()->getNom()) );
     this->boutonNormale->setStyleSheet(
                 "font-weight: bold;"
                 "font-size: 17px;"
-                "letter-spacing: 2px;"
+                "letter-spacing: 1.5px;"
                 "font-family: Consolas;"
                 "border-bottom-left-radius:50px;"
                 "border-top-left-radius:50px;"
-                "border-width: 4px;"
+                "border-width: 3px;"
                 "border-style: solid;"
-                "border-top-color: 255, 255, 255, 0%;"
-                "border-left-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 red, stop: 1 black);"
-                "border-right-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 red, stop: 1 black);"
-                "border-bottom-color: black;");
+                "border-top-color: rgba(255, 255, 255, 0);"
+                "border-left-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 yellow);"
+                "border-right-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 yellow);"
+                "border-bottom-color: black;"
+                "background-color: rgb(255, 255, 100);"
+                "color: black;");
     this->boutonSoin = new QPushButton( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getSoin()->getNom()) );
     this->boutonSoin->setStyleSheet(
                 "font-weight: bold;"
                 "font-size: 17px;"
-                "letter-spacing: 2px;"
+                "letter-spacing: 1.5px;"
                 "font-family: Consolas;"
                 "border-bottom-left-radius:50px;"
                 "border-top-left-radius:50px;"
-                "border-width: 4px;"
+                "border-width: 3px;"
                 "border-style: solid;"
-                "border-top-color: 255, 255, 255, 0%;"
-                "border-left-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 red, stop: 1 black);"
-                "border-right-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 red, stop: 1 black);"
-                "border-bottom-color: black;");
+                "border-top-color: rgba(255, 255, 255, 0);"
+                "border-left-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 yellow);"
+                "border-right-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 yellow);"
+                "border-bottom-color: black;"
+                "background-color: rgb(255, 255, 100);"
+                "color: rgb(0, 80, 0);");
     this->boutonSpeciale = new QPushButton( QString::fromStdString(this->arene->getCurrentPlayer()->getBlob()->getSpeciale()->getNom()) );
     this->boutonSpeciale->setStyleSheet(
                 "font-weight: bold;"
                 "font-size: 17px;"
-                "letter-spacing: 2px;"
+                "letter-spacing: 1.5px;"
                 "font-family: Consolas;"
                 "border-bottom-left-radius:50px;"
                 "border-top-left-radius:50px;"
-                "border-width: 4px;"
+                "border-width: 3px;"
                 "border-style: solid;"
-                "border-top-color: 255, 255, 255, 0%;"
-                "border-left-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 red, stop: 1 black);"
-                "border-right-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 red, stop: 1 black);"
-                "border-bottom-color: black;");
-    this->boutonPasserTour = new QPushButton("NEXT");
+                "border-top-color: rgba(255, 255, 255, 0);"
+                "border-left-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 yellow);"
+                "border-right-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 yellow);"
+                "border-bottom-color: black;"
+                "background-color: rgb(255, 255, 100);"
+                "color: rgb(80, 0, 0);");
+    this->boutonPasserTour = new QPushButton("Next round");
     this->boutonPasserTour->setStyleSheet(
                 "font-weight: bold;"
                 "font-size: 17px;"
-                "letter-spacing: 2px;"
+                "letter-spacing: 1.5px;"
                 "font-family: Consolas;"
                 "border-bottom-left-radius:50px;"
                 "border-top-left-radius:50px;"
-                "border-width: 4px;"
+                "border-width: 3px;"
                 "border-style: solid;"
-                "border-top-color: 255, 255, 255, 0%;"
-                "border-left-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 red, stop: 1 black);"
-                "border-right-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 red, stop: 1 black);"
-                "border-bottom-color: black;");
+                "border-top-color: rgba(255, 255, 255, 0);"
+                "border-left-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 blue);"
+                "border-right-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 blue);"
+                "border-bottom-color: black;"
+                "background-color: rgb(40, 60, 255);"
+                "color: white;");
 }
 
 /* ########### LAYOUTS ########### */
@@ -139,11 +172,18 @@ void MainWindow::init_layout(){
     /* ADD COMPONENTS INFOS COMBATS */
     this->gridInfo = new QGridLayout();
     this->gridInfo->addWidget(this->nomJoueur2, 0, 1);
+    this->nomJoueur2->setAlignment(Qt::AlignCenter);
     this->gridInfo->addWidget(this->nomBlobJoueur2, 1, 1);
+    this->nomBlobJoueur2->setAlignment(Qt::AlignCenter);
     this->gridInfo->addWidget(this->pvCourantJoueur2, 2, 1);
+    this->pvCourantJoueur2->setAlignment(Qt::AlignCenter);
     this->gridInfo->addWidget(this->nomJoueur1, 0, 0);
+    this->nomJoueur1->setAlignment(Qt::AlignCenter);
     this->gridInfo->addWidget(this->nomBlobJoueur1, 1, 0);
+    this->nomBlobJoueur1->setAlignment(Qt::AlignCenter);
     this->gridInfo->addWidget(this->pvCourantJoueur1, 2, 0);
+    this->pvCourantJoueur1->setAlignment(Qt::AlignCenter);
+    this->gridInfo->setAlignment(Qt::AlignTop);
 
     /* LAYOUT BOUTONS ATTAQUES */
     this->gridTrois = new QGridLayout();
@@ -196,6 +236,10 @@ void MainWindow::slotChangeJoueur()
     this->boutonNormale->setVisible(true);
     this->boutonSpeciale->setVisible(true);
     this->boutonSoin->setVisible(true);
+
+    // Reset Animation
+    this->pvCourantJoueur2->setStyleSheet("border-image: rgba(255, 255, 255, 0);");
+    this->pvCourantJoueur1->setStyleSheet("border-image: rgba(255, 255, 255, 0);");
 }
 
 void MainWindow::slotNormale()
@@ -209,6 +253,14 @@ void MainWindow::slotNormale()
     this->boutonNormale->setVisible(false);
     this->boutonSpeciale->setVisible(false);
     this->boutonSoin->setVisible(false);
+
+    if (this->arene->getCurrentPlayer() == this->arene->getJoueur1()){
+        this->pvCourantJoueur2->setStyleSheet("border-image: url(:/Images/Images/blood.png);");
+    }
+    else
+    {
+        this->pvCourantJoueur1->setStyleSheet("border-image: url(:/Images/Images/blood.png);");
+    }
 }
 
 void MainWindow::slotSoins()
