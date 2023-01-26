@@ -39,6 +39,7 @@ class MainWindow : public QMainWindow
         /* LAYOUT */
         QVBoxLayout* vboxlayout;
         QGridLayout* gridTrois;
+        QGridLayout* gridInfo;
         QHBoxLayout* hBoxL;
         QVBoxLayout* vBoxTopL;
         QVBoxLayout* vBoxBottomL;

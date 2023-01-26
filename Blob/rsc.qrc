@@ -7,5 +7,9 @@
         <file>Images/GreenBlob.gif</file>
         <file>Images/Maskass.png</file>
         <file>Images/Icon.png</file>
+        <file>Images/borderImageNormale.png</file>
+        <file>Images/borderImageSkip.png</file>
+        <file>Images/borderImageSoin.png</file>
+        <file>Images/borderImageSpeciale.png</file>
     </qresource>
 </RCC>
