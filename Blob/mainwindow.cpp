@@ -29,6 +29,13 @@ MainWindow::MainWindow(Arene *arene, QWidget *parent) : QMainWindow(parent) , ui
     this->init_components();
     this->init_layout();
     this->init_slots();
+
+    /*
+    if(this->arene->getJoueur1()->getBlob()->getPv_courant() <= 0 || this->arene->getJoueur2()->getBlob()->getPv_courant() <= 0)
+    {
+        this->winWindow();
+    }
+    */
 }
 
 /* ########### COMPONENTS ########### */
@@ -318,6 +325,11 @@ void MainWindow::slotSpeciale()
                                             "font-size: 15px;"
                                             "color: white;");
     }
+}
+
+void MainWindow::winWindow()
+{
+    delete this->vboxlayout;
 }
 
 /* ########### MAINWINDOW ########### */
