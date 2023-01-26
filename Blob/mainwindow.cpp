@@ -259,6 +259,7 @@ void MainWindow::slotNormale()
     this->boutonSpeciale->setVisible(false);
     this->boutonSoin->setVisible(false);
 
+    // Animation
     if (this->arene->getCurrentPlayer() == this->arene->getJoueur1()){
         this->pvCourantJoueur2->setStyleSheet("border-image: url(:/Images/Images/blood.png);"
                                             "font-family: Consolas;"
@@ -300,6 +301,23 @@ void MainWindow::slotSpeciale()
     this->boutonNormale->setVisible(false);
     this->boutonSpeciale->setVisible(false);
     this->boutonSoin->setVisible(false);
+
+    // Animation
+    if (this->arene->getCurrentPlayer() == this->arene->getJoueur1() && this->arene->getCurrentPlayer()->getBlob()->isTypeBetter(this->arene->getNotCurrentPlayer()->getBlob())){
+        this->pvCourantJoueur2->setStyleSheet("border-image: url(:/Images/Images/blood.png);"
+                                            "font-family: Consolas;"
+                                            "font-weight: bold;"
+                                            "font-size: 15px;"
+                                            "color: white;");
+    }
+    else if(this->arene->getCurrentPlayer()->getBlob()->isTypeBetter(this->arene->getNotCurrentPlayer()->getBlob()))
+    {
+        this->pvCourantJoueur1->setStyleSheet("border-image: url(:/Images/Images/blood.png);"
+                                            "font-family: Consolas;"
+                                            "font-weight: bold;"
+                                            "font-size: 15px;"
+                                            "color: white;");
+    }
 }
 
 /* ########### MAINWINDOW ########### */
