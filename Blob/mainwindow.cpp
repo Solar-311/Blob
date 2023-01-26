@@ -167,7 +167,7 @@ void MainWindow::init_components(){
                 "border-right-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 grey);"
                 "border-bottom-color: black;"
                 "background-color: grey;"
-                "color: white;");
+                "color: black;");
 }
 
 /* ########### LAYOUTS ########### */
@@ -301,6 +301,26 @@ void MainWindow::slotSoins()
     this->boutonNormale->setVisible(false);
     this->boutonSpeciale->setVisible(false);
     this->boutonSoin->setVisible(false);
+
+    // Animation
+    if (this->arene->getCurrentPlayer() == this->arene->getJoueur1() && this->arene->getJoueur1()->getBlob()->getPv_courant() < this->arene->getJoueur1()->getBlob()->getPv()
+            && this->arene->getJoueur1()->getBlob()->getPv_courant() > 0)
+    {
+        this->pvCourantJoueur1->setStyleSheet("border-image: url(:/Images/Images/Heal.png);"
+                                            "font-family: Consolas;"
+                                            "font-weight: bold;"
+                                            "font-size: 15px;"
+                                            "color: white;");
+    }
+    else if (this->arene->getJoueur2()->getBlob()->getPv_courant() < this->arene->getJoueur2()->getBlob()->getPv()
+             && this->arene->getJoueur2()->getBlob()->getPv_courant() > 0)
+    {
+        this->pvCourantJoueur2->setStyleSheet("border-image: url(:/Images/Images/Heal.png);"
+                                            "font-family: Consolas;"
+                                            "font-weight: bold;"
+                                            "font-size: 15px;"
+                                            "color: white;");
+    }
 }
 
 void MainWindow::slotSpeciale()

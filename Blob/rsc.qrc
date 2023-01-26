@@ -12,5 +12,6 @@
         <file>Images/borderImageSoin.png</file>
         <file>Images/borderImageSpeciale.png</file>
         <file>Images/blood.png</file>
+        <file>Images/Heal.png</file>
     </qresource>
 </RCC>
