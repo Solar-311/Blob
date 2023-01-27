@@ -224,10 +224,6 @@ void MainWindow::init_slots(){
     connect(this->boutonSpeciale, &QPushButton::released, this, &MainWindow::slotSpeciale);
 }
 
-void MainWindow::fermeJeux(){
-    this->close();
-}
-
 /* ########### SLOTS ########### */
 void MainWindow::slotChangeJoueur()
 {
@@ -252,41 +248,55 @@ void MainWindow::slotChangeJoueur()
                                           "font-weight: bold;"
                                           "font-size: 15px;"
                                           "color: white;");
+
+    if(this->arene->getNotCurrentPlayer() == this->arene->getJoueur1() && this->arene->getJoueur1()->getBlob()->getPv_courant() <= 0){
+        this->imageBlobJoueur2->hide();
+        this->imageBlobJoueur1->setAlignment(Qt::AlignCenter);
+        this->boutonNormale->setVisible(false);
+        this->boutonSpeciale->setVisible(false);
+        this->boutonSoin->setVisible(false);
+        this->boutonPasserTour->setVisible(false);
+        this->pvCourantJoueur1->setVisible(false);
+        this->nomJoueur1->setVisible(false);
+        this->nomBlobJoueur1->setVisible(false);
+    }
+    else if (this->arene->getNotCurrentPlayer() == this->arene->getJoueur2() && this->arene->getJoueur2()->getBlob()->getPv_courant() <= 0)
+    {
+        this->imageBlobJoueur1->hide();
+        this->imageBlobJoueur2->setAlignment(Qt::AlignCenter);
+        this->boutonNormale->setVisible(false);
+        this->boutonSpeciale->setVisible(false);
+        this->boutonSoin->setVisible(false);
+        this->boutonPasserTour->setVisible(false);
+        this->pvCourantJoueur2->setVisible(false);
+        this->nomJoueur2->setVisible(false);
+        this->nomBlobJoueur2->setVisible(false);
+    }
 }
 
 void MainWindow::slotNormale()
 {
-    this->arene->getCurrentPlayer()->useNormale(this->arene->getNotCurrentPlayer());
-    // Refresh
-    this->pvCourantJoueur1->setText( QString::number(this->arene->getJoueur1()->getBlob()->getPv_courant()) );
-    this->pvCourantJoueur2->setText( QString::number(this->arene->getJoueur2()->getBlob()->getPv_courant()) );
-
-    // Buttons
-    this->boutonNormale->setVisible(false);
-    this->boutonSpeciale->setVisible(false);
-    this->boutonSoin->setVisible(false);
-
     // Animation
-    if (this->arene->getCurrentPlayer() == this->arene->getJoueur1()){
+    if (this->arene->getCurrentPlayer() == this->arene->getJoueur1()
+            && this->arene->getCurrentPlayer()->getBlob()->getPv_courant() > 0)
+    {
+        this->arene->getCurrentPlayer()->useNormale(this->arene->getNotCurrentPlayer());
         this->pvCourantJoueur2->setStyleSheet("border-image: url(:/Images/Images/blood.png);"
                                             "font-family: Consolas;"
                                             "font-weight: bold;"
                                             "font-size: 15px;"
                                             "color: white;");
     }
-    else
+    else if (this->arene->getCurrentPlayer()->getBlob()->getPv_courant() > 0)
     {
+        this->arene->getCurrentPlayer()->useNormale(this->arene->getNotCurrentPlayer());
         this->pvCourantJoueur1->setStyleSheet("border-image: url(:/Images/Images/blood.png);"
                                             "font-family: Consolas;"
                                             "font-weight: bold;"
                                             "font-size: 15px;"
                                             "color: white;");
     }
-}
 
-void MainWindow::slotSoins()
-{
-    this->arene->getCurrentPlayer()->useSoin();
     // Refresh
     this->pvCourantJoueur1->setText( QString::number(this->arene->getJoueur1()->getBlob()->getPv_courant()) );
     this->pvCourantJoueur2->setText( QString::number(this->arene->getJoueur2()->getBlob()->getPv_courant()) );
@@ -295,11 +305,15 @@ void MainWindow::slotSoins()
     this->boutonNormale->setVisible(false);
     this->boutonSpeciale->setVisible(false);
     this->boutonSoin->setVisible(false);
+}
 
+void MainWindow::slotSoins()
+{
     // Animation
     if (this->arene->getCurrentPlayer() == this->arene->getJoueur1()
             && this->arene->getJoueur1()->getBlob()->getPv_courant() > 0)
     {
+        this->arene->getCurrentPlayer()->useSoin();
         this->pvCourantJoueur1->setStyleSheet("border-image: url(:/Images/Images/Heal.png);"
                                             "font-family: Consolas;"
                                             "font-weight: bold;"
@@ -309,17 +323,14 @@ void MainWindow::slotSoins()
     else if (this->arene->getCurrentPlayer() == this->arene->getJoueur2()
             && this->arene->getJoueur2()->getBlob()->getPv_courant() > 0)
     {
+        this->arene->getCurrentPlayer()->useSoin();
         this->pvCourantJoueur2->setStyleSheet("border-image: url(:/Images/Images/Heal.png);"
                                             "font-family: Consolas;"
                                             "font-weight: bold;"
                                             "font-size: 15px;"
                                             "color: white;");
     }
-}
 
-void MainWindow::slotSpeciale()
-{
-    this->arene->getCurrentPlayer()->useSpeciale(this->arene->getNotCurrentPlayer());
     // Refresh
     this->pvCourantJoueur1->setText( QString::number(this->arene->getJoueur1()->getBlob()->getPv_courant()) );
     this->pvCourantJoueur2->setText( QString::number(this->arene->getJoueur2()->getBlob()->getPv_courant()) );
@@ -328,23 +339,40 @@ void MainWindow::slotSpeciale()
     this->boutonNormale->setVisible(false);
     this->boutonSpeciale->setVisible(false);
     this->boutonSoin->setVisible(false);
+}
 
+void MainWindow::slotSpeciale()
+{
     // Animation
-    if (this->arene->getCurrentPlayer() == this->arene->getJoueur1() && this->arene->getCurrentPlayer()->getBlob()->isTypeBetter(this->arene->getNotCurrentPlayer()->getBlob())){
+    if (this->arene->getCurrentPlayer() == this->arene->getJoueur1()
+            && this->arene->getCurrentPlayer()->getBlob()->getPv_courant() > 0
+            && this->arene->getCurrentPlayer()->getBlob()->isTypeBetter(this->arene->getNotCurrentPlayer()->getBlob())){
+        this->arene->getCurrentPlayer()->useSpeciale(this->arene->getNotCurrentPlayer());
         this->pvCourantJoueur2->setStyleSheet("border-image: url(:/Images/Images/blood.png);"
                                             "font-family: Consolas;"
                                             "font-weight: bold;"
                                             "font-size: 15px;"
                                             "color: white;");
     }
-    else if(this->arene->getCurrentPlayer()->getBlob()->isTypeBetter(this->arene->getNotCurrentPlayer()->getBlob()))
+    else if(this->arene->getCurrentPlayer()->getBlob()->isTypeBetter(this->arene->getNotCurrentPlayer()->getBlob())
+            && this->arene->getCurrentPlayer()->getBlob()->getPv_courant() > 0)
     {
+        this->arene->getCurrentPlayer()->useSpeciale(this->arene->getNotCurrentPlayer());
         this->pvCourantJoueur1->setStyleSheet("border-image: url(:/Images/Images/blood.png);"
                                             "font-family: Consolas;"
                                             "font-weight: bold;"
                                             "font-size: 15px;"
                                             "color: white;");
     }
+
+    // Refresh
+    this->pvCourantJoueur1->setText( QString::number(this->arene->getJoueur1()->getBlob()->getPv_courant()) );
+    this->pvCourantJoueur2->setText( QString::number(this->arene->getJoueur2()->getBlob()->getPv_courant()) );
+
+    // Buttons
+    this->boutonNormale->setVisible(false);
+    this->boutonSpeciale->setVisible(false);
+    this->boutonSoin->setVisible(false);
 }
 
 /* ########### MAINWINDOW ########### */

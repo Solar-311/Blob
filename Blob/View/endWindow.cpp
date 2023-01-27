@@ -12,11 +12,14 @@ endWindow::endWindow(Arene *arene, QWidget *parent) : QMainWindow(parent) , ui(n
     ui->setupUi(this);
 
     /* BACKGROUND */
-    this->lb = new QLabel( QString::fromStdString(this->arene->getJoueur1()->getNom()) + " WON");
-    this->lb->setStyleSheet("font-family: Consolas;"
-                            "font-weight: bold;"
-                            "font-size: 15px;"
-                            "color: white;");
+    QLabel *lb = new QLabel( QString::fromStdString(this->arene->getJoueur1()->getNom()) + " WON");
+    lb->setStyleSheet("font-family: Consolas;"
+                    "font-weight: bold;"
+                    "font-size: 150px;"
+                    //"background-color: black;"
+                    "color: white;");
+    lb->setAlignment(Qt::AlignTop);
+    lb->setAlignment(Qt::AlignHCenter);
 
     QMovie *movie = new QMovie(":/Images/Images/winBackground.gif");
     QLabel *processLabel = new QLabel(this);
@@ -25,8 +28,16 @@ endWindow::endWindow(Arene *arene, QWidget *parent) : QMainWindow(parent) , ui(n
     movie->setScaledSize(QSize(this->geometry().width(), this->geometry().height()));
     movie->start();
 
+    this->centre = new QWidget();
+    this->setCentralWidget(this->centre);
     this->vboxlayout = new QVBoxLayout();
     this->vboxlayout->addWidget(processLabel);
+    this->vboxlayout->addWidget(lb);
+    this->centre->setLayout(this->vboxlayout);
+
+    auto palette = this->palette();
+    palette.setColor(QPalette::Window, Qt::black);
+    this->setPalette(palette);
 
     /* WINDOW */
     this->setWindowTitle("You Won");

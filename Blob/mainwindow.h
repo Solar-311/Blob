@@ -67,6 +67,7 @@ class MainWindow : public QMainWindow
         QPushButton* boutonSoin;
         QPushButton* boutonSpeciale;
         QPushButton* boutonPasserTour;
+        QPushButton* boutonGg;
 
         /* INIT */
         void init_components();
@@ -80,7 +81,6 @@ class MainWindow : public QMainWindow
         void init_slots();
 
     public slots :
-        void fermeJeux();
         void slotChangeJoueur();
         void slotNormale();
         void slotSoins();

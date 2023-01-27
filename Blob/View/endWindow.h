@@ -36,7 +36,6 @@ class endWindow : public QMainWindow
         Ui::MainWindow *ui;
         QWidget* centre;
         QVBoxLayout* vboxlayout;
-        QLabel* lb;
 };
 
 #endif // ENDWINDOW_H
