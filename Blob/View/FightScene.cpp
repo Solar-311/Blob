@@ -46,9 +46,11 @@ void FightScene::init_components(){
     QPixmap image2 = image.scaled(150, 150, Qt::KeepAspectRatio);
     this->imageBlobJoueur2->setPixmap(image2);
     this->imageBlobJoueur2->show();
+
     // Position
     this->imageBlobJoueur2->setAlignment(Qt::AlignCenter);
     //videoBlobJoueur2->start();
+
     // Components
     this->typeJoueur2 = new QLabel( QString::fromStdString(this->arene->getJoueur2()->getBlob()->getType()->getType()) );
     this->nomBlobJoueur2 = new QLabel( QString::fromStdString(this->arene->getJoueur2()->getBlob()->getNom()) );
@@ -71,12 +73,19 @@ void FightScene::init_components(){
     /* COMPONENTS JOUEUR 1 */
     // Image Blob
     this->imageBlobJoueur1 = new QLabel();
+    /*
     QMovie *videoBlobJoueur1= new QMovie(":/Images/Images/BlobFabio.gif");
     videoBlobJoueur1->setScaledSize(QSize(100, 100));
     this->imageBlobJoueur1->setMovie(videoBlobJoueur1);
+    videoBlobJoueur1->start();*/
+    QPixmap image3(":/Images/Images/FireBlob.png");
+    QPixmap image4 = image3.scaled(150, 150, Qt::KeepAspectRatio);
+    this->imageBlobJoueur1->setPixmap(image4);
+    this->imageBlobJoueur1->show();
+
     // Position
     this->imageBlobJoueur1->setAlignment(Qt::AlignCenter);
-    videoBlobJoueur1->start();
+
     // Components
     this->typeJoueur1 = new QLabel( QString::fromStdString(this->arene->getJoueur1()->getBlob()->getType()->getType()) );
     this->nomBlobJoueur1 = new QLabel( QString::fromStdString(this->arene->getJoueur1()->getBlob()->getNom()) );
@@ -284,12 +293,14 @@ void FightScene::slotChangeJoueur()
         this->pvCourantJoueur1->setVisible(false);
         this->nomJoueur1->setVisible(false);
         this->nomBlobJoueur1->setVisible(false);
+
+        this->gridInfo->setAlignment(Qt::AlignCenter);
     }
 
     else if (this->arene->getJoueur1()->getBlob()->getPv_courant() > 0 && this->arene->getJoueur2()->getBlob()->getPv_courant() <= 0)
     {
         this->imageBlobJoueur1->hide();
-        this->imageBlobJoueur2->setAlignment(Qt::AlignCenter);
+        this->imageBlobJoueur2->setAlignment(Qt::AlignBottom);
         this->boutonNormale->setVisible(false);
         this->boutonSpeciale->setVisible(false);
         this->boutonSoin->setVisible(false);
@@ -297,6 +308,8 @@ void FightScene::slotChangeJoueur()
         this->pvCourantJoueur2->setVisible(false);
         this->nomJoueur2->setVisible(false);
         this->nomBlobJoueur2->setVisible(false);
+
+        this->gridInfo->setAlignment(Qt::AlignCenter);
     }
 }
 

@@ -35,18 +35,18 @@ int main(int argc, char *argv[])
     Normale *n = new Normale(40, "Normale");
     Soin *s2 = new Soin(50, "Fabio Soin");
     Speciale *sp2 = new Speciale(60, "Fabio Speciale");
-    Normale *n2 = new Normale(9999, "Fabio Attaque");
+    Normale *n2 = new Normale(50, "Fabio Attaque");
 
     // BLOBS
     Blob *f = new Blob("Nooby Noob", 100, new Feu(), sp, n, s);
     Blob *g = new Blob("FabioGODMODE", 9999, new Plante(), sp2, n2, s2);
-    Blob *x = new Blob("FabioGODMODE", 9999, new Feu(), sp2, n2, s2);
+    Blob *x = new Blob("FabioGODMODE", 120, new Feu(), sp2, n2, s2);
 
     // JOUEUR
     Joueur *j1 = new Joueur("Joueur 1", f);
     //j->afficherJoueur();
 
-    Joueur *j2 = new Joueur("Joueur 2", g);
+    Joueur *j2 = new Joueur("Joueur 2", x);
     // j2->afficherJoueur();
 
     Joueur *j3 = new Joueur("Fabio", x);
