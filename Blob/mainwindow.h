@@ -17,10 +17,7 @@
 #include <QDialog>
 
 /* FILES */
-#include "Model/Joueur/Joueur.h"
 #include "Model/Arene/Arene.h"
-#include "View/WinnerScene.h"
-#include "View/FightScene.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -28,5 +25,30 @@ QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
+    Q_OBJECT
+
+    public:
+        Arene *arene;
+        MainWindow(Arene *arene, QWidget *parent = nullptr);
+        ~MainWindow();
+
+    private :
+        Ui::MainWindow *ui;
+        QWidget* centre;
+
+        /* LAYOUT */
+        QVBoxLayout* vboxlayout;
+        QHBoxLayout* hBoxTop;
+        QHBoxLayout* hBoxBottom;
+        QHBoxLayout* bottom;
+        QLabel* lb;
+        QLineEdit* text1;
+        QLineEdit* text2;
+        QPushButton* bouton;
+
+        /* FUNCTIONS */
+        void init_components();
+        void init_layouts();
+        //void init_slots();
 };
 #endif // MAINWINDOW_H

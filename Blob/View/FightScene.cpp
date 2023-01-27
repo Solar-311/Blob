@@ -229,10 +229,11 @@ void FightScene::init_layout(){
 
     this->vBoxBottomR->addWidget(this->boutonRejouer, Qt::AlignCenter);
     this->boutonRejouer->setVisible(false);
+    /*
     if(this->arene->getJoueur1()->getBlob()->getPv_courant() == 0 || this->arene->getJoueur2()->getBlob()->getPv_courant() == 0)
     {
         this->boutonRejouer->setVisible(true);
-    }
+    }*/
 
     /* LAYOUT ORGANISATION */
     this->vboxlayout = new QVBoxLayout();

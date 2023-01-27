@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     //arene->afficherArene();
 
     QApplication a(argc, argv);
-    FightScene fs (arene);
+    MainWindow fs (arene);
     fs.show();
 
     /* ACTIONS */
