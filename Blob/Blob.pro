@@ -22,7 +22,8 @@ SOURCES += \
     Model/Type/Plante.cpp \
     Model/Type/Type.cpp \
     Model/Utils/Utils.cpp \
-    View/endWindow.cpp \
+    View/FightScene.cpp \
+    View/WinnerScene.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -40,7 +41,8 @@ HEADERS += \
     Model/Type/Plante.h \
     Model/Type/Type.h \
     Model/Utils/Utils.h \
-    View/endWindow.h \
+    View/FightScene.h \
+    View/WinnerScene.h \
     mainwindow.h
 
 FORMS += \

@@ -287,7 +287,7 @@ bool Blob::isTypeBetter(Blob *blob)
 
 void Blob::isDead(Blob *blob)
 {
-    if (blob->getPv_courant() < 0)
+    if (blob->getPv_courant() <= 0)
     {
         std::cout << "***** BLOB MORT *****" << std::endl;
     }

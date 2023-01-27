@@ -75,6 +75,7 @@ class Blob {
         bool isTypeBetter(Blob *blob);
 
 
+
 };
 
 #endif // BLOB_H

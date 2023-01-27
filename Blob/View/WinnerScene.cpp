@@ -3,23 +3,24 @@
 #include <iostream>
 
 /* FILES */
-#include "endwindow.h"
+#include "WinnerScene.h"
 #include "ui_mainwindow.h"
 
-endWindow::endWindow(Arene *arene, QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainWindow)
+/* ########### MAINWINDOW ########### */
+WinnerScene::WinnerScene(Arene *arene, QWidget *parent): QMainWindow(parent) , ui(new Ui::MainWindow)
 {
     this->arene = arene;
     ui->setupUi(this);
 
     /* BACKGROUND */
-    QLabel *lb = new QLabel( QString::fromStdString(this->arene->getJoueur1()->getNom()) + " WON");
-    lb->setStyleSheet("font-family: Consolas;"
+    this->lb = new QLabel( QString::fromStdString(this->arene->getJoueur1()->getNom()) + " WON");
+    this->lb->setStyleSheet("font-family: Consolas;"
                     "font-weight: bold;"
-                    "font-size: 150px;"
-                    //"background-color: black;"
+                    "font-size: 20px;"
+                    "background-color: black;"
                     "color: white;");
-    lb->setAlignment(Qt::AlignTop);
-    lb->setAlignment(Qt::AlignHCenter);
+    this->lb->setAlignment(Qt::AlignTop);
+    this->lb->setAlignment(Qt::AlignHCenter);
 
     QMovie *movie = new QMovie(":/Images/Images/winBackground.gif");
     QLabel *processLabel = new QLabel(this);
@@ -32,7 +33,7 @@ endWindow::endWindow(Arene *arene, QWidget *parent) : QMainWindow(parent) , ui(n
     this->setCentralWidget(this->centre);
     this->vboxlayout = new QVBoxLayout();
     this->vboxlayout->addWidget(processLabel);
-    this->vboxlayout->addWidget(lb);
+    this->vboxlayout->addWidget(this->lb);
     this->centre->setLayout(this->vboxlayout);
 
     auto palette = this->palette();
@@ -44,11 +45,11 @@ endWindow::endWindow(Arene *arene, QWidget *parent) : QMainWindow(parent) , ui(n
     this->setWindowIcon(QIcon(":/Images/Images/Icon.png"));
     this->setFixedSize(this->geometry().width(), this->geometry().height());
     this->setAutoFillBackground(true);
-    this->show();
 }
 
-/* ########### MAINWINDOW ########### */
-endWindow::~endWindow()
+WinnerScene::~WinnerScene()
 {
     delete ui;
+    delete this->centre;
+    delete this->vboxlayout;
 }

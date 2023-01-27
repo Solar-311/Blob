@@ -7,7 +7,6 @@
 #include "Model/Blob.h"
 #include <QApplication>
 #include "mainwindow.h"
-#include "View/endWindow.h"
 
 // ARENE
 #include "Model/Arene/Arene.h"
@@ -20,7 +19,9 @@
 #include "Model/Type/Feu.h"
 #include "Model/Type/Plante.h"
 
-// OUTILS
+// WINDOW
+#include "View/FightScene.h"
+#include "View/WinnerScene.h"
 
 int main(int argc, char *argv[])
 {
@@ -34,7 +35,7 @@ int main(int argc, char *argv[])
     Normale *n = new Normale(40, "Normale");
     Soin *s2 = new Soin(50, "Fabio Soin");
     Speciale *sp2 = new Speciale(60, "Fabio Speciale");
-    Normale *n2 = new Normale(40, "Fabio Attaque");
+    Normale *n2 = new Normale(9999, "Fabio Attaque");
 
     // BLOBS
     Blob *f = new Blob("Nooby Noob", 100, new Feu(), sp, n, s);
@@ -55,8 +56,8 @@ int main(int argc, char *argv[])
     //arene->afficherArene();
 
     QApplication a(argc, argv);
-    MainWindow w (arene);
-    w.show();
+    FightScene fs (arene);
+    fs.show();
 
     /* ACTIONS */
     return a.exec();

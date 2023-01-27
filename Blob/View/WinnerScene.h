@@ -1,5 +1,5 @@
-#ifndef ENDWINDOW_H
-#define ENDWINDOW_H
+#ifndef WINNERSCENE_H
+#define WINNERSCENE_H
 
 /* ########## INCLUDE ########## */
 /* LIBRARY QT */
@@ -23,19 +23,20 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-class endWindow : public QMainWindow
+class WinnerScene : public QMainWindow
 {
     Q_OBJECT
 
     public:
         Arene *arene;
-        endWindow(Arene *arene, QWidget *parent = nullptr);
-        ~endWindow();
+        WinnerScene(Arene *arene, QWidget *parent = nullptr);
+        ~WinnerScene();
 
     private:
         Ui::MainWindow *ui;
         QWidget* centre;
         QVBoxLayout* vboxlayout;
+        QLabel* lb;
 };
 
-#endif // ENDWINDOW_H
+#endif // WINNERSCENE_H
