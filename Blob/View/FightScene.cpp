@@ -46,9 +46,6 @@ void FightScene::init_components(){
     /* COMPONENTS JOUEUR 2 */
     // Image Blob
     this->imageBlobJoueur2 = new Movement();
-    //QMovie *videoBlobJoueur2= new QMovie(":/Images/Images/GreenBlob.gif");
-    //videoBlobJoueur2->setScaledSize(QSize(150, 150));
-    //this->imageBlobJoueur2->setMovie(videoBlobJoueur2);
     QPixmap image(":/Images/Images/Icon.png");
     QPixmap image2 = image.scaled(150, 150, Qt::KeepAspectRatio);
     this->imageBlobJoueur2->setPixmap(image2);
@@ -56,7 +53,6 @@ void FightScene::init_components(){
 
     // Position
     this->imageBlobJoueur2->setAlignment(Qt::AlignCenter);
-    //videoBlobJoueur2->start();
 
     // Components
     this->typeJoueur2 = new QLabel( QString::fromStdString(this->arene->getJoueur2()->getBlob()->getType()->getType()) );
@@ -80,11 +76,6 @@ void FightScene::init_components(){
     /* COMPONENTS JOUEUR 1 */
     // Image Blob
     this->imageBlobJoueur1 = new Movement();
-    /*
-    QMovie *videoBlobJoueur1= new QMovie(":/Images/Images/BlobFabio.gif");
-    videoBlobJoueur1->setScaledSize(QSize(100, 100));
-    this->imageBlobJoueur1->setMovie(videoBlobJoueur1);
-    videoBlobJoueur1->start();*/
     QPixmap image3(":/Images/Images/FireBlob.png");
     QPixmap image4 = image3.scaled(150, 150, Qt::KeepAspectRatio);
     this->imageBlobJoueur1->setPixmap(image4);

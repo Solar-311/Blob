@@ -4,7 +4,7 @@
 // Scene.h
 #include <QtCore>
 #include <QLabel>
-
+#include <QTimer>
 class Movement : public QLabel
 {
     Q_OBJECT
@@ -12,11 +12,13 @@ class Movement : public QLabel
 public:
     Movement(QWidget *parent = 0);
 
-protected:
-    void timerEvent(QTimerEvent *event);
-
 private:
-    int m_offset;
+    int m_step;
+    int m_direction;
+    QTimer m_timer;
+
+private slots:
+    void moveImage();
 };
 
 #endif // MOVEMENT_H

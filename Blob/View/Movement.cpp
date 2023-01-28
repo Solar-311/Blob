@@ -2,12 +2,28 @@
 
 Movement::Movement(QWidget *parent) : QLabel(parent)
 {
-    m_offset = 0;
-    startTimer(50);
+    m_step = 0;
+    m_direction = 1;
+
+    m_timer.setInterval(50); // intervalle de temps en ms
+    connect(&m_timer, &QTimer::timeout, this, &Movement::moveImage);
+    m_timer.start();
 }
 
-void Movement::timerEvent(QTimerEvent *event)
+void Movement::moveImage()
 {
-    m_offset++;
-    setGeometry(x(), y() + qSin(m_offset / 10.0) * 2, width(), height());
+    if(m_step < 50 && m_direction == 1) {
+        move(x(), y() - 1);
+        m_step++;
+    }
+    else if(m_step >= 50 && m_direction == 1) {
+        m_direction = -1;
+    }
+    else if(m_step > 0 && m_direction == -1) {
+        move(x(), y() + 1);
+        m_step--;
+    }
+    else if(m_step <= 0 && m_direction == -1) {
+        m_direction = 1;
+    }
 }
