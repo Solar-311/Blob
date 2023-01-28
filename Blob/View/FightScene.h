@@ -81,8 +81,9 @@ class FightScene : public QMainWindow
         /* FUNCTIONS */
         void playerButton(Joueur *currentPlayer);
         void init_slots();
+        void changeScene();
 
-    public slots :
+public slots :
         void slotChangeJoueur();
         void slotNormale();
         void slotSoins();

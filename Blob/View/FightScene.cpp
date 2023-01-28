@@ -5,6 +5,7 @@
 /* FILES */
 #include "FightScene.h"
 #include "ui_mainwindow.h"
+#include "Menu.h"
 
 /* ########### CONSTRUCTOR ########### */
 FightScene::FightScene(Arene *arene, QWidget *parent) : QMainWindow(parent) , ui(new Ui::MainWindow)
@@ -296,6 +297,25 @@ void FightScene::slotChangeJoueur()
         this->nomBlobJoueur1->setVisible(false);
 
         this->gridInfo->setAlignment(Qt::AlignVCenter);
+
+        QPushButton* rejouer = new QPushButton("REJOUER");
+        rejouer->setStyleSheet(
+                    "font-weight: bold;"
+                    "font-size: 17px;"
+                    "letter-spacing: 1.5px;"
+                    "font-family: Consolas;"
+                    "border-bottom-left-radius:50px;"
+                    "border-top-left-radius:50px;"
+                    "border-width: 3px;"
+                    "border-style: solid;"
+                    "border-top-color: rgba(255, 255, 255, 0);"
+                    "border-left-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 yellow);"
+                    "border-right-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 yellow);"
+                    "border-bottom-color: black;"
+                    "background-color: rgb(255, 255, 100);"
+                    "color: black;");
+        this->vBoxTopR->addWidget(rejouer);
+        connect(rejouer, &QPushButton::released, this, &FightScene::changeScene);
     }
 
     else if (this->arene->getJoueur1()->getBlob()->getPv_courant() > 0 && this->arene->getJoueur2()->getBlob()->getPv_courant() <= 0)
@@ -310,7 +330,44 @@ void FightScene::slotChangeJoueur()
         this->nomBlobJoueur2->setVisible(false);
 
         this->gridInfo->setAlignment(Qt::AlignVCenter);
+
+        QPushButton* rejouer = new QPushButton("REJOUER");
+        rejouer->setStyleSheet(
+                    "font-weight: bold;"
+                    "font-size: 17px;"
+                    "letter-spacing: 1.5px;"
+                    "font-family: Consolas;"
+                    "border-bottom-left-radius:50px;"
+                    "border-top-left-radius:50px;"
+                    "border-width: 3px;"
+                    "border-style: solid;"
+                    "border-top-color: rgba(255, 255, 255, 0);"
+                    "border-left-color:  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 yellow);"
+                    "border-right-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 black, stop: 1 yellow);"
+                    "border-bottom-color: black;"
+                    "background-color: rgb(255, 255, 100);"
+                    "color: black;");
+        this->vBoxTopR->addWidget(rejouer);
     }
+}
+
+void FightScene::changeScene()
+{
+    this->close();
+    Soin *s = new Soin(50, "Soin");
+    Speciale *sp = new Speciale(60, "Speciale");
+    Normale *n = new Normale(40, "Normale");
+    Soin *s2 = new Soin(50, "Fabio Soin");
+    Speciale *sp2 = new Speciale(60, "Fabio Speciale");
+    Normale *n2 = new Normale(50, "Fabio Attaque");
+    Blob *f = new Blob("Nooby Noob", 100, new Feu(), sp, n, s);
+    Blob *x = new Blob("FabioGODMODE", 120, new Feu(), sp2, n2, s2);
+    Joueur *j1 = new Joueur("Joueur 1", f);
+    Joueur *j2 = new Joueur("Joueur 2", x);
+    Arene* arene = new Arene("ARENA WAR", j1, j2);
+    Menu* m = new Menu(arene);
+    m->show();
+
 }
 
 void FightScene::slotNormale()
@@ -422,6 +479,4 @@ void FightScene::slotSpeciale()
 FightScene::~FightScene()
 {
     delete ui;
-    delete this->vboxlayout;
-    delete this->centre;
 }

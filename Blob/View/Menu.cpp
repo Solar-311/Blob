@@ -1,5 +1,4 @@
 #include "Menu.h"
-#include "View/FightScene.h"
 
 Menu::Menu(Arene *arene, QWidget *parent) : QMainWindow(parent)
 {
