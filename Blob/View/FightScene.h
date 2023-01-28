@@ -13,13 +13,16 @@
 #include <QPixmap>
 #include <QRect>
 #include <QMovie>
-#include <QDialog>
+#include <QTimer>
 #include <QLineEdit>
+#include <QtCore>
+#include <QtGui>
 
 /* FILES */
 #include "Model/Joueur/Joueur.h"
 #include "Model/Arene/Arene.h"
 #include "View/WinnerScene.h"
+#include "View/Movement.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -55,14 +58,14 @@ class FightScene : public QMainWindow
         QLabel* nomJoueur1;
         QLabel* typeJoueur1;
         QLabel* pvCourantJoueur1;
-        QLabel* imageBlobJoueur1;
+        Movement* imageBlobJoueur1;
 
         /* JOUEUR 2 */
         QLabel* nomBlobJoueur2;
         QLabel* nomJoueur2;
         QLabel* typeJoueur2;
         QLabel* pvCourantJoueur2;
-        QLabel* imageBlobJoueur2;
+        Movement* imageBlobJoueur2;
 
         /* BOUTONS */
         QPushButton* boutonNormale;

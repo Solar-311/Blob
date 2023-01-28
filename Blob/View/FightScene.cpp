@@ -45,7 +45,7 @@ void FightScene::init_components(){
 
     /* COMPONENTS JOUEUR 2 */
     // Image Blob
-    this->imageBlobJoueur2 = new QLabel();
+    this->imageBlobJoueur2 = new Movement();
     //QMovie *videoBlobJoueur2= new QMovie(":/Images/Images/GreenBlob.gif");
     //videoBlobJoueur2->setScaledSize(QSize(150, 150));
     //this->imageBlobJoueur2->setMovie(videoBlobJoueur2);
@@ -79,7 +79,7 @@ void FightScene::init_components(){
 
     /* COMPONENTS JOUEUR 1 */
     // Image Blob
-    this->imageBlobJoueur1 = new QLabel();
+    this->imageBlobJoueur1 = new Movement();
     /*
     QMovie *videoBlobJoueur1= new QMovie(":/Images/Images/BlobFabio.gif");
     videoBlobJoueur1->setScaledSize(QSize(100, 100));

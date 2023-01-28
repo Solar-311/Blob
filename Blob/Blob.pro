@@ -24,6 +24,7 @@ SOURCES += \
     Model/Utils/Utils.cpp \
     View/FightScene.cpp \
     View/Menu.cpp \
+    View/Movement.cpp \
     View/WinnerScene.cpp \
     main.cpp \
     mainwindow.cpp
@@ -44,6 +45,7 @@ HEADERS += \
     Model/Utils/Utils.h \
     View/FightScene.h \
     View/Menu.h \
+    View/Movement.h \
     View/WinnerScene.h \
     mainwindow.h
 
