@@ -37,6 +37,7 @@ class FightScene : public QMainWindow
     private:
         Ui::MainWindow *ui;
         QWidget* centre;
+        QLabel* label;
 
         /* LAYOUT */
         QVBoxLayout* vboxlayout;

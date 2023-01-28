@@ -36,6 +36,13 @@ void FightScene::init_components(){
     /* CENTRAL WIDGET */
     this->centre = new QWidget();
 
+    // Winner
+    this->label = new QLabel(QString::fromStdString(this->arene->getCurrentPlayer()->getNom()) +"WON");
+    this->label->setStyleSheet("QLabel { color : white; "
+                             "font: bold 25px; "
+                             "padding: 10px; "
+                             "border-radius: 10px;}");
+
     /* COMPONENTS JOUEUR 2 */
     // Image Blob
     this->imageBlobJoueur2 = new QLabel();
@@ -229,11 +236,14 @@ void FightScene::init_layout(){
 
     this->vBoxBottomR->addWidget(this->boutonRejouer, Qt::AlignCenter);
     this->boutonRejouer->setVisible(false);
-    /*
-    if(this->arene->getJoueur1()->getBlob()->getPv_courant() == 0 || this->arene->getJoueur2()->getBlob()->getPv_courant() == 0)
-    {
-        this->boutonRejouer->setVisible(true);
-    }*/
+
+    this->vBoxTopL->addWidget(this->label);
+    this->label->setVisible(false);
+    if (this->arene->getJoueur1()->getBlob()->getPv_courant() == 0 ||
+        this->arene->getJoueur2()->getBlob()->getPv_courant() == 0){
+        this->label->setVisible(true);
+        this->label->setAlignment(Qt::AlignTop);
+    }
 
     /* LAYOUT ORGANISATION */
     this->vboxlayout = new QVBoxLayout();
@@ -286,7 +296,6 @@ void FightScene::slotChangeJoueur()
 
     if(this->arene->getJoueur1()->getBlob()->getPv_courant() <= 0 && this->arene->getJoueur2()->getBlob()->getPv_courant() > 0){
         this->imageBlobJoueur2->hide();
-        this->imageBlobJoueur1->setAlignment(Qt::AlignCenter);
         this->boutonNormale->setVisible(false);
         this->boutonSpeciale->setVisible(false);
         this->boutonSoin->setVisible(false);
@@ -295,13 +304,12 @@ void FightScene::slotChangeJoueur()
         this->nomJoueur1->setVisible(false);
         this->nomBlobJoueur1->setVisible(false);
 
-        this->gridInfo->setAlignment(Qt::AlignCenter);
+        this->gridInfo->setAlignment(Qt::AlignVCenter);
     }
 
     else if (this->arene->getJoueur1()->getBlob()->getPv_courant() > 0 && this->arene->getJoueur2()->getBlob()->getPv_courant() <= 0)
     {
         this->imageBlobJoueur1->hide();
-        this->imageBlobJoueur2->setAlignment(Qt::AlignBottom);
         this->boutonNormale->setVisible(false);
         this->boutonSpeciale->setVisible(false);
         this->boutonSoin->setVisible(false);
@@ -310,7 +318,7 @@ void FightScene::slotChangeJoueur()
         this->nomJoueur2->setVisible(false);
         this->nomBlobJoueur2->setVisible(false);
 
-        this->gridInfo->setAlignment(Qt::AlignCenter);
+        this->gridInfo->setAlignment(Qt::AlignVCenter);
     }
 }
 

@@ -12,6 +12,7 @@ class Utils {
         /* FUNCTION */
         static int generateRandomNumber(int lo, int hi);
         static float generateRandomFNumber();
+        static void changeScene();
 };
 
 #endif // UTILS_H

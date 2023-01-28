@@ -15,5 +15,6 @@
         <file>Images/Heal.png</file>
         <file>Images/winBackground.gif</file>
         <file>Images/FireBlob.png</file>
+        <file>Images/MenuBackground.png</file>
     </qresource>
 </RCC>

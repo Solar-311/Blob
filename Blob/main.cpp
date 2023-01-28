@@ -22,6 +22,7 @@
 // WINDOW
 #include "View/FightScene.h"
 #include "View/WinnerScene.h"
+#include "View/Menu.h"""
 
 int main(int argc, char *argv[])
 {
@@ -49,16 +50,18 @@ int main(int argc, char *argv[])
     Joueur *j2 = new Joueur("Joueur 2", x);
     // j2->afficherJoueur();
 
-    Joueur *j3 = new Joueur("Fabio", x);
+    //Joueur *j3 = new Joueur("Fabio", x);
 
     // ARENE
     Arene *arene = new Arene("ARENA WAR", j1, j2);
     //arene->afficherArene();
 
     QApplication a(argc, argv);
-    MainWindow fs (arene);
-    fs.show();
+    Menu m(arene);
+    m.show();
 
+    /*FightScene *fs = new FightScene(arene);
+    fs->show();*/
     /* ACTIONS */
     return a.exec();
     return 0;
