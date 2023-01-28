@@ -4,7 +4,7 @@ Menu::Menu(Arene *arene, QWidget *parent) : QMainWindow(parent)
 {
     this->arene = arene;
 
-    std::string path = ":/Images/Images/MenuBackground.png";
+    std::string path = ":/Images/Images/MenuBackground.jpg";
 
     QPixmap bkgnd(QString::fromStdString(path));
     QPalette palette;
@@ -14,20 +14,21 @@ Menu::Menu(Arene *arene, QWidget *parent) : QMainWindow(parent)
     /* WINDOW */
     this->setWindowTitle("Blob");
     this->setWindowIcon(QIcon(":/Images/Images/Icon.png"));
-    this->setFixedSize(1000, 667);
+    this->setFixedSize(bkgnd.size().width(), bkgnd.size().height());
     this->setAutoFillBackground(true);
 
-    this->label = new QLabel("CHOIX DES PSEUDOS");
+    this->label = new QLabel("BLOBEMON");
     this->label->setAlignment(Qt::AlignHCenter);
     this->label->setStyleSheet("QLabel { color : white; "
                          "font: bold 25px; "
                          "padding: 10px; "
                          "border-radius: 10px;}");
     this->bouton = new QPushButton("VALIDER");
-    this->bouton->setStyleSheet("QPushButton { background-color: #4CAF50; "
-                          "color: white; font-size: 18px; "
+    this->bouton->setStyleSheet("QPushButton { background-color: white; "
+                          "color: black; font-size: 18px; "
+                          "font-weight: bold;"
                           "padding: 14px 20px; border-radius: 10px;} "
-                          "QPushButton:hover { background-color: #3E8E41; }");
+                          "QPushButton:hover { background-color: grey; }");
     this->leftLineEdit = new QLineEdit();
     this->leftLineEdit->setPlaceholderText("Nom Joueur 1");
     this->leftLineEdit->setStyleSheet("QLineEdit { background-color: rgba(255, 255, 255, 0.8); "

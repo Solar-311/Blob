@@ -16,5 +16,6 @@
         <file>Images/winBackground.gif</file>
         <file>Images/FireBlob.png</file>
         <file>Images/MenuBackground.png</file>
+        <file>Images/MenuBackground.jpg</file>
     </qresource>
 </RCC>

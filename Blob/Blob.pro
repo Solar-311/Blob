@@ -25,7 +25,6 @@ SOURCES += \
     View/FightScene.cpp \
     View/Menu.cpp \
     View/Movement.cpp \
-    View/WinnerScene.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -46,7 +45,6 @@ HEADERS += \
     View/FightScene.h \
     View/Menu.h \
     View/Movement.h \
-    View/WinnerScene.h \
     mainwindow.h
 
 FORMS += \

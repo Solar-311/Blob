@@ -21,7 +21,6 @@
 
 // WINDOW
 #include "View/FightScene.h"
-#include "View/WinnerScene.h"
 #include "View/Menu.h"""
 
 int main(int argc, char *argv[])

@@ -21,7 +21,6 @@
 /* FILES */
 #include "Model/Joueur/Joueur.h"
 #include "Model/Arene/Arene.h"
-#include "View/WinnerScene.h"
 #include "View/Movement.h"
 
 QT_BEGIN_NAMESPACE
@@ -40,7 +39,6 @@ class FightScene : public QMainWindow
     private:
         Ui::MainWindow *ui;
         QWidget* centre;
-        QLabel* label;
 
         /* LAYOUT */
         QVBoxLayout* vboxlayout;
@@ -72,7 +70,7 @@ class FightScene : public QMainWindow
         QPushButton* boutonSoin;
         QPushButton* boutonSpeciale;
         QPushButton* boutonPasserTour;
-        QPushButton* boutonRejouer;
+        QPushButton* rejouer;
 
         /* INIT */
         void init_components();
@@ -82,6 +80,7 @@ class FightScene : public QMainWindow
         void playerButton(Joueur *currentPlayer);
         void init_slots();
         void changeScene();
+        void winnerManagment();
 
 public slots :
         void slotChangeJoueur();
