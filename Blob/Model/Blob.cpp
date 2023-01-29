@@ -13,6 +13,7 @@ Blob::Blob()
     this->normale = new Normale();
     this->speciale = new Speciale();
     this->soin = new Soin();
+    this->image = "PATH";
 }
 
 Blob::Blob(std::string nom)
@@ -25,6 +26,7 @@ Blob::Blob(std::string nom)
     this->normale = new Normale();
     this->speciale = new Speciale();
     this->soin = new Soin();
+    this->image = "PATH";
 }
 
 Blob::Blob(std::string nom, int pv)
@@ -37,6 +39,7 @@ Blob::Blob(std::string nom, int pv)
     this->normale = new Normale();
     this->speciale = new Speciale();
     this->soin = new Soin();
+    this->image = "PATH";
 }
 
 Blob::Blob(std::string nom, int pv, Type *type)
@@ -49,6 +52,7 @@ Blob::Blob(std::string nom, int pv, Type *type)
     this->normale = new Normale();
     this->speciale = new Speciale();
     this->soin = new Soin();
+    this->image = "PATH";
 }
 
 Blob::Blob(std::string nom, int pv, Type *type, Speciale *speciale)
@@ -61,6 +65,7 @@ Blob::Blob(std::string nom, int pv, Type *type, Speciale *speciale)
     this->normale = new Normale();
     this->speciale = speciale;
     this->soin = new Soin();
+    this->image = "PATH";
 }
 
 Blob::Blob(std::string nom, int pv, Type *type, Speciale *speciale, Normale *normale)
@@ -73,6 +78,7 @@ Blob::Blob(std::string nom, int pv, Type *type, Speciale *speciale, Normale *nor
     this->normale = normale;
     this->speciale = speciale;
     this->soin = new Soin();
+    this->image = "PATH";
 }
 
 Blob::Blob(std::string nom, int pv, Type *type, Speciale *speciale, Normale *normale, Soin *soin)
@@ -85,9 +91,34 @@ Blob::Blob(std::string nom, int pv, Type *type, Speciale *speciale, Normale *nor
     this->normale = normale;
     this->speciale = speciale;
     this->soin = soin;
+    this->image = "PATH";
+}
+
+Blob::Blob(std::string nom, int pv, Type *type, Speciale *speciale, Normale *normale, Soin *soin, std::string image)
+{
+    this->nom = nom;
+    this->pv = pv;
+    this->pv_courant = pv;
+    this->type = type;
+    this->isBetter = false;
+    this->normale = normale;
+    this->speciale = speciale;
+    this->soin = soin;
+    this->image = image;
 }
 
 /* ######## GETTER & SETTER ######## */
+std::string Blob::getImage()
+{
+    return image;
+}
+
+void Blob::setImage(std::string newImage)
+{
+    image = newImage;
+}
+
+
 bool Blob::getIsBetter()
 {
     return isBetter;

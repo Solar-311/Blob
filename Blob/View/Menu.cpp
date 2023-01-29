@@ -118,23 +118,30 @@ void Menu::choixBlob()
     Joueur *j1 = new Joueur("Joueur 1", new Blob());
     Joueur *j2 = new Joueur("Joueur 2", new Blob());
 
-    if (this->selectedText1 == "Blob FEU")
+    if (this->selectedText1 == "Blob FEU"){
         this->arene->getJoueur1()->setBlob(f);
-
-    if (this->selectedText1 == "Blob PLANTE")
-       this->arene->getJoueur1()->setBlob(p);
-
-    if (this->selectedText1 == "Blob EAU")
-       this->arene->getJoueur1()->setBlob(e);
-
-    if (this->selectedText2 == "Blob FEU")
-       this->arene->getJoueur2()->setBlob(f);
-
-    if (this->selectedText2 == "Blob PLANTE")
-       this->arene->getJoueur2()->setBlob(p);
-
-    if (this->selectedText2 == "Blob EAU")
-       this->arene->getJoueur2()->setBlob(e);
+        this->arene->getJoueur1()->getBlob()->setImage(":/Images/Images/FireBlob.png");
+    }
+    if (this->selectedText1 == "Blob PLANTE"){
+        this->arene->getJoueur1()->setBlob(p);
+        this->arene->getJoueur1()->getBlob()->setImage(":/Images/Images/Icon.png");
+    }
+    if (this->selectedText1 == "Blob EAU"){
+        this->arene->getJoueur1()->setBlob(e);
+        this->arene->getJoueur1()->getBlob()->setImage(":/Images/Images/WaterBlob.png");
+    }
+    if (this->selectedText2 == "Blob FEU"){
+        this->arene->getJoueur2()->setBlob(f);
+        this->arene->getJoueur2()->getBlob()->setImage(":/Images/Images/FireBlob.png");
+    }
+    if (this->selectedText2 == "Blob PLANTE"){
+        this->arene->getJoueur2()->setBlob(p);
+        this->arene->getJoueur2()->getBlob()->setImage(":/Images/Images/Icon.png");
+    }
+    if (this->selectedText2 == "Blob EAU"){
+        this->arene->getJoueur2()->setBlob(e);
+        this->arene->getJoueur2()->getBlob()->setImage(":/Images/Images/WaterBlob.png");
+    }
 }
 
 Menu::~Menu()

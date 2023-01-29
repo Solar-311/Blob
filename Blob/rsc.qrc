@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/"/>
     <qresource prefix="/Images">
-        <file>Empty.txt</file>
         <file>Images/Background.png</file>
         <file>Images/BlobFabio.gif</file>
         <file>Images/GreenBlob.gif</file>
@@ -17,5 +16,6 @@
         <file>Images/FireBlob.png</file>
         <file>Images/MenuBackground.png</file>
         <file>Images/MenuBackground.jpg</file>
+        <file>Images/WaterBlob.png</file>
     </qresource>
 </RCC>

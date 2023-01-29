@@ -40,7 +40,7 @@ void FightScene::init_components(){
     /* COMPONENTS JOUEUR 2 */
     // Image Blob
     this->imageBlobJoueur2 = new Movement();
-    QPixmap image(":/Images/Images/Icon.png");
+    QPixmap image( QString::fromStdString(this->arene->getJoueur2()->getBlob()->getImage()) );
     QPixmap image2 = image.scaled(150, 150, Qt::KeepAspectRatio);
     this->imageBlobJoueur2->setPixmap(image2);
     this->imageBlobJoueur2->show();
@@ -70,7 +70,7 @@ void FightScene::init_components(){
     /* COMPONENTS JOUEUR 1 */
     // Image Blob
     this->imageBlobJoueur1 = new Movement();
-    QPixmap image3(":/Images/Images/FireBlob.png");
+    QPixmap image3(QString::fromStdString(this->arene->getJoueur1()->getBlob()->getImage()));
     QPixmap image4 = image3.scaled(150, 150, Qt::KeepAspectRatio);
     this->imageBlobJoueur1->setPixmap(image4);
     this->imageBlobJoueur1->show();

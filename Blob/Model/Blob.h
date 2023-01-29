@@ -43,7 +43,7 @@ class Blob {
         Blob(std::string nom, int pv, Type *type, Speciale *speciale);
         Blob(std::string nom, int pv, Type *type, Speciale *speciale, Normale *normale);
         Blob(std::string nom, int pv, Type *type, Speciale *speciale, Normale *normale, Soin *soin);
-
+        Blob(std::string nom, int pv, Type *type, Speciale *speciale, Normale *normale, Soin *soin, std::string image);
 
         /* GETTER & SETTER */
         std::string getNom();
@@ -62,6 +62,8 @@ class Blob {
         void setNormale(Normale *newNormale);
         Soin *getSoin();
         void setSoin(Soin *newSoin);
+        std::string getImage();
+        void setImage(std::string newImage);
 
         /* FUNCTIONS */
         // STATE
@@ -73,9 +75,6 @@ class Blob {
         int attaqueNormale(Blob *blob, Normale *puissance);
         int attaqueSpeciale(Blob *blob, Speciale *speciale);
         bool isTypeBetter(Blob *blob);
-
-
-
 };
 
 #endif // BLOB_H
