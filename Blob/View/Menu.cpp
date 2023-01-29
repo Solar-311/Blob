@@ -3,6 +3,8 @@
 Menu::Menu(Arene *arene, QWidget *parent) : QMainWindow(parent)
 {
     this->arene = arene;
+    this->selectedText1 = *new QString();
+    this->selectedText2 = *new QString();
 
     std::string path = ":/Images/Images/MenuBackground.jpg";
 
@@ -46,10 +48,28 @@ Menu::Menu(Arene *arene, QWidget *parent) : QMainWindow(parent)
     this->vlayout->addWidget(label);
     this->vlayout->addWidget(bouton, Qt::AlignHCenter);
 
+    this->cb1 = new QComboBox();
+    this->cb1->move(cb1->x() + 100, cb1->y() + 50);
+    this->cb1->setStyleSheet("QComboBox {background-color: rgb(50, 195, 255); selection-background-color: gray; border: 1px solid gray; padding: 5px; border-radius: 30px; font : bold 10px}"
+                                  "QComboBox QAbstractItemView::item {min-height: 25px;}"
+                                  "QComboBox QAbstractItemView {background-color: white; border: 1px solid gray;}");
+    this->cb1->addItem("Blob FEU");
+    this->cb1->addItem("Blob EAU");
+    this->cb1->addItem("Blob PLANTE");
+    this->cb2 = new QComboBox();
+    this->cb2->move(cb2->x() + 100, cb1->y() + 50);
+    this->cb2->setStyleSheet("QComboBox {background-color: rgb(130, 30, 30); selection-background-color: gray; border: 1px solid gray; padding: 5px; border-radius: 30px; font : bold 10px}"
+                                  "QComboBox QAbstractItemView::item {min-height: 25px;}"
+                                  "QComboBox QAbstractItemView {background-color: white; border: 1px solid gray;}");
+    this->cb2->addItem("Blob FEU");
+    this->cb2->addItem("Blob EAU");
+    this->cb2->addItem("Blob PLANTE");
+
     this->layout = new QHBoxLayout;
     this->layout->addWidget(leftLineEdit);
+    this->layout->addWidget(this->cb1);
     this->layout->addWidget(rightLineEdit);
-
+    this->layout->addWidget(this->cb2);
     this->centralWidget = new QWidget(this);
     this->centralWidget->setLayout(layout);
     this->layout->addLayout(vlayout);
@@ -71,8 +91,50 @@ void Menu::changeScene()
     if(!rightLineEdit->text().isEmpty())
         this->arene->getJoueur2()->setNom(rightLineEdit->text().toStdString());
 
+    this->choixBlob();
+
     FightScene *fs = new FightScene(this->arene);
     fs->show();
+}
+
+void Menu::choixBlob()
+{
+    Soin *sfeu = new Soin(20, "Soin");
+    Speciale *spfeu = new Speciale(40, "Speciale FEU");
+    Normale *nfeu = new Normale(30, "Normale FEU");
+
+    Soin *splante = new Soin(30, "Soin");
+    Speciale *spplante = new Speciale(40, "Speciale PLANTE");
+    Normale *nplante = new Normale(25, "Normale PLANTE");
+
+    Soin *seau = new Soin(30, "Soin");
+    Speciale *speau = new Speciale(40, "Speciale EAU");
+    Normale *neau = new Normale(35, "Normale EAU");
+
+    Blob *f = new Blob("Nooby Feu", 100, new Feu(), spfeu, nfeu, sfeu);
+    Blob *p = new Blob("Bloby PLante", 9999, new Plante(), spplante, nplante, splante);
+    Blob *e = new Blob("FabioGODMODE", 120, new Feu(), speau, neau, seau);
+    // JOUEUR
+    Joueur *j1 = new Joueur("Joueur 1", new Blob());
+    Joueur *j2 = new Joueur("Joueur 2", new Blob());
+
+    if (this->selectedText1 == "Blob FEU")
+        this->arene->getJoueur1()->setBlob(f);
+
+    if (this->selectedText1 == "Blob PLANTE")
+       this->arene->getJoueur1()->setBlob(p);
+
+    if (this->selectedText1 == "Blob EAU")
+       this->arene->getJoueur1()->setBlob(e);
+
+    if (this->selectedText2 == "Blob FEU")
+       this->arene->getJoueur2()->setBlob(f);
+
+    if (this->selectedText2 == "Blob PLANTE")
+       this->arene->getJoueur2()->setBlob(p);
+
+    if (this->selectedText2 == "Blob EAU")
+       this->arene->getJoueur2()->setBlob(e);
 }
 
 Menu::~Menu()

@@ -257,17 +257,7 @@ void FightScene::changeScene()
 {
     this->close();
     this->rejouer->close();
-    Soin *s = new Soin(50, "Soin");
-    Speciale *sp = new Speciale(60, "Speciale");
-    Normale *n = new Normale(40, "Normale");
-    Soin *s2 = new Soin(50, "Fabio Soin");
-    Speciale *sp2 = new Speciale(60, "Fabio Speciale");
-    Normale *n2 = new Normale(50, "Fabio Attaque");
-    Blob *f = new Blob("Nooby Noob", 100, new Feu(), sp, n, s);
-    Blob *x = new Blob("FabioGODMODE", 120, new Feu(), sp2, n2, s2);
-    Joueur *j1 = new Joueur("Joueur 1", f);
-    Joueur *j2 = new Joueur("Joueur 2", x);
-    Arene* arene = new Arene("ARENA WAR", j1, j2);
+    Arene* arene = new Arene("ARENA WAR", new Joueur(), new Joueur());
     Menu* m = new Menu(arene);
     m->show();
 }

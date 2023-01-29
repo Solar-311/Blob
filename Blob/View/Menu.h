@@ -11,10 +11,13 @@
 #include <QPixmap>
 #include <QPushButton>
 #include <QDialog>
+#include <QComboBox>
+#include <QIcon>
 
 /* FILES */
 #include "Model/Arene/Arene.h"
 #include "View/FightScene.h"
+#include "Model/Menu/ListBlob.h"
 
 class Menu : public QMainWindow
 {
@@ -30,6 +33,10 @@ class Menu : public QMainWindow
         QLabel *label;
         QLineEdit *leftLineEdit;
         QLineEdit *rightLineEdit;
+        QComboBox* cb1;
+        QString selectedText1;
+        QComboBox* cb2;
+        QString selectedText2;
         QHBoxLayout *layout;
         QWidget *centralWidget;
         QPushButton* bouton;
@@ -38,6 +45,7 @@ class Menu : public QMainWindow
     public slots:
         void init_slots();
         void changeScene();
+        void choixBlob();
 };
 
 #endif // MENU_H

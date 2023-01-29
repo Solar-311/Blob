@@ -28,26 +28,25 @@ int main(int argc, char *argv[])
     /* PARAMETRES */
     //srand(time(nullptr));
 
-    /* TESTS */
-    // ATTAQUES
-    Soin *s = new Soin(50, "Soin");
-    Speciale *sp = new Speciale(60, "Speciale");
-    Normale *n = new Normale(40, "Normale");
-    Soin *s2 = new Soin(50, "Fabio Soin");
-    Speciale *sp2 = new Speciale(60, "Fabio Speciale");
-    Normale *n2 = new Normale(50, "Fabio Attaque");
-
     // BLOBS
-    Blob *f = new Blob("Nooby Noob", 100, new Feu(), sp, n, s);
-    Blob *g = new Blob("FabioGODMODE", 9999, new Plante(), sp2, n2, s2);
-    Blob *x = new Blob("FabioGODMODE", 120, new Feu(), sp2, n2, s2);
+    Soin *sfeu = new Soin(20, "Soin");
+    Speciale *spfeu = new Speciale(40, "Speciale FEU");
+    Normale *nfeu = new Normale(30, "Normale FEU");
 
+    Soin *splante = new Soin(30, "Soin");
+    Speciale *spplante = new Speciale(40, "Speciale PLANTE");
+    Normale *nplante = new Normale(25, "Normale PLANTE");
+
+    Soin *seau = new Soin(30, "Soin");
+    Speciale *speau = new Speciale(40, "Speciale EAU");
+    Normale *neau = new Normale(35, "Normale EAU");
+
+    Blob *f = new Blob("Nooby Feu", 100, new Feu(), spfeu, nfeu, sfeu);
+    Blob *p = new Blob("Bloby PLante", 9999, new Plante(), spplante, nplante, splante);
+    Blob *e = new Blob("FabioGODMODE", 120, new Feu(), speau, neau, seau);
     // JOUEUR
     Joueur *j1 = new Joueur("Joueur 1", f);
-    //j->afficherJoueur();
-
-    Joueur *j2 = new Joueur("Joueur 2", x);
-    // j2->afficherJoueur();
+    Joueur *j2 = new Joueur("Joueur 2", e);
 
     //Joueur *j3 = new Joueur("Fabio", x);
 
