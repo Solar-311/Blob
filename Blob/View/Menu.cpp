@@ -3,8 +3,6 @@
 Menu::Menu(Arene *arene, QWidget *parent) : QMainWindow(parent)
 {
     this->arene = arene;
-    this->selectedText1 = *new QString();
-    this->selectedText2 = *new QString();
 
     std::string path = ":/Images/Images/MenuBackground.jpg";
 
@@ -92,13 +90,15 @@ void Menu::changeScene()
         this->arene->getJoueur2()->setNom(rightLineEdit->text().toStdString());
 
     this->choixBlob();
-
     FightScene *fs = new FightScene(this->arene);
     fs->show();
 }
 
 void Menu::choixBlob()
 {
+    this->selectedText1 = this->cb1->currentText();
+    this->selectedText2 = this->cb2->currentText();
+
     Soin *sfeu = new Soin(20, "Soin");
     Speciale *spfeu = new Speciale(40, "Speciale FEU");
     Normale *nfeu = new Normale(30, "Normale FEU");
@@ -112,8 +112,8 @@ void Menu::choixBlob()
     Normale *neau = new Normale(35, "Normale EAU");
 
     Blob *f = new Blob("Nooby Feu", 100, new Feu(), spfeu, nfeu, sfeu);
-    Blob *p = new Blob("Bloby PLante", 9999, new Plante(), spplante, nplante, splante);
-    Blob *e = new Blob("FabioGODMODE", 120, new Feu(), speau, neau, seau);
+    Blob *p = new Blob("Bloby PLante", 85, new Plante(), spplante, nplante, splante);
+    Blob *e = new Blob("FabioGODMODE", 120, new Eau(), speau, neau, seau);
     // JOUEUR
     Joueur *j1 = new Joueur("Joueur 1", new Blob());
     Joueur *j2 = new Joueur("Joueur 2", new Blob());
