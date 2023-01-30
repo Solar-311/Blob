@@ -5,6 +5,7 @@
 #include <QtCore>
 #include <QLabel>
 #include <QTimer>
+
 class Movement : public QLabel
 {
     Q_OBJECT
