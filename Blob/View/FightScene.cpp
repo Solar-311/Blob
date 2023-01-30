@@ -360,7 +360,8 @@ void FightScene::slotNormale()
                                             "font-size: 15px;"
                                             "color: white;");
     }
-    else if (this->arene->getCurrentPlayer()->getBlob()->getPv_courant() > 0
+    else if (this->arene->getCurrentPlayer() == this->arene->getJoueur2() &&
+             this->arene->getCurrentPlayer()->getBlob()->getPv_courant() > 0
              && this->arene->getNotCurrentPlayer()->getBlob()->getPv_courant() != 0)
     {
         this->arene->getCurrentPlayer()->useNormale(this->arene->getNotCurrentPlayer());

@@ -111,35 +111,40 @@ void Menu::choixBlob()
     Speciale *speau = new Speciale(40, "Speciale EAU");
     Normale *neau = new Normale(35, "Normale EAU");
 
-    Blob *f = new Blob("Nooby Feu", 100, new Feu(), spfeu, nfeu, sfeu);
-    Blob *p = new Blob("Bloby PLante", 85, new Plante(), spplante, nplante, splante);
-    Blob *e = new Blob("FabioGODMODE", 120, new Eau(), speau, neau, seau);
+    Blob *fJ1 = new Blob("Nooby Feu", 100, new Feu(), spfeu, nfeu, sfeu);
+    Blob *pJ1 = new Blob("Bloby PLante", 85, new Plante(), spplante, nplante, splante);
+    Blob *eJ1 = new Blob("FabioGODMODE", 120, new Eau(), speau, neau, seau);
+
+    Blob *fJ2 = new Blob("Nooby Feu", 100, new Feu(), spfeu, nfeu, sfeu);
+    Blob *pJ2 = new Blob("Bloby PLante", 85, new Plante(), spplante, nplante, splante);
+    Blob *eJ2 = new Blob("FabioGODMODE", 120, new Eau(), speau, neau, seau);
+
     // JOUEUR
     Joueur *j1 = new Joueur("Joueur 1", new Blob());
     Joueur *j2 = new Joueur("Joueur 2", new Blob());
 
     if (this->selectedText1 == "Blob FEU"){
-        this->arene->getJoueur1()->setBlob(f);
+        this->arene->getJoueur1()->setBlob(fJ1);
         this->arene->getJoueur1()->getBlob()->setImage(":/Images/Images/FireBlob.png");
     }
     if (this->selectedText1 == "Blob PLANTE"){
-        this->arene->getJoueur1()->setBlob(p);
+        this->arene->getJoueur1()->setBlob(pJ1);
         this->arene->getJoueur1()->getBlob()->setImage(":/Images/Images/Icon.png");
     }
     if (this->selectedText1 == "Blob EAU"){
-        this->arene->getJoueur1()->setBlob(e);
+        this->arene->getJoueur1()->setBlob(eJ1);
         this->arene->getJoueur1()->getBlob()->setImage(":/Images/Images/WaterBlob.png");
     }
     if (this->selectedText2 == "Blob FEU"){
-        this->arene->getJoueur2()->setBlob(f);
+        this->arene->getJoueur2()->setBlob(fJ2);
         this->arene->getJoueur2()->getBlob()->setImage(":/Images/Images/FireBlob.png");
     }
     if (this->selectedText2 == "Blob PLANTE"){
-        this->arene->getJoueur2()->setBlob(p);
+        this->arene->getJoueur2()->setBlob(pJ2);
         this->arene->getJoueur2()->getBlob()->setImage(":/Images/Images/Icon.png");
     }
     if (this->selectedText2 == "Blob EAU"){
-        this->arene->getJoueur2()->setBlob(e);
+        this->arene->getJoueur2()->setBlob(eJ2);
         this->arene->getJoueur2()->getBlob()->setImage(":/Images/Images/WaterBlob.png");
     }
 }
